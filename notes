@@ -1,0 +1,16 @@
+ssh
+# temporarily stat up the ssh service
+
+systemctl start ssh.socket
+systemctl stop ssh.socket
+
+
+#permanently enable the ssh service when the system is booted
+
+systemctl enable ssh.service
+systemctl start ssh.service	# use ssh immediately without
+				# having to reboot
+systemctl status ssh.service	# check the status of the service
+systemctl stop ssh.service	# stop the ssh service
+systemctl disable ssh.service	# disable the ssh service so it no longer
+				# starts at boot
