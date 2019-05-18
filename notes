@@ -4,6 +4,11 @@ ssh
 systemctl start ssh.socket
 systemctl stop ssh.socket
 
+/etc/init.d/ssh restart
+
+# run after system boot
+update-rc.d ssh enable
+
 
 #permanently enable the ssh service when the system is booted
 
@@ -14,7 +19,8 @@ systemctl status ssh.service	# check the status of the service
 systemctl stop ssh.service	# stop the ssh service
 systemctl disable ssh.service	# disable the ssh service so it no longer
 				# starts at boot
-
+/etc/init.d/ssh restart		# restart ssh
+sudo service ssh restart	# restart ssh
 
 
 git
@@ -24,3 +30,49 @@ git remote add origin git@github.com:BruceWant/something
 # something equal delete old url and add new url
 git remote set-url origin git@github.com:BruceWant/something_else
 git push -u origin master
+# show origin remote url
+git config --get remote.origin.url
+git remote show origin
+
+
+
+vim
+# save a read noly file
+
+:w !sudo tee %			# :w - write a file
+				# !sudo - call shell with sudo command
+				# tee - the output of write (vim :w)
+				# command redirected using tee
+				# % - the % is nothing but current file
+				# name.
+
+Ctrl + V (uppercase)
+select lines, go to first column
+Shift + I (uppercase)
+press whatever punctuaction that comment a line
+press Esc , or press x for uncomment
+
+
+gdb
+# step into
+si
+
+# print the value of register
+p /d $eax	# decimal
+p /x $eax	# hex
+p /t $eax	# binary
+p /f $eax	# floating point
+p /i $eax	# instruction
+p /c $eax	# character
+
+i r eax
+
+# print the value of all registers
+info registers
+#shortcut
+i r
+
+
+tcpdump
+# capture the specified port Protocol Tcp
+tcpdump -ni ens33 tcp port 5788
