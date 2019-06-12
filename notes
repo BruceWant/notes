@@ -65,14 +65,90 @@ p /f $eax	# floating point
 p /i $eax	# instruction
 p /c $eax	# character
 
+#print the value at address
+x/s 0x1234	# x/s hex_address   print value as string
+x/d 0x1234	# x/d hex_address   print value as decimal
+x/i 0x1234	# x/i hex_address   print value as instruction
+x/8xw 0x1234	# x/8xw hex_address print 8 four-byte words in hex format
+help x
 i r eax
+
+#print the address of a variable
+info address variable	# e.g.	info address var_name
 
 # print the value of all registers
 info registers
 #shortcut
 i r
 
+# set breakpoint at address 0x7c00
+break *0x7c00
+# continue until the next breakpoint
+c
+# through instructions N at a time
+si N
+# examine instructions in memory
+x/i
+# N is the number of consecutive instructions
+# and ADDR is the memory address to start
+x/Ni ADDR
+
 
 tcpdump
 # capture the specified port Protocol Tcp
 tcpdump -ni ens33 tcp port 5788
+
+
+
+
+#ubuntu 18.04 install input
+sudo apt-get install ibus-pinyin
+# or
+sudo apt-get install fcitx-pinyin
+
+2. setting->region&language->manage installed language
+3. input sources
+
+
+# ubuntu install kernel source code 
+apt-cache search linux-source
+apt-get source linux-source-$(result from "apt-cache search linux-source")
+
+
+# 6.828
+cd ~/6_828/6.828mit/lab
+# login to JOS
+make qemu
+# quit from JOS
+ctrl+a x
+
+# debug JOS
+make qemu-gdb
+make gdb
+
+
+# asm
+gcc -S hello.c
+gcc -S -o asm.s hello.c
+gcc -g -o hello hello.c
+objdump -S --disassemble hello > hello.dump
+
+start
+break linenumber
+layout asm
+
+
+# objdump
+# examine the full list of the names, size,
+# and link addresses of all the section
+objdump -h objectfile
+VMA: link address
+LMA: load address
+# inspect the program headers
+objdump -x objecfile
+# see the entry point of the executable
+objdump -f objecfile
+
+
+# get environment variable 
+printenv VARIABLE_NAME
