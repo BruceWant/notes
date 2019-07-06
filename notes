@@ -152,3 +152,15 @@ objdump -f objecfile
 
 # get environment variable 
 printenv VARIABLE_NAME
+
+
+# compress file and uncompress
+tar -xvf filename.tar.gz	# or -zxvf
+tar -xvf filename.tar.bz2	# or -jxvf
+tar -xvf filename.tar.xz	# or -Jxvf
+tar -xvf filename.tar.Z		# or -Zxvf
+
+z:	gzip			压缩格式
+x:	extract			解压
+v:	verbose			详细信息
+f:	file(file=archieve)	文件
