@@ -1,0 +1,18 @@
+# check module information
+modinfo module_name		# modinfo hello.ko
+
+# load kernel module
+sudo insmod module_name		# sudo insmod hello.ko
+# load kernel module and its independency
+uname -r
+cd /lib/modules/$(result_of_uname_-r)
+sudo depmod -a			# update independency file
+cat moudles.dep | tail -2	# check content
+sudo modprobe -v module_name	# sudo modprobe -v hello
+				# install hello module
+
+sudo modprobe -r module_name	# sudo modprobe -r hello
+				# remove the hello module
+
+# unload kernel module
+sudo rmmod hello.ko		# sudo rmmod hello.ko
