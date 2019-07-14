@@ -10,3 +10,51 @@ edi:	extended destination index
 ebp:	extended base pointer
 esp:	extended stack pointer
 eip:	extended instruction pointer
+
+
+# the PE(portable executable) data structures
+DOS header	      -\
+DOS stub	       |
+PE File Header		[imagebase+1000]
+Image Optional Header  |
+Section Table	       |
+Data Directories      _/
+Sections
+
+
+
++++++++++++++++++++++++++++++++++++++
++				    +
++ +++++++++++++++++++++++++++++++++ +
++ + 	Dos MZ Header		  + +
++ +++++++++++++++++++++++++++++++++ +
++				    +
++ +++++++++++++++++++++++++++++++++ +
++ + 	DOS Stub		  + +
++ +++++++++++++++++++++++++++++++++ +
++				    +
++ +++++++++++++++++++++++++++++++++ +
++ + 	PE File Header		  + +
++ +  	 PE Signature		  + +
++ +++++++++++++++++++++++++++++++++ +
++				    +
++ +++++++++++++++++++++++++++++++++ +
++ + 	Image_Optional_Header	  + +
++ +++++++++++++++++++++++++++++++++ +
++				    +
++ +++++++++++++++++++++++++++++++++ +
++ + 	Section Table		  + +
++ + Array of Image_section_Headers+ +
++ + 	Data Directories	  + +
++ +++++++++++++++++++++++++++++++++ +
++				    +
++ +++++++++++++++++++++++++++++++++ +
++ + 	      Sections		  + +
++ + 		idata		  + +
++ +		.rsrc		  + +
++ +		.data		  + +
++ +		.text		  + +
++ +		src		  + +
++ +++++++++++++++++++++++++++++++++ +
++				    +
++++++++++++++++++++++++++++++++++++++

@@ -159,6 +159,7 @@ tar -xvf filename.tar.gz	# or -zxvf
 tar -xvf filename.tar.bz2	# or -jxvf
 tar -xvf filename.tar.xz	# or -Jxvf
 tar -xvf filename.tar.Z		# or -Zxvf
+unrar x	filename.rar		# install unrar-free
 
 z:	gzip			压缩格式
 x:	extract			解压
