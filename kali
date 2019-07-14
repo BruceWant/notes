@@ -1,0 +1,6 @@
+# configuration of open terminal using Ctrl+Alt+T
+setting -> Devices -> Keyboard -> click "+"
+
+Name:whatever_name_you_chose
+Command: gnome-terminal
+Shutcut:whatever_shutcut_you_chose
