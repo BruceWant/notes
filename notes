@@ -152,6 +152,20 @@ objdump -f objecfile
 
 # get environment variable 
 printenv VARIABLE_NAME
+env
+set		# assigns a environment variable
+unset		# delete environment variable
+export		# exports the value of the 
+		# newly assigned environment variable
+
+# add a directory to the environment variable path
+sudo vim ~/.bashrc
+export PATH="/home/user_name/bin:$PATH"
+# or another way
+vim ~/.profile
+if [ -d "$HOME/bin" ] ; then
+	PATH="$PATH:$HOME/bin"
+fi
 
 
 # compress file and uncompress
@@ -174,4 +188,38 @@ sudo apt install mingw-w64
 # use it
 x86_64-w64-mingw32-gcc		# 64 bit
 i686-w64-mingw32-gcc		# 32 bit
+
+
+
+# shared and static library
+# 1. shared library
+gcc test.c -fPIC -shared -o libtest.so
+				# -fPIC represent position 
+				# nonrelated code.
+readelf -h libtest.so		# Check the header of the
+				# the libtest.so.
+gcc -o main main.c -L . -ltest	# Linking when load program.
+ldd main			# Check shared libarary
+				# denpendency.
+cp libtest.so /usr/lib		# Copy shared libaray to
+				# system library.
+export LD_LIBRARY_PATH=./	# Or add envaironment variable.
+gcc main.c -ldl -L . -o main	# Linking when used module.
+
+# 2. static library
+gcc -c test1.c			# produce test1.o
+readelf -h test1.o		# check the header of the
+				# test1.o
+ar -rcs libtest1.a test1.o	# produce static library
+				# libtest1.a
+ar -t libtest1.a		# check content of the libtest1.a
+
+				# liking libtest1.a into main
+				# ./ means libtest1.a on the 
+				# current directory.
+gcc -o main main.c -L ./ -ltest1
+				# test0.c call function that in
+				# test1.c.
+gcc -o main main.c -L ./ -ltest1 -ltest0
+
 

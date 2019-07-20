@@ -1,0 +1,9 @@
+# Learning git source code.
+# using lsb_release -a
+environment: Ubuntu 18.04.1 LTS
+
+1.make
+change LIBS=-lssl to LIBS=-lcrypto -lz
+
+2. install
+libssl-dev, zlib1g
