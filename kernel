@@ -16,3 +16,13 @@ sudo modprobe -r module_name	# sudo modprobe -r hello
 
 # unload kernel module
 sudo rmmod hello.ko		# sudo rmmod hello.ko
+
+
+# install linux-source
+sudo ate-cache search linux-source
+# install location /usr/src/
+sudo apt-get install linux-source-3.2.0
+sudo tar -jxvf linux-source-3.2.0-tar.bz2
+uname -a
+cp linux-headers-3.13.0-117-gener \	# newline
+ic/.config linux-source-3.2.0/linux-source-3.2.0/
