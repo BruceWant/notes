@@ -26,3 +26,18 @@ sudo tar -jxvf linux-source-3.2.0-tar.bz2
 uname -a
 cp linux-headers-3.13.0-117-gener \	# newline
 ic/.config linux-source-3.2.0/linux-source-3.2.0/
+# compile kernel
+sudo make bzlmage -jN		# N means number of threads
+# install kernel
+make modules_install		# install kernel moudles
+make install
+# check the information of new kernel
+update-initramfs -c -k 3.2.79
+cd /lib/modules
+# update new kernel
+sudo update-grub2
+
+uname -a
+shutdown -r now
+vim /etc/grub.d/00_header
+style="countdown" => style="menu"
