@@ -7,3 +7,24 @@ change LIBS=-lssl to LIBS=-lcrypto -lz
 
 2. install
 libssl-dev, zlib1g
+
+
+# who you are, omit --global to set the identiry only in this repository.
+git config --global user.email "you#example.com"
+git config --global user.name "your name"
+
+# add ssh key to github.com
+# 1. check whether id_rsa.pub exist.
+ls ~/.ssh
+# 2. produce a new key.
+ssh-keygen -t rsa -b 4096 -C "your_email_github@eaxmple.com"
+# 3. adding ssh key to the ssh-agent
+eval "$(ssh-agent -s)"
+# 4. add ssh private key to the ssh-agent
+ssh-add ~/.ssh/id_rsa
+
+
+# connect local repository with remote.
+git remote add origin git@github.com:you_name/repository_name.git
+# push local repository to remote.
+git push -u origin master
