@@ -46,3 +46,17 @@ gdb
 (gdb) file hello
 (gdb) sttach 20829
 
+
+# set breakpoint
+b 9
+# or, at 9th line of test.c set a breakpoint
+b test.c:9
+# set breakpoint at function
+b function_name			# b print
+# according conditon set breakpoint
+break test.c:23 if b==0		# when b == 0 , at 23th line set break
+condition 1 b==0		# when b == 0, at break number of 1
+				# set break.
+# set template breakpoint
+tbreak test.c:10
+
