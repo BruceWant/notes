@@ -1,0 +1,14 @@
+# compile c to assembly
+gcc -Og -S source.c			# produce source.s assembly file.
+
+# compile and assemble c source to object file.
+gcc -Og -c source.c			# produce source.o object file.
+
+# view the object file.
+objdump -d source.o
+
+
+gcc -Og -o prog main.c
+
+# produce Intel format assembly langauge.
+gcc -Og -S -masm=intel source.c
