@@ -12,3 +12,7 @@ gcc -Og -o prog main.c
 
 # produce Intel format assembly langauge.
 gcc -Og -S -masm=intel source.c
+
+
+# proprocessor command
+gcc -E source.c -o source.i

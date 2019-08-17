@@ -1,0 +1,8 @@
+# Ubuntu 18.04
+# find pattern in *.c
+“find . -name '*.c' -exec grep 'pattern' /dev/null '{}' \+”
+find . -iname "*.c" -o -iname "*.h" | xargs grep -i "pattern"
+
+
+# check dns
+systemd-resolve --status
