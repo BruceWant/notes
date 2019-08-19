@@ -6,3 +6,16 @@ find . -iname "*.c" -o -iname "*.h" | xargs grep -i "pattern"
 
 # check dns
 systemd-resolve --status
+
+
+# call a.sh from b.sh
+$path/a.sh
+source /path/a.sh
+/bin/bash /path/a.sh
+
+
+# set .bash_history to a certain number.
+export HISTSIZE=10			# set history to maximum 10 line.
+export HISTFILESIZE=20			# set .bash_history size to 20 byte.
+export PROMPT_COMMAND="history -a"	# syschronous command line 
+					# recording, in more terminals.
