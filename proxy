@@ -1,0 +1,7 @@
+# using htpasswd create password
+usdo apt-get install apache2-utils
+
+# produce password
+sudo htpasswd -c /etc/squid/passwords user_name
+sudo chmod o+r /etc/squid/passwords
+etc/init.d/squid start

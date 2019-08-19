@@ -28,3 +28,9 @@ ssh-add ~/.ssh/id_rsa
 git remote add origin git@github.com:you_name/repository_name.git
 # push local repository to remote.
 git push -u origin master
+
+
+# amend committed author and email
+git commit --amend --author="user_name <user_email@xyz.com>
+# also:
+# https://stackoverflow.com/questions/3042437/how-to-change-the-commit-author-for-one-specific-commit
