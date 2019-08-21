@@ -23,6 +23,7 @@ eval "$(ssh-agent -s)"
 # 4. add ssh private key to the ssh-agent
 ssh-add ~/.ssh/id_rsa
 
+xclip -sel clip < ~/.ssh/id_rsa.pub
 
 # connect local repository with remote.
 git remote add origin git@github.com:you_name/repository_name.git
