@@ -19,3 +19,16 @@ export HISTSIZE=10			# set history to maximum 10 line.
 export HISTFILESIZE=20			# set .bash_history size to 20 byte.
 export PROMPT_COMMAND="history -a"	# syschronous command line 
 					# recording, in more terminals.
+
+
+# su: Authentication failure
+su passwd root
+su passwd user_name
+
+
+# summarizes disk usage of each FILE, recursively for directories
+du -hs
+du -hs /path
+
+# show total disk usage
+df -h
