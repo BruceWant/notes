@@ -8,6 +8,24 @@ find . -iname "*.c" -o -iname "*.h" | xargs grep -i "pattern"
 systemd-resolve --status
 
 
+# config ufw
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow ssh			# or sudo ufw allow 22
+sudo ufw allow http			# or sudo ufw allow 80
+sudo ufw allow https
+sudo ufw allow 6000:6003/tcp		# allow port 6000,6001,6002,6003
+sudo ufw allow 6000:6003/udp
+sudo ufw deny from 192.168.0.1.1	# deny certain IP address
+sudo ufw allow from 192.168.0.1 to any port 3306
+sudo ufw status numbered
+sudo ufw delete [number]		# for e.g. sudo ufw delete 1
+sudo vi /etc/default/ufw
+sudo ufw enable
+sudo ufw disable
+sudo ufw status verbose
+
+
 # call a.sh from b.sh
 $path/a.sh
 source /path/a.sh
