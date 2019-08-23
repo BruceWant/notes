@@ -50,3 +50,27 @@ du -hs /path
 
 # show total disk usage
 df -h
+
+
+# Ubuntu 18.04 add default route
+route add -net 内网网段 netmask network_card_number
+route add -net 内网网段 netmask gw gateway
+
+sudo vim /etc/rc.local
+# first network interface card
+route add -net 192.168.78.0 255.255.255.0 ens0238
+route add -net 192.168.78.0 255.255.255.0 gw 192.168.78.1
+# second network interface card
+route add -net 192.168.43.0 255.255.255.0 ens1qe38
+route add -net 192.168.43.0 255.255.255.0 gw 192.168.43.1
+exit 0
+
+
+# Windows config two network interface card route
+#内外网连接上后，此时内外网的默认网关同时存在  
+#1、清除两个默认网关  
+#2、添加默认网关为外网网关  
+#3、添加内网路由  
+route delete 0.0.0.0  
+route add -p 0.0.0.0 mask 0.0.0.0 192.92.48.1
+route add -p 192.0.0.0 mask 255.0.0.0 192.92.36.1
