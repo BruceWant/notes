@@ -50,3 +50,13 @@ du -hs /path
 
 # show total disk usage
 df -h
+
+
+# restart network
+sudo ifconfig name_of_net down
+sudo ifconfig name_of_net up
+
+
+# solved problem: SIOCSIFFLAGS: Operation not possible due to RF-kill
+rfkill unblock wifi
+# then restart wifi

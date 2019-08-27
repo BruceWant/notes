@@ -17,11 +17,17 @@ gdb program_name
 
 # run program with arguments
 gdb program_name
-run arguments
+run arg1 arg2 arg3
 
 # or
 gdb program_name
-set args arguments
+set args arg1 arg2 arg3
+
+# or
+gdb --args executablename arg1 arg2 arg3
+
+# or
+gdb -ex=run --args myprogram arg1 arg2 arg3
 
 # debug core file
 ulimit -c
