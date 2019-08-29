@@ -74,3 +74,7 @@ exit 0
 route delete 0.0.0.0  
 route add -p 0.0.0.0 mask 0.0.0.0 192.92.48.1
 route add -p 192.0.0.0 mask 255.0.0.0 192.92.36.1
+
+# crontab
+crontab -e
+crontab -l
