@@ -52,6 +52,15 @@ du -hs /path
 df -h
 
 
+# restart network
+sudo ifconfig name_of_net down
+sudo ifconfig name_of_net up
+
+
+# solved problem: SIOCSIFFLAGS: Operation not possible due to RF-kill
+rfkill unblock wifi
+# then restart wifi
+
 # Ubuntu 18.04 add default route
 route add -net 内网网段 netmask network_card_number
 route add -net 内网网段 netmask gw gateway
