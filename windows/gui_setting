@@ -1,0 +1,8 @@
+# turn on/off fast start
+administrator cmd: powercfg /h on
+setting->system->power and sleep->other setting about power->choose power button function->
+administrator cmd: powercfg /h off
+
+
+# computer icon
+setting->topic->desktop icon setting->check computer
