@@ -1,0 +1,11 @@
+# diskpart BIOS
+1.shit + F10
+2.diskpart				# come to diskpart
+3.list disk
+4.select disk 0
+5. clean
+6.convert mbr
+7.create partition primary size=XXX	# default unit is M
+8.format fs=ntfs quick
+9.exit					# exit from diskpart
+10.exit					# exit from cmd
