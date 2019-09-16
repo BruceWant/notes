@@ -9,3 +9,7 @@
 8.format fs=ntfs quick
 9.exit					# exit from diskpart
 10.exit					# exit from cmd
+
+
+# after editted C:\Windows\system32\drivers\etc\hosts
+ipconfig /flushdns
