@@ -33,6 +33,8 @@ xclip -sel clip < ~/.ssh/id_rsa.pub
 
 # connect local repository with remote.
 git remote add origin git@github.com:you_name/repository_name.git
+# check remote url
+git remote -v
 # push local repository to remote.
 git push -u origin master
 
