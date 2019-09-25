@@ -88,4 +88,5 @@ route add -p 192.0.0.0 mask 255.0.0.0 192.92.36.1
 crontab -e
 crontab -l
 
+modprobe -r nbd
 modprobe nbd nbds_max=1000
