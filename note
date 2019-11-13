@@ -129,6 +129,16 @@ sudo squid -k parse
 sudo squid -z
 sudo service squid start
 
+# config password for squid, must 8 char.
+sudo apt install apache2-utils
+sudo htpasswd -c -d /etc/squid/passwords <username>
+vim /etc/squid/squid.conf
+acl allcomputers src all
+auth_param basic program /usr/lib/squid/basic_ncsa_auth /etc/squid/passwords
+auth_param basic realm proxy
+acl authenticated proxy_auth REQUIRED
+http_access allow authenticated allcomputers
+
 # enable ip_forward
 vim /etc/sysctl.conf
 net.ipv4.ip_forward = 1

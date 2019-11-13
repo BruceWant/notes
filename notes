@@ -223,3 +223,5 @@ gcc -o main main.c -L ./ -ltest1
 gcc -o main main.c -L ./ -ltest1 -ltest0
 
 
+# egypt usage
+egypt ../common-main.c.229r.expand add.c.229r.expand | dot -Gsize=3000,3000 -Grankdir=LR -Tpng -o ~/callgraph/callgraph.png

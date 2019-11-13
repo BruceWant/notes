@@ -43,3 +43,7 @@ git push -u origin master
 git commit --amend --author="user_name <user_email@xyz.com>
 # also:
 # https://stackoverflow.com/questions/3042437/how-to-change-the-commit-author-for-one-specific-commit
+
+
+# list git repository tag
+git tag -l
