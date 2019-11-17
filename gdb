@@ -66,3 +66,17 @@ condition 1 b==0		# when b == 0, at break number of 1
 # set template breakpoint
 tbreak test.c:10
 
+
+# watch variable
+(gdb) watch variable_name
+
+
+# step into
+(gdb) step
+(gdb) step count		# or
+
+# step into function which have no debug information
+(gdb) stepi
+
+#step over
+(gdb) next

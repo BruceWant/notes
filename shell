@@ -84,6 +84,88 @@ route delete 0.0.0.0
 route add -p 0.0.0.0 mask 0.0.0.0 192.92.48.1
 route add -p 192.0.0.0 mask 255.0.0.0 192.92.36.1
 
+# second way to configurate ip route table.
+# This is not correct.
+1. sudo vim /etc/network/interfaces
+# add contention
+auto enp0s3
+iface enp0s3 inet static
+address 192.168.1.179
+netmask 255.255.255.0
+gateway 192.168.1.1
+# continue
+auto enp0s8
+iface enp0s8 inet static
+address 192.168.0.179
+netmask 255.255.255.0
+# 2. restart network
+sudo /etc/init.d/networking restart
+# 3. add route table
+sudo vim /etc/iproute2/rt_tables
+# add camp and outer table
+252 camp
+251 outer
+# 4. add route rules in rc.local and networking
+sudo vim /etc/rc.local
+sudo vim /etc/init.d/networking
+service network-manager stop
+sudo ip route flush table camp
+sudo ip route add default via 192.168.0.1 dev enp0s8 src 192.168.0.179 table camp
+sudo ip route add from 192.168.0.179 table camp
+sudo ip route flush table outer
+sudo ip route add default via 192.168.1.1 dev enp0s3 src 192.168.1.179 table outer 
+sudo ip route add from 192.168.1.179 table outer
+
+
+# 1. Third way two default gateways on one system
+sudo vim /etc/network/interfaces
+allow-hotplug enp0s8
+iface enp0s8 inet static
+address 192.168.0.179
+netmask 255.255.255.0
+post-up ip route add 192.168.0.0/24 dev enp0s8 src 192.168.0.179 table camp
+post-up ip route add default via 192.168.0.1 dev enp0s8 table camp
+post-up ip rule add from 192.168.0.179/32 table camp
+post-up ip rule add to 192.168.0.179/32 table camp
+
+allow-hotplug enp0s3
+iface enp0s3 inet static
+address 192.168.1.179
+netmask 255.255.255.0
+gateway 192.168.1.1
+# 2. Add second routing table by editing /etc/iproute2/rt_tables
+sudo vim /etc/iproute2/rt_tables
+# Add content
+1 camp
+# 3. Populate new routing table:
+# The first command says that the network:192.168.0.0/24,
+# 	can be reached through the enp0s8 interface.
+# The second command sets the default getway.
+# The third rules say that both traffic from the IP address
+# 	192.168.0.179, as well as traffic directed to or
+# 	through this IP address, should use the camp routing table.
+post-up ip route add 192.168.0.0/24 dev enp0s8 src 192.168.0.179 table camp
+post-up ip route add default via 192.168.0.1 dev enp0s8 table camp
+post-up ip rule add from 192.168.0.179/32 table camp
+post-up ip rule add to 192.168.0.179/32 table camp
+
+
 # crontab
 crontab -e
 crontab -l
+
+modprobe -r nbd
+modprobe nbd nbds_max=1000
+
+
+# use apt check the version of a package
+sudo apt-cache madison <package_name>
+# list all of the source where it come from
+sudo apt cache policy <package_name>
+# install a particular version of package
+sudo apt install <package_name>=<version>
+# simulate the process of install, and list 
+# what package it dependency.
+sudo apt install -s <package_name>
+# check the details of certain package.
+sudo apt-cache show <package_name>

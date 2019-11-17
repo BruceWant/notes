@@ -33,6 +33,8 @@ xclip -sel clip < ~/.ssh/id_rsa.pub
 
 # connect local repository with remote.
 git remote add origin git@github.com:you_name/repository_name.git
+# check remote url
+git remote -v
 # push local repository to remote.
 git push -u origin master
 
@@ -41,3 +43,7 @@ git push -u origin master
 git commit --amend --author="user_name <user_email@xyz.com>
 # also:
 # https://stackoverflow.com/questions/3042437/how-to-change-the-commit-author-for-one-specific-commit
+
+
+# list git repository tag
+git tag -l
