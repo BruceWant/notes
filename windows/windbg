@@ -1,0 +1,1 @@
+dbgx.shell.exe -k com:pipe,port=\\.\pipe\PipeName,resets=0,reconnect

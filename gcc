@@ -16,3 +16,7 @@ gcc -Og -S -masm=intel source.c
 
 # proprocessor command
 gcc -E source.c -o source.i
+
+# alignment
+__align(2) uint8_t buf[16]
+#pragma pack(2)

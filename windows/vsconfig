@@ -1,0 +1,12 @@
+# Annotations and Descriptions
+# _In_
+Annotates input parameters that are scalars, structures, 
+pointers to structures and the like. Explicitly may be used 
+on simple scalars. The parameter must be valid in pre-state 
+and will not be modified.
+
+
+# vs comment
+ctrl + K then ctrl + c
+# vs uncomment
+ctrl + K then ctrl + u
