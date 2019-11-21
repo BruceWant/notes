@@ -169,3 +169,10 @@ sudo apt install <package_name>=<version>
 sudo apt install -s <package_name>
 # check the details of certain package.
 sudo apt-cache show <package_name>
+
+
+# add a user
+useradd -m user_name
+passwd user_name
+usermod -a -G sudo user_name
+chsh -s /bin/bash user_name
