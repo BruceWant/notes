@@ -1,0 +1,3 @@
+# add user to the group of sudo
+su root
+usermod -aG sudo user_name
