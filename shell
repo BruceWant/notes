@@ -153,6 +153,21 @@ post-up ip rule add from 192.168.0.179/32 table camp
 post-up ip rule add to 192.168.0.179/32 table camp
 
 
+# setup static IP address on Ubuntu 18.04 server.
+sudo vim /etc/netplan/01-netcfg.yaml
+network:
+	version: 2
+	renderer: networkd
+	ethernets:
+		enp0s3:
+			dhcp: no
+			addresses: [192.168.0.170/24]
+			gateway4: [192.168.0.1]
+			nameservers:
+				addresses: [192.168.0.1]
+	
+
+
 # crontab
 crontab -e
 crontab -l
