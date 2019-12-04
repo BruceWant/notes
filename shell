@@ -3,6 +3,9 @@
 “find . -name '*.c' -exec grep 'pattern' /dev/null '{}' \+”
 find . -iname "*.c" -o -iname "*.h" | xargs grep -i "pattern"
 
+# rm file except for certain file.
+find . -not -name "version" -print0 | xargs -0 rm -rf
+
 
 # check dns
 systemd-resolve --status
@@ -176,3 +179,18 @@ useradd -m user_name
 passwd user_name
 usermod -a -G sudo user_name
 chsh -s /bin/bash user_name
+
+
+# change username.
+# First, add a temporary user, and give it sudo privileges.
+sudo adduser tmp
+sudo usermod -aG sudo tmp
+# Second, login with tmp user.
+sudo usermod -l newusername -d /home/new/username -m oldusername
+sudo groupmod -n newusername oldusername
+# Thrid, create a symbolic link.
+sudo ln -s /home/newusername /home/oldusername
+# Fourth, Change the dispaly name.
+sudo chfn -f "firstname lastname" newusername
+# Delete temporary user created on step 1.
+sudo userdel -r tmp
