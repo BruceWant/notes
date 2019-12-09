@@ -209,3 +209,8 @@ sudo ln -s /home/newusername /home/oldusername
 sudo chfn -f "firstname lastname" newusername
 # Delete temporary user created on step 1.
 sudo userdel -r tmp
+
+
+# reserve /tmp folder after reboot.
+vim /etc/tmpfiles.d/tmp.conf
+d /tmp 1777 root root -		# "-" means never delete it.
