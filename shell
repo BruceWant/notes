@@ -214,3 +214,8 @@ sudo userdel -r tmp
 # reserve /tmp folder after reboot.
 vim /etc/tmpfiles.d/tmp.conf
 d /tmp 1777 root root -		# "-" means never delete it.
+
+
+# find release of Ubuntu.
+cat /proc/version
+lsb_release -a
