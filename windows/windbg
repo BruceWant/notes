@@ -54,3 +54,8 @@ bcdedit /displayorder {current} {ID}
 # active
 bcdedit /debug /{ID} ON
 
+
+
+
+# print register value
+r register
