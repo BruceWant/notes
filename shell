@@ -219,3 +219,11 @@ d /tmp 1777 root root -		# "-" means never delete it.
 # find release of Ubuntu.
 cat /proc/version
 lsb_release -a
+
+
+# download command line source
+$ which find
+/usr/bin/find
+$ dpkg -S /usr/bin/find
+findutils:/usr/bin/find
+$ sudo apt-get source findutils
