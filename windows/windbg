@@ -1,0 +1,76 @@
+dbgx.shell.exe -k com:pipe,port=\\.\pipe\PipeName,resets=0,reconnect
+
+
+# Setting up debugging with WinDbg and VMware.
+setting -> "Add" button -> "Serial POrt" -> Next
+-> "Output to named pipe" -> Next
+\\.\pipe\pipe_name		# \\.\pipe\wind10_x86
+"This end is the server" -> "The other end is an application"
+"connect at power on"
+"Yield CPU on poll"
+
+# Windows Boot (guest system)
+windows XP
+boot.ini
+
+windows 7 / 10
+Boot Configuration Data(BCD)
+bcdedit /dbgsettings serial debugport:Port_number  # Port_number == 2
+# enable kernel debug
+bcdedit /debug on	# restart guest system
+
+# WinDbg
+windbg -b -k com:pipe,port=\\.\pipe\pipe_name,resets=0
+# example
+windbg -b -k com:pipe,port=\\.\pipe\wind10_x86,resets=0
+
+
+
+# network debugging windows kernel
+# first on target computer
+
+# turn on debug mode
+bcdedit /debug on
+# setup host computer ip and port
+bcdedit /dbgsettings net hostip:w.x.y.z port:n
+# if host has more than one adapter then use Devcie Manager
+# to determine the PCI bus, device and function
+bcdedit /set "{dbgsettings}" busparams bus.dev.func
+
+
+
+# serial debug on vmware
+named port
+
+# set host winDbg
+-b -k com:pipe,port=\\.pipe\com_1,resets=0,reconnect -y
+
+# set guest os
+bcdedit /debsettings serial baudrate:115200 debugport:1
+# copy a boot option, named "DebugEntry"
+bcdedit /copy {current} /d DebugEntry
+# add a 
+bcdedit /displayorder {current} {ID}
+# active
+bcdedit /debug /{ID} ON
+
+
+
+
+# print register value
+r register
+# print varialbe value
+dt driver!variable_name		# display type
+
+
+# set breakpoint on line
+bp 'source.c:12'
+or f9
+
+# set breakpoint but .lines should be enabled
+bp (@@masm('main.c:8+'))
+
+bu 'module_name!file.c:206'
+
+# set breakpoint on function
+bu module!function_name

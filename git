@@ -13,6 +13,9 @@ libssl-dev, zlib1g
 git config --global user.email "you#example.com"
 git config --global user.name "your name"
 git config --global core.editor "vim"	# or
+# reset committer and email
+git -c user.name="New Author Name" -c user.email=email@address.com \
+--amend --reset-author
 export GIT_EDITOR=vim
 # for all program default editor
 export VISUAL=vim
@@ -39,7 +42,23 @@ git remote -v
 git push -u origin master
 
 
-# amend committed author and email
+# change the most recent committed author and email
 git commit --amend --author="user_name <user_email@xyz.com>
 # also:
 # https://stackoverflow.com/questions/3042437/how-to-change-the-commit-author-for-one-specific-commit
+
+# change multiple commit.
+git rebase -i -p <some HEAD before all of your bad commits>
+# mark all your bad commits as "edit" in the rebase file.
+git commit --amend --author "New Author Name <email@address.com>"
+# edit or just close the editor that opens
+git rebase --continue
+# or
+git commit --amend --author "New Author Name <email@address.com>" \
+--no-edit && git rebase --continue
+
+# or
+git filter-branch -f --env-filter "GIT_AUTHOR_NAME='Newname'; GIT_AUTHOR_EMAIL='new@email'; GIT_COMMITTER_NAME='Newname'; GIT_COMMITTER_EMAIL='new@email';" HEAD
+
+# list git repository tag
+git tag -l

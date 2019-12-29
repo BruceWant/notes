@@ -1,0 +1,11 @@
+
+eax: Extended Accumulator Register
+ebx: Extended Base Register
+ecx: Extended Counter Register
+edx: Extended Data Register
+esi: Extended Source Index
+edi: Extended Destination Index
+ebp: Extended Base Pointer
+esp: Extended Stack Pointer
+eip: Extended Instruction Pointer
+

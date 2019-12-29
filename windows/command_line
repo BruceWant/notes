@@ -1,0 +1,20 @@
+# compute checksum
+certUtil -hashfile <pathToFileToCheck> [HashAlgorithm]
+Hash Algorithm: MD2 MD4 MD5 SHA1 SHA256 SHA384 SHA512
+
+
+# compare two files.
+comp
+# compare two files and show their difference.
+fc
+
+
+# List all environment variables in powershell.
+Get-ChildItem Env: | Format-Table -Wrap -AutoSize
+# List all environment vaialbes in cmd.
+set
+
+# set environment variables.
+setx variable_name value /M
+# use reg set registor.
+reg
