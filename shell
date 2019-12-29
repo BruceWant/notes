@@ -227,3 +227,10 @@ $ which find
 $ dpkg -S /usr/bin/find
 findutils:/usr/bin/find
 $ sudo apt-get source findutils
+
+
+# keep session alive after disconnect from ssh
+tmux
+run program
+Ctrl+b d
+attach
