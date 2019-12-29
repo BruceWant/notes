@@ -1,5 +1,9 @@
 #!/bin/bash
 
-var=`cat`
+# var=`cat`
+var=$(</dev/stdin)
 
 echo "$var"
+
+
+
