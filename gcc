@@ -17,3 +17,16 @@ gcc -Og -S -masm=intel source.c
 # proprocessor command
 gcc -E source.c -o source.i
 
+
+# compile assemble language into object file
+as exit.s -o exit.o
+
+# link object file into executable file
+ld exit.o -o exit
+
+
+# on 64 bit host install 32bit library
+sudo apt-get install gcc-multilib
+# alignment
+__align(2) uint8_t buf[16]
+#pragma pack(2)
