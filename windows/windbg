@@ -59,3 +59,18 @@ bcdedit /debug /{ID} ON
 
 # print register value
 r register
+# print varialbe value
+dt driver!variable_name		# display type
+
+
+# set breakpoint on line
+bp 'source.c:12'
+or f9
+
+# set breakpoint but .lines should be enabled
+bp (@@masm('main.c:8+'))
+
+bu 'module_name!file.c:206'
+
+# set breakpoint on function
+bu module!function_name

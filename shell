@@ -40,6 +40,8 @@ export HISTSIZE=10			# set history to maximum 10 line.
 export HISTFILESIZE=20			# set .bash_history size to 20 byte.
 export PROMPT_COMMAND="history -a"	# syschronous command line 
 					# recording, in more terminals.
+# set environment variable
+export PATH=$PATH:'/home/wlt/cproject/6828/tool/qemu-4.1.0/build'
 
 
 # su: Authentication failure
@@ -229,7 +231,15 @@ findutils:/usr/bin/find
 $ sudo apt-get source findutils
 
 
+
 # date get millisecond microsecond nanosecond
 date +%T.%N			# nanosecond
 date +%T.%6N			# microsecond
 date +%T.%3N			# millisecond
+
+
+# keep session alive after disconnect from ssh
+tmux
+run program
+Ctrl+b d
+attach

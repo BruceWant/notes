@@ -1,0 +1,145 @@
+# use an exact phrase
+# Syntax
+"[keyword 1] [keyword 2]" [keyword 3]
+# Example
+"test" search
+
+
+# Try using This Or That
+# Syntax
+[keyword 1] OR [keyword 2]
+# Example, must capialize OR
+test1 OR test2
+
+
+# Google search Exclude word
+# Syntax
+-[keyword to exclude] [keyword to include]
+# Example
+-email other keyword
+
+
+# Find all Words in a Text Block
+# Syntax
+allintext:[keyword]
+# Example
+allintext:search content
+
+
+# Find Words Within Text + Title + URL, etc.
+# Syntax
+intext:[keywords]
+# Example
+intext:health benefits running
+
+
+# Google search in a Title (one word)
+# Syntax
+[keywords 1] intitle:[keywords 2]
+# Example
+marketing blogs intitle:inbound
+
+
+# Google search in a Title (all multiple words)
+# Syntax
+allintitle:[keywords]
+# Example
+allintitle:bestthai food in chicago
+
+
+# Search Within in a URL
+# Syntax
+allinURL:[keywords]
+# Example
+allinURL:keywords
+
+
+# Search Within a Website
+# Syntax
+site:[website URL] [keywords]
+# Example
+site:nytimes.com nyse
+
+
+# Google Search similar words
+# Syntax
+"[keywords]" ~[keyword synonym]
+# Example
+"test" ~practice
+
+
+# Google Search related words
+# Syntax
+related:[website URL you're familiar with]
+# Example
+related:hubspot.com
+
+
+# Google search Definitions
+# Syntax
+define:[keyword]
+# Example
+define:marketing
+
+
+# Google search for price
+# Syntax
+[keywords] $[number]
+# Example
+amazon echo pluss $99.99
+
+
+# Location-based searches
+# Syntax
+avengers location:georgia
+# Example
+avengers location:georgia
+
+
+# Google search wildcard (Missing or Unknown words)
+# Syntax
+[keywords 1] * [keywords 2]
+# Example
+humpty dumpty * a wall
+
+
+# Translations
+# Syntax
+translate [keyword or sentence] to [language]
+# Example
+translate "the little baby is playing" to Spanish
+
+
+# Google search file type
+# Syntax
+[keywords] filetype:[file type extension]
+# Example
+marathon traning plan filetype:ppt
+
+
+# Google area code Lookup
+# Syntax
+eara code [3-digit area code]
+# Example
+area code 212
+# Syntax
+area code [location]
+# Example
+area code New York City
+
+
+# Conversion Calculations
+# Syntax
+conver [data value + unit of measure] to [like unit of measure]
+# Example
+conver 32 miles to km
+
+
+# Stock information
+# Syntax
+[stock ticker symbol]
+# Syntax
+[company name] stcok
+
+
+
