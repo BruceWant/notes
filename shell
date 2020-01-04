@@ -231,6 +231,12 @@ findutils:/usr/bin/find
 $ sudo apt-get source findutils
 
 
+# date get millisecond microsecond nanosecond
+date +%T.%N			# nanosecond
+date +%T.%6N			# microsecond
+date +%T.%3N			# millisecond
+
+
 # keep session alive after disconnect from ssh
 tmux
 run program
