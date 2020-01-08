@@ -31,3 +31,15 @@ q			# End recording
 Ctrl + a
 # decrease a number in a line
 Ctrl + x
+
+
+# vim set tab key==4 spaces and auto intent
+# show existing tab with 4 spaces width
+set tabstop=4
+# when indenting with '>', use 4 spaces width
+set shiftwidth=4
+# on pressing tab, insert 4 spaces
+set expandtab
+# replace all the tabs with spaces in the current file.
+:%retab
+
