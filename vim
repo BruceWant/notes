@@ -26,3 +26,8 @@ q			# End recording
 # register 9 is the oldest yanked text.
 "0p
 
+
+# increase a number in a line
+Ctrl + a
+# decrease a number in a line
+Ctrl + x
