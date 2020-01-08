@@ -43,3 +43,9 @@ set expandtab
 # replace all the tabs with spaces in the current file.
 :%retab
 
+
+# search a pattern not followed by another
+# :help \@!
+/bar \(foo\)\@!                 # search 'bar ' not followed by 'foo'
+\(foo\)\@<! bar                 # search non-match 'foo' before match
+                                # matching 'bar '
