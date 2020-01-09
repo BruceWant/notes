@@ -10,3 +10,20 @@ and will not be modified.
 ctrl + K then ctrl + c
 # vs uncomment
 ctrl + K then ctrl + u
+
+
+# Output of the vs preprocessor
+Project properties -> c/c++ -> Preprocessing ->
+Preprocess to a file: Yes(/p)
+
+
+# visual studio add header file and library.
+# 1.header files
+Project --> Properties --> Configuration Properties -->
+C/C++ --> General --> Additional Includ Directories
+# 2.Static library directories
+Project --> Properties --> Configuration Properties -->
+Linker --> General --> Additional Library Directories
+# 3.Library files
+Project --> Properties --> Configuration Properties -->
+Linker --> Input --> Additional Dependencies
