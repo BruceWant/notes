@@ -191,7 +191,8 @@ sudo apt install -s <package_name>
 sudo apt-cache show <package_name>
 
 
-# add a user
+# add a user. useradd is native binary file
+# adduser is a perl script which uses useradd.
 useradd -m user_name
 passwd user_name
 usermod -a -G sudo user_name

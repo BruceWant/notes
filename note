@@ -118,6 +118,9 @@ sudo python3 setup.py install
 # at pip source code directory
 sudo python3 setup.py install
 
+# install .whl file on local PC
+pip install path/file_name.whl
+
 
 sudo dpkg -i libssl1.1_1.1.1-1ubuntu2.1_18.04.4_amd64.deb
 sudo dpkg -i libpython3.6-minimal_3.6.8-1_18.04.1_amd64.deb
