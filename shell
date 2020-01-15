@@ -243,3 +243,13 @@ tmux
 run program
 Ctrl+b d
 attach
+
+
+# backup files if file exits then skip
+rsync -a -r -v --ignore-existing src dst
+
+
+# redirect and append both stdout stderr to a file
+ls >> log 2>&1          # open log in append mode,
+                        # and redirect stderr to where
+                        # stdout is going.
