@@ -242,3 +242,12 @@ tmux
 run program
 Ctrl+b d
 attach
+
+
+# bc
+# hex-to-decimal
+echo "ibase=16; c0" | bc
+# decimal-to-hex
+echo "obase=16; 192" | bc
+# binary-to-hex, obase first
+echo "obase=16; ibase=2; 11000000" | bc
