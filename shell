@@ -36,10 +36,14 @@ source /path/a.sh
 
 
 # set .bash_history to a certain number.
-export HISTSIZE=10			# set history to maximum 10 line.
-export HISTFILESIZE=20			# set .bash_history size to 20 byte.
+export HISTSIZE=10			        # set history to maximum 10 line.
+export HISTFILESIZE=20			    # set .bash_history size to 20 byte.
 export PROMPT_COMMAND="history -a"	# syschronous command line 
-					# recording, in more terminals.
+				                    # recording, in more terminals.
+USER_IP=`who -u am i 2>/dev/null | awk '{print $NF}' | sed -e 's/[()]//g'`
+export HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S `whoami` ${USER_IP} "
+
+
 # set environment variable
 export PATH=$PATH:'/home/wlt/cproject/6828/tool/qemu-4.1.0/build'
 
