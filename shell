@@ -266,3 +266,9 @@ echo "ibase=16; c0" | bc
 echo "obase=16; 192" | bc
 # binary-to-hex, obase first
 echo "obase=16; ibase=2; 11000000" | bc
+
+
+# Enable sudo without password in Ubuntu/Debian
+# /etc/sudoers
+sudo visudo
+username ALL=(ALL) NOPASSWD: ALL
