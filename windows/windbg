@@ -9,6 +9,10 @@ setting -> "Add" button -> "Serial POrt" -> Next
 "connect at power on"
 "Yield CPU on poll"
 
+# Enable Debugging
+bcdedit /debug on
+bcdedit /dbgsetting local
+
 # Windows Boot (guest system)
 windows XP
 boot.ini
