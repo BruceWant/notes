@@ -1,0 +1,21 @@
+#!/bin/bash
+
+read ch
+# while [[ "$ch"!="y" ]] || [[ "$ch"!="Y" ]] || [[ "$ch"!="n" ]] || [[ "$ch"!="N" ]] || [[ -z "$ch" ]]
+while ((1))
+do
+	if [[ "$ch" == "y" ]] || [[ "$ch" == "Y" ]]
+	then
+		echo "$ch YES"
+		break
+	elif [[ "$ch" == "n" ]] || [[ "$ch" == "N" ]]
+	then
+		echo "$ch NO"
+		break
+	else
+		read ch
+		echo "$ch"
+		continue
+	fi
+done
+

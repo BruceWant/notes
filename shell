@@ -36,10 +36,14 @@ source /path/a.sh
 
 
 # set .bash_history to a certain number.
-export HISTSIZE=10			# set history to maximum 10 line.
-export HISTFILESIZE=20			# set .bash_history size to 20 byte.
+export HISTSIZE=10			        # set history to maximum 10 line.
+export HISTFILESIZE=20			    # set .bash_history size to 20 byte.
 export PROMPT_COMMAND="history -a"	# syschronous command line 
-					# recording, in more terminals.
+				                    # recording, in more terminals.
+USER_IP=`who -u am i 2>/dev/null | awk '{print $NF}' | sed -e 's/[()]//g'`
+export HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S `whoami` ${USER_IP} "
+
+
 # set environment variable
 export PATH=$PATH:'/home/wlt/cproject/6828/tool/qemu-4.1.0/build'
 
@@ -191,7 +195,8 @@ sudo apt install -s <package_name>
 sudo apt-cache show <package_name>
 
 
-# add a user
+# add a user. useradd is native binary file
+# adduser is a perl script which uses useradd.
 useradd -m user_name
 passwd user_name
 usermod -a -G sudo user_name
@@ -242,3 +247,32 @@ tmux
 run program
 Ctrl+b d
 attach
+
+
+# backup files if file exits then skip
+rsync -a -r -v --ignore-existing src dst
+
+
+# redirect and append both stdout stderr to a file
+ls >> log 2>&1          # open log in append mode,
+                        # and redirect stderr to where
+                        # stdout is going.
+
+
+
+
+
+
+# bc
+# hex-to-decimal
+echo "ibase=16; c0" | bc
+# decimal-to-hex
+echo "obase=16; 192" | bc
+# binary-to-hex, obase first
+echo "obase=16; ibase=2; 11000000" | bc
+
+
+# Enable sudo without password in Ubuntu/Debian
+# /etc/sudoers
+sudo visudo
+username ALL=(ALL) NOPASSWD: ALL

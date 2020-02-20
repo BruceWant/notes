@@ -1,0 +1,22 @@
+#!/bin/bash
+
+readarray -t side
+# while [[ "$ch"!="y" ]] || [[ "$ch"!="Y" ]] || [[ "$ch"!="n" ]] || [[ "$ch"!="N" ]] || [[ -z "$ch" ]]
+while ((1))
+do
+	if [ ${side[0]} -lt 1 ] || [ ${side[0]} -gt "100" ] || [ ${side[1]} -lt "1" ] || [ ${side[1]} -gt "100" ] || [ ${side[2]} -lt "1" ] || [ ${side[2]} -gt "100" ] || [ $((${side[1]} + ${side[2]})) -lt "${side[0]}" ] || [ $((${side[0]} + ${side[2]})) -lt "${side[1]}" ] || [ $((${side[1]} + ${side[0]})) -lt "${side[2]}" ]; then
+		readarray -t side
+		continue
+	elif [ ${side[0]} -eq ${side[1]} ] && [ ${side[1]} -eq ${side[2]}  ]
+	then
+		echo "EQUILATERAL"
+	elif [ ${side[0]} -eq ${side[1]} ] && [ ${side[1]} -ne ${side[2]}  ] || ([ ${side[0]} -eq ${side[2]} ] && [ ${side[1]} -ne ${side[2]}  ]) || ([ ${side[2]} -eq ${side[1]} ] && [ ${side[0]} -ne ${side[2]}  ])
+	then
+		echo "ISOSCELES"
+	elif [ ${side[0]} -ne ${side[1]} ] && [ ${side[1]} -ne ${side[2]}  ] && [ ${side[0]} -ne ${side[2]} ]
+	then
+		echo "SCALENE"
+	fi
+	break
+done
+
