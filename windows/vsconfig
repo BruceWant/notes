@@ -36,3 +36,13 @@ Linker --> Input --> Additional Dependencies
 
 # Add library in the source code file.
 #pragma comment(lib, "user.lib")
+
+
+# Define unicode encoding.
+#define UNICODE
+#define _UNICODE
+
+
+# Multiline indent
+tab			# shitf left tab
+shift + tab		# shift right tab

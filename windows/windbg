@@ -78,3 +78,28 @@ bu 'module_name!file.c:206'
 
 # set breakpoint on function
 bu module!function_name
+
+
+# Set breakpoint at DriverEntry, when there is no
+# source code.
+
+# 1. first method
+# Event exception
+sxe ld			# when load module break it.
+sx			# check event exception status.
+
+# 2. load driver in OS
+# At this time, control flow back into Windbg.
+
+# 3. find module base address
+lm n m <driver_name>
+
+# 4. analyze PE header file
+!dh -a <start_address_from_step_3>	# in the 
+					# OPTIONAL HEADER VALUES
+					# section, find row
+					# that is "address of
+					# entry point"
+# 5. set breakpoint at DriverEntry
+bp <driver_name>+<DriverEntry_address>
+					# e.g. bp procmon24+0xFB4
