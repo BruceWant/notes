@@ -1,0 +1,5 @@
+# enable all warning in c++ source code.
+-Wall -Weffc++ -Wextra -Wsign-conversion
+
+# Treat warning as error.
+-Werror
