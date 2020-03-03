@@ -61,6 +61,15 @@ bcdedit /debug /{ID} ON
 r register
 # print varialbe value
 dt driver!variable_name		# display type
+# display EPROCESS structure
+dt nt!_eprocess
+# get address of all instance process structure
+!process 0 0
+# dump process handle table
+!handle
+# show PEB
+!peb
+.process /P <pointer_of_EPROCESS>
 
 
 # set breakpoint on line

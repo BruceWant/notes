@@ -264,8 +264,8 @@ ls >> log 2>&1          # open log in append mode,
 
 
 # bc
-# hex-to-decimal
-echo "ibase=16; c0" | bc
+# hex-to-decimal, must be uppercase.
+echo "ibase=16; C0" | bc
 # decimal-to-hex
 echo "obase=16; 192" | bc
 # binary-to-hex, obase first
@@ -276,3 +276,18 @@ echo "obase=16; ibase=2; 11000000" | bc
 # /etc/sudoers
 sudo visudo
 username ALL=(ALL) NOPASSWD: ALL
+
+
+# Get computer name from ip address
+# Linux
+nslookup 192.168.50.175
+# Windows
+nslookup 192.168.50.175
+# or
+ping -a 192.168.50.175
+
+
+# size command
+size program
+# switch between different output formats
+size program --format=SysV
