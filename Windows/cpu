@@ -1,4 +1,5 @@
-
+# This is for IA 32 archiecture.
+# 8 general purpose registers
 eax: Extended Accumulator Register
 ebx: Extended Base Register
 ecx: Extended Counter Register
@@ -7,5 +8,22 @@ esi: Extended Source Index
 edi: Extended Destination Index
 ebp: Extended Base Pointer
 esp: Extended Stack Pointer
+
+
+# instruction pointer
 eip: Extended Instruction Pointer
+
+
+# 6 segment register
+cs:
+ds:
+ss:
+es:
+fs:
+gs:
+
+
+# 1 Program status and control register
+EFLAGS
+
 

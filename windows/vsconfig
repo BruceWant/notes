@@ -27,3 +27,22 @@ Linker --> General --> Additional Library Directories
 # 3.Library files
 Project --> Properties --> Configuration Properties -->
 Linker --> Input --> Additional Dependencies
+
+
+# disable warning.
+#pragma warning(disable: 6067)
+#define _CRT_SECURE_NO_WARNINGS
+#define _CRT_NONSTDC_NO_DEPRECATE
+
+# Add library in the source code file.
+#pragma comment(lib, "user.lib")
+
+
+# Define unicode encoding.
+#define UNICODE
+#define _UNICODE
+
+
+# Multiline indent
+tab			# shitf left tab
+shift + tab		# shift right tab
