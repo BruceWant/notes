@@ -50,3 +50,14 @@ inf2cat produce cat file
 
  <b>inf2Cat.exe /driver:C:\Users\m1882\source\repos\minispy\filter\x64\Debug\minispy /os:2000,XP_X86,XP_X64,Server2003_X86,Server2003_X64,Vista_X86,Vista_X64,7_X86,7_X64 </b>
 
+
+# install minispy driver.
+1.Make sure that filtername.sys and filtername.inf are in the same directory
+2.In Windows Explorer, right-click filtername.inf, and click install
+3.To load the minifilter, run <fltmc load filtername> or <net start filtername>
+
+# Using an INF file to uninstall a file system filter driver.
+# Command-Line
+RUNDLL32.EXE SETUPAPI.DLL,InstallHinfSection DefaultUninstall 132 path-to-uninstall-dir\infname.inf
+# Powershell Uninstall
+Get-CimInstance Win32_SystemDriver -Filter "name='your_driver_name'" | Invoke-CimMethod -MethodName Delete
