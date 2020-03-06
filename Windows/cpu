@@ -1,12 +1,21 @@
 # This is for IA 32 archiecture.
 # 8 general purpose registers
 eax: Extended Accumulator Register
+# Pointer to data in the DS segment
 ebx: Extended Base Register
+# counter for string and loop operations
 ecx: Extended Counter Register
+# I/O pointer
 edx: Extended Data Register
+# pointer to data in the segment pointed to by the DS register;
+# source pointer for string operations
 esi: Extended Source Index
+# pointer to data in the segment pointed by by the ES register;
+# destinatino pointer for string operations
 edi: Extended Destination Index
+# pointer to data on the stack (in the SS segment)
 ebp: Extended Base Pointer
+# stack pointer (in the SS segment)
 esp: Extended Stack Pointer
 
 
@@ -15,15 +24,86 @@ eip: Extended Instruction Pointer
 
 
 # 6 segment register
-cs:
-ds:
-ss:
-es:
-fs:
-gs:
+cs: code segment
+ds: data segment
+ss: stack segment
+es: data segment
+fs: date segment
+gs: date segment
 
 
 # 1 Program status and control register
-EFLAGS
+# EFLAGS
+
+# status flags
+# carry flag: set if and arithmatic operation
+# generates a carry of a borrow out of the
+# most significant bit of the result
+bit 0: cf
+# parity flag: set if the least-significant
+# byte of the result contains an even number
+# of 1 bits;
+bit 2: pf
+# Auxiliary carry flag: set if arithmetic operation
+# generates a carry or borrow out of bit 3 of the result
+bit 4: af
+# zero flag: set if the result is zero
+bit 6: zf
+# sign flag: set equal to the most-significant bit
+# of the result
+bit 7: sf
+# overflow flag: set if the integer result is too large
+# a positive number or too small a negative number to
+# fit in the destination operand
+bit 11: of
+
+# only cf can be modified directly
+
+# direction flag: controls string instructions.
+# setting the DF flag causes the string instruction
+# to auto-decrement (to process strings from high
+# address to low address).
+bit 10: df
+
+# system flags and IOPL field
+# trap flag: set to enable single step mode for debugging.
+bit 8: tf
+# interrupt enable flag: controls the response of the processor 
+# to maskable interrupt requests.
+bit 9: if
+# I/O privilege level field: indicates the I/O privilege level
+# of the currently running program or task.
+bit 12 and 13: IOPL
+# nested task flag: controls the chaining of interrupted and 
+# called tasks
+bit 14: nt
+# resume flag: controls the processor's response to debug exceptions
+bit 16: rf
+# virtual-8086 mode flag: set to enable virtual-8086 mode
+bit 17: vm
+# alignment check (or access control) flage: if the AM bit is set
+# in the CR0 register, alignment checking of user-mode data
+# accesses is enabled if and only if this flag is 1.
+bit 18: ac
+# virtual interrupt flag: virtual image of the IF flag.
+bit 19: vif
+# virtual interrupt pending flag: set to indicate that an interrupt
+# is pending
+bit 20: vip
+# identification flag: the ability of a program to set or clear this
+# flag indicates support for the CPUID instruction
 
 
+# The following is for 64 bit architectures
+# 16 general purpose register
+rax:
+rbx:
+rcx:
+rdx:
+rsi:
+rdi:
+rbp:
+rsp:
+r8-r15:
+
+# 64 bit's segment register are same as 32 bit architecture

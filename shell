@@ -276,3 +276,29 @@ echo "obase=16; ibase=2; 11000000" | bc
 # /etc/sudoers
 sudo visudo
 username ALL=(ALL) NOPASSWD: ALL
+
+
+# access tty terminal
+# By default Ubuntu has 7 tty's
+1. Up until Ubuntu 17.10, 1-6 are command line only
+and 7 runs your X session
+2. On Ubuntu 17.10 and newer, it's GUI login screen
+on 1, GUI desktop on 2 and command lines on 3-7.
+# access them
+Ctrl + Alt + F1 (or F3 on 17.10 and newer)
+# to get back to your GUI session
+Ctrl + Alt + F7 (or F2 on 17.10 and newer)
+
+
+# synchronize time ntp
+# install ntp both at server and client
+sudo apt-get install ntp
+#   configurate ntp server
+# + add following three line into /etc/ntp.conf
+restrict 192.168.1.0 mask 255.255.255.0 nomodify notrap
+server 127.127.1.0 # local clock
+fudge 127.127.1.0 stratum 10
+# restart ntp
+sudo /etc/init.d/ntp restart
+# run command at client
+sudo ntpdate 192.168.0.100      # ntp server ip
