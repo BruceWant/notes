@@ -21,15 +21,26 @@ Specifies the name of the pipe that you created on the virtual machine
 
 
 关闭检查驱动数字签名
+# shutdown checking signature on windows 10.
 
 <b>bcdedit.exe /set nointegritychecks on</b> // 不管用
 
+# disable "Driver Signing"
+# 1. disable "integrity checks"
 <b>BCDEDIT -SET LOADOPTIONS DISABLE_INTEGRITY_CHECKS</b>
-
+# 2. Enable "Test mode"
 <b>BCDEDIT -SET TESTSIGNING ON</b>
-
+# 3. restart windows
 <b>重新启动 Windows</b>
+shutdown /r /t 0
 
+# Enable "Driver Signing"
+# 1. Enable "integrity checks"
+bcdedit -set loadoptions enable_integrity_checks
+# 2. disable "test mode"
+bcdedit -set testsigning off
+# 3. restart system
+shutdown /r /t 0
 
 
 1. find process PID
