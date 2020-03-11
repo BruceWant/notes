@@ -26,6 +26,8 @@ Specifies the name of the pipe that you created on the virtual machine
 <b>bcdedit.exe /set nointegritychecks on</b> // 不管用
 
 # disable "Driver Signing"
+# 0. BIOS
+Security -> Secure Boot -> Secure Boot Control -> Disabled
 # 1. disable "integrity checks"
 <b>BCDEDIT -SET LOADOPTIONS DISABLE_INTEGRITY_CHECKS</b>
 # 2. Enable "Test mode"
@@ -33,6 +35,10 @@ Specifies the name of the pipe that you created on the virtual machine
 # 3. restart windows
 <b>重新启动 Windows</b>
 shutdown /r /t 0
+# 4. add start options
+msconfig
+# 5. add a boot entry
+bcdedit /copy {current} /d "DebugEntry"
 
 # Enable "Driver Signing"
 # 1. Enable "integrity checks"
