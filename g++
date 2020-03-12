@@ -10,3 +10,35 @@
 
 # Disable compiler extensions
 -pedantic-errors
+
+
+# Create static library in c/c++
+// test1.c
+int test1(int a) {
+    return a + 1;
+}
+
+// test2.c
+int test2(int *c) {
+    *c = *c + 1;
+}
+
+# compile source file into object file
+gcc -c test1.c test2.c
+# put object file into a single static library file
+ar rsv testlib.a test1.o test2.o
+
+# using static library in c/c++
+// main.c
+#include <stdio.h>
+int main() {
+    int c = 3;
+    test2(&c);
+    printf("%d\n", c);
+    printf("%d\n", test1(c));
+    return 0;
+}
+# complie it
+# -L: specifies the static library path
+# -l: specifies the name of the static library
+gcc -o main main.c -L/library_path -lfile_of_library
