@@ -18,3 +18,11 @@ set
 setx variable_name value /M
 # use reg set registor.
 reg
+
+
+# get username from powershell
+$env:username
+$env:userdomain
+$env:computername
+[system.security.principal.windowsidentity]::getcurrent().name
+whoami
