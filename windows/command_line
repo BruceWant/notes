@@ -2,6 +2,14 @@
 certUtil -hashfile <pathToFileToCheck> [HashAlgorithm]
 Hash Algorithm: MD2 MD4 MD5 SHA1 SHA256 SHA384 SHA512
 
+# compare two string wheather it is equal or not
+if "first" equ "second" goto first
+if "first" neq "second" goto second
+:first
+echo "equal"
+:second
+echo "not equal"
+
 
 # compare two files.
 comp
