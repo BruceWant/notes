@@ -46,3 +46,17 @@ Linker --> Input --> Additional Dependencies
 # Multiline indent
 tab			# shitf left tab
 shift + tab		# shift right tab
+
+
+# uninstall vs
+1. C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\layout\installcleanup.exe
+2. vssetup.exe /uninstall /force
+3. Delete everything under:
+
+C:\ProgramData\Microsoft\VisualStudio\15.0
+C:\ProgramData\Microsoft\VisualStudio\Packages
+%appdata%\Microsoft\VisualStudio\15.0*
+%appdata%\Microsoft\VisualStudio\Packages
+C:\Program Files (x86)\Microsoft Visual Studio\2017
+HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\15.0*
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\15.0*
