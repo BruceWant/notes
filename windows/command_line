@@ -35,6 +35,11 @@ $env:computername
 [system.security.principal.windowsidentity]::getcurrent().name
 whoami
 
+# get username from cmd
+net user
+echo %username%
+whoami
+
 
 # install Win32-OpenSSH from github
 1. Extract contets of the latest build to C:\Program Files\OpenSSH
