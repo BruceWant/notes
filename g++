@@ -42,3 +42,28 @@ int main() {
 # -L: specifies the static library path
 # -l: specifies the name of the static library
 gcc -o main main.c -L/library_path -lfile_of_library
+
+
+# g++ memory alignment
+struct test
+{
+    int a;
+    int *pa;
+}__attribute__((aligned (8)));
+
+# g++ or do not make optimilize
+struct test2
+{
+    int a;
+    int *pa;
+}__attibute__((packed));
+
+# MSVC
+#pragma pack(push)
+#pragma pack(4)
+struct test
+{
+    int a;
+    int *pa;
+};
+#pragma pack(pop)

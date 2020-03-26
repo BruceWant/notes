@@ -61,3 +61,15 @@ Set-service sshd -StartupType Automatic
 
 # uninstall Win32 OpenSSH
 powershell.exe -ExecutionPolicy Bypass -File uninstall-sshd.ps1
+
+
+# change directory to another driver.
+cd /d d:\directory
+
+
+# remove directory
+rd /s d:\directory
+
+
+# delete or remove a file
+del d:\file
