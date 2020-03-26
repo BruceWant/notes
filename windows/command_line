@@ -26,3 +26,15 @@ set
 setx variable_name value /M
 # use reg set registor.
 reg
+
+
+# change directory to another driver.
+cd /d d:\directory
+
+
+# remove directory
+rd /s d:\directory
+
+
+# delete or remove a file
+del d:\file

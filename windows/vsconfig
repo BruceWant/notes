@@ -60,3 +60,28 @@ C:\ProgramData\Microsoft\VisualStudio\Packages
 C:\Program Files (x86)\Microsoft Visual Studio\2017
 HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\15.0*
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\15.0*
+
+
+# g++ memory alignment
+struct test
+{
+    int a;
+    int *pa;
+}__attribute__((aligned (8)));
+
+# g++ or do not make optimilize
+struct test2
+{
+    int a;
+    int *pa;
+}__attibute__((packed));
+
+# MSVC
+#pragma pack(push)
+#pragma pack(4)
+struct test
+{
+    int a;
+    int *pa;
+};
+#pragma pack(pop)
