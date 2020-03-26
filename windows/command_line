@@ -26,3 +26,38 @@ set
 setx variable_name value /M
 # use reg set registor.
 reg
+
+
+# get username from powershell
+$env:username
+$env:userdomain
+$env:computername
+[system.security.principal.windowsidentity]::getcurrent().name
+whoami
+
+# get username from cmd
+net user
+echo %username%
+whoami
+
+
+# install Win32-OpenSSH from github
+1. Extract contets of the latest build to C:\Program Files\OpenSSH
+2. powershell.exe -ExecutionPolicy Bypass -File install-sshd.ps1
+3. New-NetFireWallRule -Name sshd -DisplayName 'OpenSSH Server (sshd)' -Enable True
+	-Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
+# New-NetFireWallRule is fo Windows 2012 and above servers only.
+netsh advfirewall firewall add rule name=sshd dir=in action=allow protocol=TCP localport=22
+4. net start sshd
+# optional
+# configure a default shell
+5.1 New-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH" -Name DefaultShell -Value
+	"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -PropertyType String -Force
+# optional
+New-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH" -Name DefaultShellCommandOption
+	-Value "/c" -PropertyType String -Force
+# setup sshd service to auto-start
+Set-service sshd -StartupType Automatic
+
+# uninstall Win32 OpenSSH
+powershell.exe -ExecutionPolicy Bypass -File uninstall-sshd.ps1
