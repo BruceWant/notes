@@ -1,0 +1,197 @@
+# include these commands at the top of batch script
+# ENABLEEXTENSIONS argument turns on a very helpful
+# feature called command processor extension.
+SETLOCAL ENABLEEXTENSIONS
+# the name of the script
+SET me=%~n0
+# the parent path to the script
+SET parent=%~dp0
+
+# set exit code
+SET /A errno=0
+SET /A ERROR_HELP_SCREEN=1
+SET /A ERROR_SOMECOMMAND_NOT_FOUND=2
+SET /A ERROR_OTHERCOMMAND_FAILED=4
+# .cmd
+someCommand.exe
+IF %ERRORLEVEL% NEQ 0 SET /A errno^|=%ERROR_SOMECOMMAND_NOT_FOUND%
+
+otherCommand.exe
+IF %ERRORLEVEL% NEQ 0 (
+    SET /A errno^|=%ERROR_OTHERCOMMAND_FAILED%
+)
+
+EXIT /B %errno%
+
+
+# turn off the cmd echo
+@ECHO OFF
+# turn on
+ECHO ON
+
+
+# DOS does not require declaration of variables.
+# declare a variable
+set foo=bar
+
+# list all variables
+set
+
+# set local variables
+SETLOCAL
+SET foo=var
+ENDLOCAL
+
+# using a variable
+echo %foo%
+
+
+# DOS dynamic environmental variable
+%DATE%
+%RENDOM%
+%CD%
+
+
+# cat the content of the file
+type file_name
+
+
+# read echo argument using % with 0-9
+%0
+
+# for /?
+%~I
+
+
+# return code
+%ERRORLEVEL%
+
+
+# relative operator
+NEQ:    Not-Equal-to
+EQU;    Equal-to
+
+
+# execute two programs if first success, use &&
+someCommand.exe && echo someCommand.exe succeeded!
+# execute a follow-on command after failure, use ||
+someCommand.exe || echo someCommand.exe failed with return code %ERRORLEVEL%
+# if somecomand.exe failed exit with errorlevel code equal to 1.
+# eles continue
+someCommand.exe || EXIT /B 1
+# or
+someCommand.exe || GOTO :EOF
+
+
+# redirection
+# overwrite file
+>
+# append to the file
+>>
+# redirect stderr
+DIR somefile.txt 2>> error.txt
+# combine the stdout and stderr
+DIR SomeFile.txt 2>&1
+# redirect both stdout and stderr to a single file
+DIR SomeFile.txt > output.txt 2>&1
+
+# input a file
+sort < somefile.txt
+
+# output to input
+a.exe | b.exe
+
+# suppressing program output
+ping 127.0.0.1 > NUL
+
+
+# if conditonal statement
+# checking that a file or folder exists
+IF EXIST "temp.txt" ECHO not found
+# if-else
+IF EXIST "temp.txt" (
+    ECHO found
+) ELSE (
+    ECHO not found
+)
+
+# checking if a variable is not set
+IF "%var%"=="" (SET var=default value)
+# or
+IF NOT DEFINED var (SET var=default value)
+# checking if a variable matches a text string
+SET var=Hello, world!
+
+IF "%var%"=="Hello, world!" (
+    ECHO found
+)
+# or with a case insensitive comparison
+IF /I "%var%"=="hello, world!" (
+    ECHO found
+)
+
+# arithmetic comparisons
+SET /A var=1
+IF /I "%var%" EQU "1" ECHO equality with 1
+IF /I "%var%" NEQ "0" ECHO inequality with 0
+IF /I "%var%" GEQ "1" ECHO greater than or equal to 1
+IF /I "%var%" LEQ "1" ECHO less than or equal to 1
+
+# checking a return code
+IF /I "%ERRORLEVEL%" NEQ "0" (
+    ECHO execution failed
+)
+
+
+# loop with goto
+:args
+SET arg=%~1
+ECHO %arg%
+SHIFT
+GOTO :args
+
+# loop with FOR
+FOR %I IN (%USERPROFILE%\*) DO @ECHO %I
+# Looping through directories
+FOR /D %I IN (%USERPROFILE%\*) DO @ECHO %I
+# recursively loop through files in all subfolders of the %TEMP% folder
+FOR /R "%TEMP%" %I IN (*) DO @ECHO %I
+# recursively loop through all subfolders in the %TEMP% folder
+FOR /R "%TEMP%" /D %I IN (*) DO @ECHO %I
+
+
+# function in batch
+@ECHO OFF
+SETLOCAL
+:: script global variables
+SET me=%~n0
+SET log=%TEMP%\%me%.txt
+:: The "main" logic of the script
+IF EXIST "%log%" DELETE /Q %log% >NUL
+:: do something cool, then log it
+CALL :tee "%me%: Hello, world!"
+:: force execution to quit at the end of the "main" logic
+EXIT /B %ERRORLEVEL%
+:: a function to write to a log file and write to stdout
+:tee
+ECHO %* >> "%log%"
+ECHO %*
+EXIT /B 0
+
+
+# log file name
+echo  %DATE:~0,4%_%DATE:~5,2%_%DATE:~8,2%_%time:~0,2%_%time:~3,2%_%time:~6,2%
+# %DATE:~0,4% meams in index date[0]-date[0+3]
+SET log=%TEMP%\%me%.%DATE:~0,4%_%DATE:~5,2%_%DATE:~8,2%_%time:~0,2%_%time:~3,2%_%time:~6,2%
+
+
+# double click execution
+@ECHO OFF
+SET double_click=0
+ECHO %CMDCMDLINE% | FINDSTR /L %COMSPEC% > NUL 2>&1
+IF %ERRORLEVEL% == 0 SET double_click=1
+
+ECHO do work
+
+IF "%double_click%"=="1" PAUSE
+EXIT /B 0
