@@ -80,3 +80,12 @@ tbreak test.c:10
 
 #step over
 (gdb) next
+
+
+# print registers value
+info registers
+info registers eax
+
+
+# print value
+print <value_name>
