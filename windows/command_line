@@ -73,3 +73,34 @@ rd /s d:\directory
 
 # delete or remove a file
 del d:\file
+
+
+# enable remote desktop using command line
+reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\
+        Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+# disable remote desktop using command line
+reg add "HKEY_LOCALMACHINE\SYSTEM\CurrentControlSet\
+        Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 1 /f
+# allow the remote desktop through firewall
+netsh advfirewall firewall set rule group="remote desktop" new enable=yes
+# add a user account to remote desktop users group
+net localgroup "remote desktop users" user_name /add
+
+
+# configurate ipv4 in command line
+# list the interface cards
+netsh interface ipv4 show interface
+netsh interface ipv4 show config <Ethernet0>/<Idx>
+# set ip
+netsh interface ipv4 set address name=<Ethernat0>
+    static 192.168.5.123 mask=255.255.255.0 gateway=192.168.5.1 <enter>
+netsh interface ipv4 show config <Idx>
+# adjust the default gateway separately
+netsh interface ipv4 set address name=<Idx> gateway=192.168.10.1
+# set DNS server IP address
+netsh interface ipv4 set dns name=<Idx> static 192.168.10.10 primary
+# enable ICMPv4(echo)
+netsh advfirewall firewall add rule name=ICMPV4 protocol=icmpv4 dir=in
+    action=allow
+# to see if ICMPv4 is enable or not
+netsh advfirewall firewall show rule name=icmpv4
