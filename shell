@@ -323,3 +323,9 @@ Alt + Tab
 #   switch between different windows of the 
 # + same application
 Alt + tilde         # tilde = the key above Tab
+
+
+# translate windows carriage return from file: single quote used
+cat a.txt | tr -d '\015' > b.txt    # \r == 015
+# or using sed: single quote used
+sed -e 's///' a.txt > b.txt       # ctrl+v ctrl+m = 
