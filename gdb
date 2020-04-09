@@ -29,13 +29,27 @@ gdb --args executablename arg1 arg2 arg3
 # or
 gdb -ex=run --args myprogram arg1 arg2 arg3
 
-# debug core file
+# first, debug core file
 ulimit -c
 ulimit -c unlimited		# have no limit
 ulimit -c 10			# have 10 blocks, 512 bytes per block
+# second
+sudo sysctl -w kernel.core_pattern=/tmp/core-%e.%p.%h.%t
 
 gdb program_name core_name
-
+# or (gdb) bt full
+(gdb) bt                # backtrace, get a stack trace
+(gdb) frame #number
+# see the code around the bug function
+(gdb) list
+# see the local variables
+(gdb) info locals
+# print the variable value
+(gdb) print name_of_variable
+# select frame n frames up
+(gdb) up #n
+# select frame n frames down
+(gdb) down #n
 
 
 # debug running program

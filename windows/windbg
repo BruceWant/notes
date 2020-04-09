@@ -137,8 +137,12 @@ vertarget
 #   sets the symbol path point to the microsoft
 # + symbol store
 .symfix
-# lis the symbol path
+# list the symbol path
 .sympath
+# add the symbol path
+.sympath+ Directory
+# set the source path
+.srcpath+ Directory
 # delete symbols and reload it as needs
 .reload
 

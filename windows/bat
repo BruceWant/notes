@@ -195,3 +195,23 @@ ECHO do work
 
 IF "%double_click%"=="1" PAUSE
 EXIT /B 0
+
+
+# produce core dump file
+@echo off
+echo setting Dump...
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps"
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /v DumpFolder /t REG_EXPAND_SZ /d "C:\MyDump" /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /v DumpType /t REG_DWORD /d 2 /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /v DumpCount /t REG_DWORD /d 10 /f
+echo core Dump configured
+pause
+@echo on
+
+# close produce core dump file
+@echo off
+echo deleting core Dump register...
+reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /f
+echo deleted core Dump register
+pause
+@echo on
