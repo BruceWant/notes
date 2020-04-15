@@ -104,3 +104,7 @@ netsh advfirewall firewall add rule name=ICMPV4 protocol=icmpv4 dir=in
     action=allow
 # to see if ICMPv4 is enable or not
 netsh advfirewall firewall show rule name=icmpv4
+
+
+# get last boot up time
+wmic path win32_operatingsystem get lastbootuptime
