@@ -1,0 +1,2 @@
+# package qt program
+windeployqt program_name.exe
