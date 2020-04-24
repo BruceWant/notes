@@ -4,3 +4,24 @@ setting -> Devices -> Keyboard -> click "+"
 Name:whatever_name_you_chose
 Command: gnome-terminal
 Shutcut:whatever_shutcut_you_chose
+
+
+# scan port
+# scan all ports
+nmap -p- 192.168.0.100
+# scan the most common ports
+nmap -F 192.168.0.100
+# scan ports 1 through 200 on the target system
+nmap -p 1-200 192.168.0.100
+# scan port 80 on the target system
+nmap -p 80 192.168.0.100
+# scan target from a text file
+nmap -iL testlist.txt
+# run nmap on a subnet
+nmap 192.168.0.1/13
+# scan a range of IP adresses
+nmap 192.168.0.1-10
+
+
+# nc netcat
+echo text | netcat localhost 1234

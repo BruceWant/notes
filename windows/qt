@@ -1,2 +1,11 @@
 # package qt program
 windeployqt program_name.exe
+linuxdeployqt program_name.exe -appimage
+
+# package application using cqtdeployer
+# Windows
+%cqtdeployer% -bin maApp.exe -qmake path/to/Qt/5.x.x/build/bin/qmake  -qmlDir path/to/my/qml/files/dir
+# Linux
+cqtdeployer -bin myApp -qmake path/to/Qt/5.x.x/build/bin/qmake -qmlDir path/to/my/qml/files/dir
+# path/to/Qt/5.x.x/build/bin/qmake - This is the way qmake is used to build your program
+# path/to/my/qml/files/dir - this is the path directly to your qml file (which you wrote)

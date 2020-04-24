@@ -329,3 +329,15 @@ Alt + tilde         # tilde = the key above Tab
 cat a.txt | tr -d '\015' > b.txt    # \r == 015
 # or using sed: single quote used
 sed -e 's///' a.txt > b.txt       # ctrl+v ctrl+m = 
+
+
+# produce private key
+mkdir ~/.ssh
+chmod 700 ~/.ssh
+ssh-keygen -t rsa -b 4096
+
+# transfer client key to host
+ssh-copy-id user@host
+
+# login ssh server using private key
+ssh -i private_file_name user@host

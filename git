@@ -75,3 +75,7 @@ git checkout test
 git rebase master
 git checkout master
 git merge test
+
+
+# check out a remote git branch
+git checkout -b <branch_name> <name_of_remote>
