@@ -1,0 +1,2 @@
+# generate nmake file on build
+cmake -B build -G "NMake Makefiles"
