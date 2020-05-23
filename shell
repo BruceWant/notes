@@ -234,6 +234,8 @@ $ which find
 $ dpkg -S /usr/bin/find
 findutils:/usr/bin/find
 $ sudo apt-get source findutils
+# source code will in the following folder
+/usr/local/src
 
 
 # date get millisecond microsecond nanosecond
@@ -329,6 +331,8 @@ Alt + tilde         # tilde = the key above Tab
 cat a.txt | tr -d '\015' > b.txt    # \r == 015
 # or using sed: single quote used
 sed -e 's///' a.txt > b.txt       # ctrl+v ctrl+m = 
+# convert carriage return to line feed in the files that under direcotries
+find . -name "*" | xargs dos2unix   # -f force convert binary files.
 
 
 # produce private key
