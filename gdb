@@ -67,12 +67,22 @@ gdb
 (gdb) sttach 20829
 
 
+# setting breakpoint
+break <location>
+# specifies the line linenum in the source file
+break filename:linenum
 # set breakpoint
 b 9
 # or, at 9th line of test.c set a breakpoint
 b test.c:9
 # set breakpoint at function
 b function_name			# b print
+# specifies the line where label appears in function
+break function:label
+# specifies the line at which the label name label
+break label
+# specifies the line that begins the body of the function in the filename
+break filename:function
 # according conditon set breakpoint
 break test.c:23 if b==0		# when b == 0 , at 23th line set break
 condition 1 b==0		# when b == 0, at break number of 1
@@ -80,6 +90,25 @@ condition 1 b==0		# when b == 0, at break number of 1
 # set template breakpoint
 tbreak test.c:10
 
+# explicit locatoin
+# specifies the source file name
+-source filename
+# specifies the name of the function
+-function function
+# for c++, A::B::func B::func
+-qualified      # break -qualified -function B::func
+# specifies the name of the label
+-label label
+# specifies a line offset for the location
+-line number
+
+# address locations
+# any expression valid in the current working language
+expression
+# an address of a function or procedure derived from its name
+funcaddr
+# also specifies the name of the source file
+'filename' funcaddr
 
 # watch variable
 (gdb) watch variable_name
