@@ -36,10 +36,18 @@ ulimit -c 10			# have 10 blocks, 512 bytes per block
 # second
 sudo sysctl -w kernel.core_pattern=/tmp/core-%e.%p.%h.%t
 
+
+# view stack frames
 gdb program_name core_name
 # or (gdb) bt full
 (gdb) bt                # backtrace, get a stack trace
 (gdb) frame #number
+# print only the innermost n frames
+(gdb) bt <n>
+# print only the outmost n frames
+(gdb) bt -<n>
+# print the values of the local variables
+(gdb) bt -full
 # see the code around the bug function
 (gdb) list
 # see the local variables
