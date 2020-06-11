@@ -16,6 +16,8 @@ git config --global core.editor "vim"	# or
 # reset committer and email
 git -c user.name="New Author Name" -c user.email=email@address.com \
 --amend --reset-author
+# another way reset committer and email
+git commit --amend --author="username <email@adrress.com>"
 export GIT_EDITOR=vim
 # for all program default editor
 export VISUAL=vim

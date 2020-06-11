@@ -1,0 +1,2 @@
+# compile c source into assembly language
+cl.exe /Fa source.c
