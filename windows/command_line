@@ -108,3 +108,7 @@ netsh advfirewall firewall show rule name=icmpv4
 
 # get last boot up time
 wmic path win32_operatingsystem get lastbootuptime
+
+
+# find file on a disk
+dir /a /s c: | findstr "exe"
