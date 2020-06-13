@@ -1,7 +1,9 @@
 # QSqlDatabase: QMYSQL driver not loaded.
 # there is no libmysql.dll and qsqlmysql.dll
-# libmysql in C:\Program Files\MySQL\MySQL Server 8.0\lib
+# libmysql.dll in C:\Program Files\MySQL\MySQL Server 8.0\lib
 # qsqlmysql.dll in D:\program_files\Qt\Qt5.14.2\5.14.2\mingw73_64\plugins\sqldrivers\
+
+# Put libmysql.dll on Executable folder.
 1. install MySQL can get libmysql.dll
 2. Compile MySQL using mingw32.
     2.1 Run mingw32 Seting Environment cmd.
