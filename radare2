@@ -1,0 +1,14 @@
+# open a file
+radare2 <fileName>
+# find string in a file
+/ <string>
+# set cursor at address
+s <0xadress>
+# print hexi string
+px
+# open file in read-write modo
+oo+
+# write string at current cursor position
+w <string>
+# quit
+q

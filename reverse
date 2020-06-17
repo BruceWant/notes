@@ -1,0 +1,5 @@
+# On Windows fastcall
+# four function arguments passed in the rcx, rdx, r8, r9
+
+# On Linux, *BSD and Mac OS X
+# six function arguments passed in the rdi, rsi, rdx, rcx, r8, r9

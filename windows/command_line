@@ -27,6 +27,10 @@ setx variable_name value /M
 # use reg set registor.
 reg
 
+# set environment temperatlly
+set PATH=%PATH%;D:\Program files\
+# set environment permanentlly
+setx PATH "%PATH%;D:\Program files\"
 
 # get username from powershell
 $env:username
