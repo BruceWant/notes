@@ -133,6 +133,10 @@ funcaddr
 (gdb) next
 
 
+# step out of function
+# Continue running until just after function in the selected stack frame returns. Print the returned value (if any). This command can be abbreviated as fin.
+(gdb) finish
+
 # print registers value
 info registers
 info registers eax
