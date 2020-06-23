@@ -144,3 +144,18 @@ info registers eax
 
 # print value
 print <value_name>
+
+
+# examine memory address
+x/nfu addr
+x addr
+# examine machine instructions
+x/5i $pc
+
+
+# disassemble current instruction
+disas
+
+
+# set intel syntax
+(gdb) set disassembly-flavor intel

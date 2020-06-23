@@ -18,6 +18,10 @@ gcc -Og -S -masm=intel source.c
 gcc -E source.c -o source.i
 
 
+# static link program
+gcc -static source.c
+
+
 # compile assemble language into object file
 as exit.s -o exit.o
 
