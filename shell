@@ -208,6 +208,12 @@ sudo adduser username
 sudo usermod -a -G adm username
 sudo usermod -a -G sudo username
 
+# delete user and files
+sudo userdel -r username
+# only delete user accout
+sudo userdel username
+
+
 # change username.
 # First, add a temporary user, and give it sudo privileges.
 sudo adduser tmp
