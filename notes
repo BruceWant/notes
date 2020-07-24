@@ -227,3 +227,15 @@ gcc -o main main.c -L ./ -ltest1 -ltest0
 
 # egypt usage
 egypt ../common-main.c.229r.expand add.c.229r.expand | dot -Gsize=3000,3000 -Grankdir=LR -Tpng -o ~/callgraph/callgraph.png
+
+# build 32 bit program on x86_64 architecture processor
+# 1. check the architecture of the processor. The output should be adm64
+dpkg --print-architecture
+# 2. confirm the multi-architecture already opened. The output should be i386
+dpkg --print-foreign-architectures
+# 3. If no opened, then open the multi-architecture function.
+sudo dpkg --add-architecture i386
+sudo apt-get update
+sudo apt-get dist-upgrade
+# 4. last install the gcc and g++ 32 bit library.
+ apt-get install gcc-multilib g++-multilib 
