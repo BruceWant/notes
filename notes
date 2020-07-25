@@ -239,3 +239,26 @@ sudo apt-get update
 sudo apt-get dist-upgrade
 # 4. last install the gcc and g++ 32 bit library.
  apt-get install gcc-multilib g++-multilib 
+
+
+# resize or extend virtualbox disk size
+# 1. configuration of virtualbox
+settings -> storage -> controller:SATA -> adds hard disk
+create new disk -> VDI -> Dynamically allocated -> create
+# 2. mount partition on ubuntu guest
+# 2.1 check disk status
+df -h
+fdisk -l
+# 2.2 partition the disk
+fdisk /dev/sdb          # /dev/sdb from 'fdisk -l' command
+# 2.3 type <p, n enter, enter, enter> in order
+# 2.4 save the work
+w
+# 2.5 format the disk
+mkfs -t ext4 /dev/sdb1
+# 2.6 mount the filesystem /dev/sdb1
+mount /dev/sdb1 /mnt/lfs
+# 2.7 set mounting automatically
+vim /etc/fstab
+# 2.8 add following contents.
+/dev/sdb1 /mnt/lfs ext4 defaults 0 0
