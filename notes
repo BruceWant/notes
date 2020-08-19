@@ -386,3 +386,9 @@ iptables -t filter -I INPUT -s 192.168.0.12 -p -tcp -m multiport --dports 22,36,
 
 # show arp tables
 ip neighbor show
+
+
+# compile apue, install libbsd-dev
+sudo apt install libbsd-dev
+sudo cp include/apue.h /usr/include/
+sudo cp lib/libapue.a /usr/local/lib/
