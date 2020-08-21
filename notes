@@ -392,3 +392,31 @@ ip neighbor show
 sudo apt install libbsd-dev
 sudo cp include/apue.h /usr/include/
 sudo cp lib/libapue.a /usr/local/lib/
+
+
+# list the ttyUSB
+ll /sys/class/tty/ttyUSB*
+ll /sys/class/tty/*/device/driver
+
+ll /sys/class/tty/ttyUSB0/
+
+cat /sys/class/tty/ttyUSB0/dev
+
+ll -R /dev | grep "major, *minor node"
+
+# or another way
+dmesg | grep tty
+
+# udevadm monitor:
+# This will show you the USB device being loaded
+# as the USB Bus sees it.
+udevadm monitor
+
+# detect usb device, in a terminal
+lsusb
+
+lsinput
+
+
+# check network adapter names
+sudo lshw -class network -short
