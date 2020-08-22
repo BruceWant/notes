@@ -176,6 +176,7 @@ tar -xvf filename.tar.Z		# or -Zxvf
 unrar x	filename.rar		# install unrar-free
 gzip	filename		# compress filename
 gunzip	filename.gz		# uncompress filename
+unzip filename.zip
 
 z:	gzip			压缩格式
 x:	extract			解压

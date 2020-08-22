@@ -3,3 +3,6 @@
 
 # On Linux, *BSD and Mac OS X
 # six function arguments passed in the rdi, rsi, rdx, rcx, r8, r9
+
+# On ARM
+# four function arguments passed through the r0-r3
