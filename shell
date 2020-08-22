@@ -202,6 +202,17 @@ passwd user_name
 usermod -a -G sudo user_name
 chsh -s /bin/bash user_name
 
+# adduser perl script add user
+sudo adduser username
+# add root priority
+sudo usermod -a -G adm username
+sudo usermod -a -G sudo username
+
+# delete user and files
+sudo userdel -r username
+# only delete user accout
+sudo userdel username
+
 
 # change username.
 # First, add a temporary user, and give it sudo privileges.
@@ -330,7 +341,8 @@ Alt + tilde         # tilde = the key above Tab
 # translate windows carriage return from file: single quote used
 cat a.txt | tr -d '\015' > b.txt    # \r == 015
 # or using sed: single quote used
-sed -e 's///' a.txt > b.txt       # ctrl+v ctrl+m = 
+sed -e 's/
+//' a.txt > b.txt       # ctrl+v ctrl+m = 
 # convert carriage return to line feed in the files that under direcotries
 find . -name "*" | xargs dos2unix   # -f force convert binary files.
 

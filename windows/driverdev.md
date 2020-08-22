@@ -78,3 +78,29 @@ inf2cat produce cat file
 RUNDLL32.EXE SETUPAPI.DLL,InstallHinfSection DefaultUninstall 132 path-to-uninstall-dir\infname.inf
 # Powershell Uninstall
 Get-CimInstance Win32_SystemDriver -Filter "name='your_driver_name'" | Invoke-CimMethod -MethodName Delete
+
+
+# Installing Unsigned Drivers in Windows 7
+1.Press the keyboard shortcut Windows Logo Key + R to open the Run dialog.
+2.Type gpedit.msc in the Run dialog and press Enter
+3.In the Group Policy Editor, navigate to User Configuration → Administrative Templates → System → Driver Installation.
+4.Double-click on Code signing for device drivers in the right-side pane as shown above.
+5.In the windows that opens, choose Enabled. In the Options, choose Ignore as shown. Then click on the OK button to save the settings.
+6.Restart your computer for changes to take effect.
+
+Method 2 :
+1.Open an elevated command prompt in Windows 7 as previously mentioned in this article.
+2.In the elevated command prompt, type the following in it and press Enter :
+bcdedit -set loadoptions DDISABLE_INTEGRITY_CHECKS
+bcdedit -set TESTSIGNING ON
+3.Reboot your computer and proceed to installing any unsigned drivers. After the installation of the drivers is complete, you can revert the changes again. Again open an elevated command prompt, type the following in it and press Enter :
+bcdedit.exe -set loadoptions DENABLE_INTEGRITY_CHECKS
+bcdedit.exe -set TESTSIGNING OFF
+4.Reboot your computer again.
+
+1.Open an elevated command prompt in Windows 7 as shown in this article : how to open an elevated command prompt.
+2.In the elevated command prompt, type the following in it and press Enter :
+bcdedit /set nointegritychecks ON
+3.Reboot your computer and proceed to installing any unsigned drivers. After the installation of the drivers is complete, you should turn on integrity check as it was before. Again open an elevated command prompt, type the following in it and press Enter :
+bcdedit /set nointegritychecks OFF
+4.Reboot your computer again.

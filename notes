@@ -228,3 +228,196 @@ gcc -o main main.c -L ./ -ltest1 -ltest0
 
 # egypt usage
 egypt ../common-main.c.229r.expand add.c.229r.expand | dot -Gsize=3000,3000 -Grankdir=LR -Tpng -o ~/callgraph/callgraph.png
+
+# build 32 bit program on x86_64 architecture processor
+# 1. check the architecture of the processor. The output should be adm64
+dpkg --print-architecture
+# 2. confirm the multi-architecture already opened. The output should be i386
+dpkg --print-foreign-architectures
+# 3. If no opened, then open the multi-architecture function.
+sudo dpkg --add-architecture i386
+sudo apt-get update
+sudo apt-get dist-upgrade
+# 4. last install the gcc and g++ 32 bit library.
+ apt-get install gcc-multilib g++-multilib 
+
+
+# resize or extend virtualbox disk size
+# 1. configuration of virtualbox
+settings -> storage -> controller:SATA -> adds hard disk
+create new disk -> VDI -> Dynamically allocated -> create
+# 2. mount partition on ubuntu guest
+# 2.1 check disk status
+df -h
+fdisk -l
+# 2.2 partition the disk
+fdisk /dev/sdb          # /dev/sdb from 'fdisk -l' command
+# 2.3 type <p, n enter, enter, enter> in order
+# 2.4 save the work
+w
+# 2.5 format the disk
+mkfs -t ext4 /dev/sdb1
+# 2.6 mount the filesystem /dev/sdb1
+mount /dev/sdb1 /mnt/lfs
+# 2.7 set mounting automatically
+vim /etc/fstab
+# 2.8 add following contents.
+/dev/sdb1 /mnt/lfs ext4 defaults 0 0
+
+
+# get default router IP address
+ip route list
+# get IP and MAc address
+ip neigh
+
+
+#查看 filter 表中的规则
+# -t: 表的类型； -L：列出表中的规则
+iptables -t filter -L
+
+# 查看 raw 表中的规则
+iptables -t raw -L
+
+# 查看 mangle 表中的规则
+iptables -t mangle -L
+
+# 查看 nat 表中的规则
+iptables -t nat -L
+
+# 查看指定表中的指定链的规则
+iptables -t filter -L INPUT
+# 查看指定表中的指定链的详细规则
+iptables -t filter -vL INPUT
+# 不对IP地址进行名称反解，直接显示IP地址
+# -n：直接显示IP地址
+iptables -t filter -nvL INPUT
+
+# --line-number：显示规则的编号
+iptables -t filter --line-number -nvL INPUT
+
+# -x：获取当前链默认策略匹配到的包的大小总和
+iptables -t filter -nvxL INPUT
+
+
+# 在首行插入规则
+# -I：insert，插入INPUT链中
+# -s：source，指明“匹配条件”中的“源地址”
+# -j；jump，当满足条件是，执行相应的动作
+iptables -t filter -I INPUT -s 192.168.0.12 -j DROP
+
+# 在末尾追加规则
+iptables -t filter -A INPUT -s 192.168.0.12 -j ACCEPT
+
+# 在指定的位置中，插入规则
+# 将当前的规则插入到编号为2的规则中
+iptables -t filter -I INPUT 2 -s 192.168.0.12 -j DROP
+
+
+# 删除规则
+# 根据行号删除规则，删除第三行规则
+# -D: delete
+iptables -t filter -D INPUT 3
+
+# 根据匹配条件与动作去删除规则
+# 源地址：192.168.0.12；动作：ACCEPT
+iptables -D INPUT -s 192.168.0.12 -j ACCEPT
+
+# 删除表中某条链中所有的规则
+# -F: flush，冲掉指定的链， 没有指定链名时，会清空表中的所有规则
+iptables -t filter -F INPUT
+
+# 修改规则
+# 将编号为 1，匹配条件为：-s 192.168.0.12 的动作改为 REJECT，匹配条件不可或缺
+iptables -t filter -R INPUT 1 -s 192.168.0.12 -j REJECT
+
+# 修改表的默认动作
+# -P；policy，表示要修改哪个表的默认规则
+iptables -t filter -P FORWARD DROP
+
+# 保存临时修改的iptables规则
+
+
+# 匹配条件详解
+# 使用逗号分隔多个匹配条件
+iptables -t filter -I INPUT -s 192.168.1.111,192.168.1.112 -j DROP
+
+# 指定某个网段的匹配条件
+iptables -t filter -I INPUT -s 10.6.0.0/16 -j DROP
+
+# 对匹配条件取反
+# 只要源地址不是 192.168.0.12，那么就满足条件
+iptables -t filter -A INPUT ! -s 192.168.0.12 -j ACCEPT
+
+# 匹配条件为目标地址
+iptables -t filter -I INPUT -s 192.168.0.12 -d 192.168.1.12 -j DROP
+
+# 匹配协议类型
+# -p：协议类型, -p all: 所有类型
+iptables -I INPUT -s 192.168.1.146 -d 192.168.1.156 -p tcp -j REJECT
+
+# 匹配网卡接口
+# -i：in-interface，流入使用网卡名称
+iptables -t filter -I INPUT -i eth4 -p icmp -j DROP
+
+# -o: out-interface, 流出使用网卡名称
+iptables -t filter -I INPUT -o eth4 -p icmp -j DROP
+
+
+# 扩展匹配条件
+# -m: 指定对应的扩展模块为tcp；
+# --dport：指定端口号；指定端口号时，必须要有-p，-m参数配合使用；
+iptables -t filter -I INPUT -s 192.168.1.146 -p tcp -m tcp --dport 22 -j REJECT
+
+# 匹配条件为源端口
+# --sport：源端口
+iptables -t filter -I INPUT -s 192.168.1.146 -p tcp -m tcp --sport 22 -j REJECT
+
+# 端口取反
+# ! --dport 22:表示目标端口不是22的报文会被匹配到
+
+# 指定端口范围
+# --dport 22:25 表示22-25之间所有的端口
+iptables -t filter -I INPUT -s 192.168.1.146 -p tcp -m tcp --sport 22:25 -j REJECT
+# --dport :22 表示0-22之间所有的端口
+# --dport 80: 表示80-65535 之间所有的端口
+
+# 使用multiport指定多个、离散的端口
+iptables -t filter -I INPUT -s 192.168.0.12 -p -tcp -m multiport --dports 22,36,80 -j DROP
+
+
+# show arp tables
+ip neighbor show
+
+
+# compile apue, install libbsd-dev
+sudo apt install libbsd-dev
+sudo cp include/apue.h /usr/include/
+sudo cp lib/libapue.a /usr/local/lib/
+
+
+# list the ttyUSB
+ll /sys/class/tty/ttyUSB*
+ll /sys/class/tty/*/device/driver
+
+ll /sys/class/tty/ttyUSB0/
+
+cat /sys/class/tty/ttyUSB0/dev
+
+ll -R /dev | grep "major, *minor node"
+
+# or another way
+dmesg | grep tty
+
+# udevadm monitor:
+# This will show you the USB device being loaded
+# as the USB Bus sees it.
+udevadm monitor
+
+# detect usb device, in a terminal
+lsusb
+
+lsinput
+
+
+# check network adapter names
+sudo lshw -class network -short

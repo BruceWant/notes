@@ -116,3 +116,30 @@ wmic path win32_operatingsystem get lastbootuptime
 
 # find file on a disk
 dir /a /s c: | findstr "exe"
+
+
+# set daul network interface
+# 1.internal networking setting
+IP：192.168.3.29
+netmask：255.255.255.0
+gateway：not setting
+DNS：not setting
+
+# 2.out networking setting
+IP：192.168.1.29
+netmask：255.255.255.0
+gateway：192.168.1.1
+DNS：192.168.1.1
+
+# 3.open cmd as administrator, add a router for internal network
+route add 192.168.3.0 mask 255.255.255.0 192.168.3.1 -p
+
+# 4.setting internal networking interface is the first card.
+控制面板\网络和 Internet\网络连接 ----> 高级 ----> set "internal card is the first"
+
+
+# delete a route
+route delete 192.168.3.0 192.168.3.1 -p
+# or another way
+# open regedit.exe, delete which you want.
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\Tcpip\Parameters\PersistentRoutes
