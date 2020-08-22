@@ -357,3 +357,21 @@ ssh-copy-id user@host
 
 # login ssh server using private key
 ssh -i private_file_name user@host
+
+
+# set locale
+# display the current settings
+locale
+# display the available locales
+locale -a
+# install a locale
+locale-gen en_US.UTF-8
+# check all available locales
+vim /usr/share/i18n/SUPPORTED
+# adjust locales by manual
+vim /etc/default/locale
+# adjust locales by command line.
+update-locale LANG=en_US.UTF-8
+update-locale LC_ALL=en_US.UTF-8
+# must restart the computer
+shutdown -r now
