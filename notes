@@ -421,3 +421,36 @@ lsinput
 
 # check network adapter names
 sudo lshw -class network -short
+
+
+# resolve adb on Ubuntu, error:device not found
+# 1. list usb
+~$ lsusb
+~$ Bus 003 Device 011: ID 2717:9039
+# 2. create adb_usb.ini in ~/.android
+echo > 0x2717 > ~/.android/adb_usb.ini
+# 3. add rights
+~$ sudo vim /etc/udev/rules.d/70-android.rules
+# contents of the 70-android.rules
+SUBSYSTEM=="usb",ATTRS{idVendor}=="2717",ATTRS{idProduct}=="9039",MODE="0666"
+# 4. add plugdev group
+~$ groupadd plugdev
+# 5. add user to plugdev group
+~$ sudo usermod -a -G plugdev <user_name>
+# 6. restart USB service
+~$ sudo chmod a+rx /etc/udev/rules.d/70-android.rules
+~$ sudo service udev restart
+# 7. not necessary. reload the rules
+~$ sudo udevadm control --reload-rules
+~$ sudo service udev restart
+~$ sudo udevadm trigger
+# 8. restart adb service
+~$ sudo adb kill-server
+~$ sudo adb start-server
+
+
+# Ubuntu uninstall app
+sudo apt-get purge <app_name>
+# remove config file
+sudo apt-get autoremove
+sudo apt-get clean
