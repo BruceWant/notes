@@ -375,3 +375,40 @@ update-locale LANG=en_US.UTF-8
 update-locale LC_ALL=en_US.UTF-8
 # must restart the computer
 shutdown -r now
+
+# degrade or upgrade Linux kernel on Ubuntu 14.04
+# 1. show Linux kernel version
+~$ uname -r
+# 2. show Ubuntu OS version
+~$ lsb_release -a
+# 3. show installed Linux kernel
+~$ dpkg --get-selections | grep linux-image
+# 4. see if there are specifiled Linux kernel package available
+# 	if can't get package, add deb http://security.ubuntu.com/ubuntu trusty-security main 
+#	to /etc/apt/sources.list ; or search package on url: http://kernel.ubuntu.com/~kernel-ppa/mainline/
+~$ apt-cache search linux | grep 3.13.0-32-generic
+# 5. install step 4's header, image and extra image
+apt-get install linux-headers-3.13.0-32-generic linux-image-3.13.0-32-generic linux-image-extra-3.13.0-32-generic
+# 6. view current load nerkel squence
+~$ grep menuentry /boot/grub/grub.cfg
+# 7. change kernel load order
+#  GRUB_DEFAULT="1> 2": according to which kernel you want load as first.
+~$ vim /etc/default/grub
+replace GRUB_DEFAULT=0 with GRUB_DEFAULT="1> 2"
+# 8. update grub configure
+~$ update-grub
+# 9. remove useless kernel
+# 9.1 search installed kernel exclude current kernel.
+# rc: represent kernel has been removed
+# ii: represent cat be remove
+# iU: represent installing it, but net installed completely
+~$ dpkg -l | tail -n +6 | grep -E 'linux-image-[0-9]+' | grep -Fv $(uname -r)
+# 9.2 remove kernel
+~$ dpkg --purge linux-image-4.4.0-31-generic
+# 10. turn off kernel or application auto-update
+# 10.1 modify all "1" to "0"
+~$ vim /etc/apt/apt.conf.d
+# 10.2 mark current kernel as hold, which prevent the package from
+# being automatically installed, upgraded or removed.
+~$ apt-mark hold linux-image-x.xx.x-xx-generic
+~$ apt-mark hold linux-image-extra-x.xx.x-xx-generic
