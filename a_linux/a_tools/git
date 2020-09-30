@@ -1,0 +1,92 @@
+# Learning git source code.
+# using lsb_release -a
+environment: Ubuntu 18.04.1 LTS
+
+1.make
+change LIBS=-lssl to LIBS=-lcrypto -lz
+
+2. install
+libssl-dev, zlib1g
+
+
+# who you are, omit --global to set the identiry only in this repository.
+git config --global user.email "you#example.com"
+git config --global user.name "your name"
+git config --global core.editor "vim"	# or
+# reset committer and email
+git -c user.name="New Author Name" -c user.email=email@address.com \
+--amend --reset-author
+# another way reset committer and email
+git commit --amend --author="username <email@adrress.com>"
+export GIT_EDITOR=vim
+# for all program default editor
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
+
+# add ssh key to github.com
+# 1. check whether id_rsa.pub exist.
+ls ~/.ssh
+# 2. produce a new key.
+ssh-keygen -t rsa -b 4096 -C "your_email_github@eaxmple.com"
+# 3. adding ssh key to the ssh-agent
+eval "$(ssh-agent -s)"
+# 4. add ssh private key to the ssh-agent
+ssh-add ~/.ssh/id_rsa
+
+xclip -sel clip < ~/.ssh/id_rsa.pub
+
+# connect local repository with remote.
+git remote add origin git@github.com:you_name/repository_name.git
+# check remote url
+git remote -v
+# push local repository to remote.
+git push -u origin master
+
+
+# change the most recent committed author and email
+git commit --amend --author="user_name <user_email@xyz.com>
+# also:
+# https://stackoverflow.com/questions/3042437/how-to-change-the-commit-author-for-one-specific-commit
+
+# change multiple commit.
+git rebase -i -p <some HEAD before all of your bad commits>
+# mark all your bad commits as "edit" in the rebase file.
+git commit --amend --author "New Author Name <email@address.com>"
+# edit or just close the editor that opens
+git rebase --continue
+# or
+git commit --amend --author "New Author Name <email@address.com>" \
+--no-edit && git rebase --continue
+
+# or
+git filter-branch -f --env-filter "GIT_AUTHOR_NAME='Newname'; GIT_AUTHOR_EMAIL='new@email'; GIT_COMMITTER_NAME='Newname'; GIT_COMMITTER_EMAIL='new@email';" HEAD
+
+# list git repository tag
+git tag -l
+
+
+# rebase a branch onto another
+# For example 
+#                 c4 <-- c5
+#                /         \
+# c1 <-- c2 <-- c3         test
+#               |
+#               master
+git checkout test
+git rebase master
+git checkout master
+git merge test
+
+
+# check out a remote git branch
+git checkout -b <branch_name> <name_of_remote>
+
+
+######################################################
+# git remote repository
+# list remote server name of repository
+git remote
+# list remote server name related URL
+git remote -v
+
