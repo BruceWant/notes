@@ -1,0 +1,2 @@
+# view primary device number
+cat /proc/devices
