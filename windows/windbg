@@ -77,6 +77,8 @@ dt nt!_eprocess @eax ImageFileName
 !peb
 .process /P <pointer_of_EPROCESS>
 
+# list breakpoint
+bl
 
 # set breakpoint on line
 bp 'source.c:12'
@@ -89,6 +91,9 @@ bu 'module_name!file.c:206'
 
 # set breakpoint on function
 bu module!function_name
+
+#set breakpoint on module name and funciton
+bm 'DriverName!DriverEntry'
 
 
 # Set breakpoint at DriverEntry, when there is no
@@ -184,3 +189,5 @@ u range
 bp nt!PspInsertProcess L20
 
 
+# step
+p
