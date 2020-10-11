@@ -119,6 +119,8 @@ dir /a /s c: | findstr "exe"
 
 
 # set daul network interface
+# first delete any ip 0.0.0.0
+route delete 0.0.0.0
 # 1.internal networking setting
 IP：192.168.3.29
 netmask：255.255.255.0
@@ -132,7 +134,10 @@ gateway：192.168.1.1
 DNS：192.168.1.1
 
 # 3.open cmd as administrator, add a router for internal network
+# 192.168.3.0 will through this interface
 route add 192.168.3.0 mask 255.255.255.0 192.168.3.1 -p
+# the left will through this interface
+route add 0.0.0.0 mask 0.0.0.0 192.168.1.1 -p
 
 # 4.setting internal networking interface is the first card.
 控制面板\网络和 Internet\网络连接 ----> 高级 ----> set "internal card is the first"
