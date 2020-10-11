@@ -1,0 +1,4 @@
+# call function
+:call
+# example
+:call search("Data, ", "w")
