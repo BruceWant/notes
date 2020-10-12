@@ -1,0 +1,25 @@
+# an overview of knows shell on a Linux system
+cat /etc/shells
+
+
+# invoked as an interactive login shell
+# Files read:
+/etc/profile
+~/.bash_profile,~/.bash_login or ~/.profile
+# upon logout
+~/.bash_logout
+
+# invoked as interactive non-login
+~/.bashrc
+
+
+# POSIX mode
+# 1. set built-in
+set -o posix
+# 2. bash with --posix option
+bash --posix
+
+
+# bash history file
+# ~/.bash_history
+echo $HISTFILE
