@@ -23,3 +23,28 @@ bash --posix
 # bash history file
 # ~/.bash_history
 echo $HISTFILE
+
+
+# conditionals expressions are used by [[ compound command
+
+
+# directory stack
+# changes the current directory
+pushd
+# changes the current directory to the directory removed
+popd
+
+
+# source
+.
+
+
+# Bourne Shell built-ins:
+:, ., break, cd, continue, eval, exec, exit, export, getopts, hash, pwd, readonly, return, set, shift, test, [, times, trap, umask and unset
+# Bash built-in commands:
+alias, bind, builtin, command, declare, echo, enable, help, let, local, logout, printf, read, shopt, type, typeset, ulimit and unalias
+
+# declare a variable
+declare
+# remove a variable
+unset
