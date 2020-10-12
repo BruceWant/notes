@@ -1,0 +1,12 @@
+# for vim-plug manager
+call plug#begin('~/.vim/plugged')
+Plug 'https://github.com/universal-ctags/ctags.git'
+call plug#end()
+
+# for universal-ctags config
+set tags=./.tags;,.tags
+
+set number
+set tabstop=4
+set shiftwidth=4
+set expandtab
