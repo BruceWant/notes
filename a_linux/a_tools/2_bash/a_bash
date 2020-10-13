@@ -33,9 +33,13 @@ echo $HISTFILE
 pushd
 # changes the current directory to the directory removed
 popd
+# display the current directory stack
+dirs
+# or another way to display stack
+echo $DIRSTACK
 
 
-# source
+# source = .
 .
 
 
@@ -48,3 +52,52 @@ alias, bind, builtin, command, declare, echo, enable, help, let, local, logout, 
 declare
 # remove a variable
 unset
+# display a list of all varialbes
+set
+# variable types
+string, integer, constant, array
+# create local variables
+varname="value"
+# create globle variable or environment variable
+# which means a subshell can use this variable.
+export VARNAME="value"
+
+
+# set prompt
+export PS1="\u@\h \w> "
+
+
+# execute script with spicified shell
+sh <script_name.sh>
+
+
+# debug
+# Print command traces before executing command.
+set -x
+# Disable file name generation using metacharacters (globbing).
+set -f
+# Prints shell input lines as they are read.
+set -v
+# debug tools
+# http://bashdb.sourceforge.net/
+
+
+# special parameters
+# 1. * for positional parameter start from 1.
+# not used
+$*
+# 2. @ for positional parameter start from 1.
+# @ is preferred
+$@
+# 3. # expands to the number of positional parameters in decimal.
+$#
+# 4. ? expands to the exit status of the program.
+$?
+# 5. $ expands to the PID of the shell
+$$
+# 6. ! expands to the PID of the job
+$!
+# 7. 0 expands to the name of the shell or script name.
+$0
+# 8. _ expands to the absolute path
+$_
