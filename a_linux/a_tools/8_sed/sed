@@ -1,0 +1,18 @@
+# print partten
+sed -n '/errors/p' <file_name>
+
+# delete lines of a pattern
+sed '/errors/d' <file_name>
+
+# match starting with a give pattern
+# ending with a second pattern
+sed -n '/^This.*errors.$/p' example
+
+# ranges of lines
+sed '2,4d' example
+
+# until last line
+sed '3,$d' example
+
+# from a line to another line containing pattern
+sed -n '/a text/,/This/p' example
