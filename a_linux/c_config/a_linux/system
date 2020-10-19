@@ -1,2 +1,32 @@
 # increase the maximum value vim file
 /proc/sys/kernel/pid_mac
+
+
+# degrade Ubuntu kernel
+# 1.check current version of Linux kernel
+uname -r
+# 2.check release version system
+lsb_release -a
+# 3.view already install linux kernel
+dpkg --get-selections | grep linux-image
+# 4.check a specified version of linux kernel on line
+apt-cache search linux | grep 3.13.0-32-generic
+# 5.(optional) if failed on step 4, then do this.
+# add "deb http://security.ubuntu.com/ubuntu trusty-security main"
+# to /etc/apt/sources.list, try step 4 again.
+# Or another way download deb package on following URL
+# http://kernel.ubuntu.com/~kernel-ppa/mainline/
+# 6.install linux header, image and image-extra package.
+apt install linux-headers-3.13.0-32-generic linux-image-3.13.0-32-generic linux-image-extra-3.13.0-32-generic
+# 7.check current startup squence
+grep menuentry /boot/grub/grub.cfg
+# 8.change squence of startup
+# change GRUB_DEFAULT=0 to GRUB_DEFAULT="1> 2"
+# comment GRUB_HIDDEN_TIMEOUT=0
+vim /etc/default/grub
+# 9.read changed configuration
+update-grub
+# 10.restart
+shutdown -r now
+# 11. turn off automate upgrade
+apt-mark hold linux-image-xxx-generic

@@ -1,8 +1,8 @@
 # print partten
-sed -n '/errors/p' <file_name>
+sed -n '/erors/p' <file_name>
 
 # delete lines of a pattern
-sed '/errors/d' <file_name>
+sed '/erors/d' <file_name>
 
 # match starting with a give pattern
 # ending with a second pattern
@@ -16,3 +16,15 @@ sed '3,$d' example
 
 # from a line to another line containing pattern
 sed -n '/a text/,/This/p' example
+
+# substitute
+sed 's/erors/errors/g' example
+
+# insert a string at the beginning of the each line
+sed 's/^/test_string/' example
+
+# insert a string at the ending of the each line
+sed 's/$/EOL/' example
+
+# multiple find and replace commands
+sed -e 's/erors/errors/g' -e 's/last/final/g' example
