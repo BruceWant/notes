@@ -1,0 +1,28 @@
+# awk command
+# 
+# Filesystem      Size  Used Avail Use% Mounted on
+# udev            971M     0  971M   0% /dev
+# tmpfs           199M  1.6M  198M   1% /run
+# /dev/sda1       118G  8.9G  103G   8% /
+# tmpfs           994M     0  994M   0% /dev/shm
+# tmpfs           5.0M  4.0K  5.0M   1% /run/lock
+# tmpfs           994M     0  994M   0% /sys/fs/cgroup
+# $1                $2  $3      $4  $5  $6 
+ls -l | awk '{print $5 $9}'
+
+# formatting fields
+ls -l | awk '{print "test " $5 "asldk " $9}'
+
+# formatting characters
+# 1.bell character
+\a
+# 2.newline character
+\n
+# 3.tab
+\t
+
+# regular expression
+awk 'EXPRESSION { PROGRAM }' file(s)
+# search the directory for files ending in ".conf"
+# and starting either with 'a' or 'x'
+ls -l | awk '/\<(a|x).*\.conf$/ { print $9 }'

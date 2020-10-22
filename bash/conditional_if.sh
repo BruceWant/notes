@@ -5,3 +5,8 @@ elif [ "first" != "second" ]; then
 else 
 	echo "nothing"
 fi
+
+if [ "10" -gt "5" ]
+then echo ; echo "you"
+    echo ;
+fi
