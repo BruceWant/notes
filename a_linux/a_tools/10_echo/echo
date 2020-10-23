@@ -1,0 +1,5 @@
+# interprets backslash-escaped characters
+echo -e "test\n"
+
+# suppresses the trailing newline.
+echo -n "test"

@@ -242,3 +242,78 @@ if TEST-COMMAND; then CONSEQUENT-COMMANDS; fi
 &&
 # or
 ||
+
+
+# case statements
+case EXPRESSION in CASE1) COMMAND-LIST;; CASE2) COMMAND-LIST;; ... CASEN) COMMAND-LIST;; esac
+
+# input command: read
+read [options] NAME1 NAME2 ... NAMEN
+# The words are assigned to sequential indexes of
+# the array variable ANAME, starting at 0.
+# All elements are removed from ANAME before the assignment.
+# Other NAME arguments are ignored.
+-a ANAME
+# The first character of DELIM is used to terminate the input line,
+# rather than newline.
+-d DELIM
+# readline is used to obtain the line.
+-e
+# read returns after reading NCHARS characters rather than
+# waiting for a complete line of input.
+-n NCHARS
+# Display PROMPT, without a trailing newline,
+# before attempting to read any input.
+# The prompt is displayed only if input is coming from a terminal.
+-p PROMPT
+# If this option is given, backslash does not act as an escape character.
+# The backslash is considered to be part of the line. In particular,
+# a backslash-newline pair may not be used as a line continuation.
+-r
+# Silent mode. If input is coming from a terminal,
+# characters are not echoed.
+-s
+# Cause read to time out and return failure
+# if a complete line of input is not read within TIMEOUT seconds.
+# This option has no effect if read is not reading input from
+# the terminal or from a pipe.
+-t TIMEOUT
+# Read input from file descriptor FD.
+-u FD
+
+
+# redirect stderr and stdout to a file
+cmd >> file.txt 2>&1
+# or another way
+cmd &> file.txt
+
+# This can be done for instance using a hyphen (-)
+# to indicate that a program should read from a pipe
+ls | cat -
+
+# close file descriptors
+exec fd<&-
+
+# here document
+cat << BROWSERS
+mozilla
+links
+lynx
+konqueror
+opera
+netscape
+BROWSERS
+
+read browser
+$browser &
+
+
+
+# for loop
+for NAME [in LIST ]; do COMMANDS; done
+
+# while loop
+while CONTROL-COMMAND; do CONSEQUENT-COMMANDS; done
+
+# until loop
+until TEST-COMMAND; do CONSEQUENT-COMMANDS; done
