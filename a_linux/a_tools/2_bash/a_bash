@@ -317,3 +317,49 @@ while CONTROL-COMMAND; do CONSEQUENT-COMMANDS; done
 
 # until loop
 until TEST-COMMAND; do CONSEQUENT-COMMANDS; done
+
+
+# declare a variable
+declare OPTION(s) VARIABLE=value
+# OPTIONS
+# Variable is an array.
+-a
+# Use function names only.
+-f
+# The variable is to be treated as an integer;
+# arithmetic evaluation is performed when the variable is assigned a value
+-i
+# Display the attributes and values of each variable.
+# When -p is used, additional options are ignored.
+-p
+# Make variables read-only. These variables cannot
+# then be assigned values by subsequent assignment statements,
+# nor can they be unset.
+-r
+# Give each variable the trace attribute.
+-t
+# Mark each variable for export to subsequent commands via the environment.
+-x
+# Using + instead of - turns off the attribute instead
+
+# constant
+readonly OPTION VARIABLES(s)
+
+# arrays
+# indirect declaration
+ARRAY[INDEXNR]=value
+# explicit declaration
+declare -a ARRAYNAME
+# another way
+ARRAY=(value1 value2 ... valueN)
+# dereferrence variables in array
+echo ${ARRAY[2]}
+echo ${ARRAY[*]}
+
+# deleting array variables
+unset ARRAY[1]
+unset ARRAY
+
+# length of variable
+echo ${#SHELL}
+echo ${#ARRAY}
