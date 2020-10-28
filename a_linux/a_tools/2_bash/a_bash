@@ -363,3 +363,33 @@ unset ARRAY
 # length of variable
 echo ${#SHELL}
 echo ${#ARRAY}
+
+# removing substrings
+${VAR:OFFSET:LENGTH}
+
+# deleting pattern matching expansion of WORD
+# only delete WORD
+${VAR#WORD}
+# can use regular expression
+${VAR##WORD}
+
+# replacing parts of variable names
+# replace PATTERN with STRING the first match
+${VAR/PATTERN/STRING}
+# replace PATTERN with STRING all matches
+${VAR//PATTERN/STRING}
+
+
+# function syntax
+function FUNCTION { COMMANDS; }
+# or another syntax
+FUNCTION () { COMMANDS; }
+
+
+# signal trap
+trap [COMMANDS] [SIGNALS]
+
+# alias
+alias ls="ls -l --color=never"
+# unalias
+unalias ls
