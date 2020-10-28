@@ -30,3 +30,6 @@ update-grub
 shutdown -r now
 # 11. turn off automate upgrade
 apt-mark hold linux-image-xxx-generic
+
+# current rlimit values
+cat /proc/self/limits
