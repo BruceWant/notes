@@ -1,0 +1,18 @@
+1. autoscan
+2. cp configure.scan configure.ac
+3. vim configure.ac
+4. aclocal
+5. autoconf
+6. autoheader
+7. vim Makefile.am
+8. automake --add-missing
+9. ./configure
+10. make
+# pack the source
+11. make dist
+
+# use it
+tar -zxvf <name>.tar.gz
+cd <name>
+./configure
+make
