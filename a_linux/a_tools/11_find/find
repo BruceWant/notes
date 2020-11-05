@@ -1,3 +1,5 @@
 # find and cp
 find . -path <exclude_path>  -prune -o -type f -print0 | xargs -0  cp -t <target_path>
 
+# find and execute
+find . -name "*" -exec touch '{}' \;
