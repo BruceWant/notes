@@ -1,0 +1,45 @@
+# 1.download qemu
+https://qemu.weilnetz.de/
+# 2.download qemu kernel and dtb
+# kernel-qemu-4.14.79-stretch and versatile-pb-buster.dtb
+https://github.com/dhruvvyas90/qemu-rpi-kernel
+# 3.download raspberry
+https://downloads.raspberrypi.org/raspios_armhf_latest
+# 4.convert img to qcow for dynamically disk allocate.
+qemu-img.exe convert -f raw -O qcow2 <YOUR-PATH>\2020-05-27-raspios-buster-armhf.img <YOUR-PATH>\image.qcow
+# 5.extend disk
+qemu-img.exe resize <YOUR-PATH>\image.qcow +10G
+# 6.start qemu
+qemu-system-arm -M versatilepb -cpu arm1176 -m 256 -hda <YOUR_PATH>/2020-02-13-raspbian-buster.img  -net user,hostfwd=tcp::5022-:22 -net nic -dtb <YOUR_PATH>/versatile-pb-buster.dtb -kernel <YOUR_PATH>/kernel-qemu-4.19.50-buster -append "root=/dev/sda2 panic=1"
+# 7.fdisk
+# 7.1 fdisk
+sudo fdisk /dev/sda
+# 7.2 p: print partition
+p
+# 7.3 d: delete second partition
+d
+# 7.4 n: create(new) a partition
+n
+# 7.5 create primary partition
+<enter>
+# 7.6 create number 2 partition
+<enter>
+# 7.7 location of start
+<number>
+# 7.8 maximum partition
+<enter>
+# 7.9 yes delete ext4 signature
+yes
+# 7.10 w: save changes.
+w
+# 7.11 restart
+shutdown -r now
+# 7.12 resize
+sudo resize2fs /dev/sda2
+
+
+# start in console mode
+sudo raspi-config
+>Select 3 – Boot Options
+>Select B1 – Desktop / CLI
+>Select B2 – Console Autologin

@@ -33,3 +33,6 @@ apt-mark hold linux-image-xxx-generic
 
 # current rlimit values
 cat /proc/self/limits
+
+# inotify limits
+/proc/sys/fs/inotfiy

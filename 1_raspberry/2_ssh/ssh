@@ -1,0 +1,8 @@
+# start ssh
+sudo service ssh start
+# auto start ssh after boot
+vi /etc/rc.local
+    ## add command
+    /etc/init.d/ssh start
+# start ssh at startup
+sudo update-rc.d ssh enable

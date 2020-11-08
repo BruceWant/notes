@@ -1,0 +1,87 @@
+#	Alias	Purpose
+R0	–	 General purpose
+R1	–	 General purpose
+R2	–	 General purpose
+R3	–	 General purpose
+R4	–	 General purpose
+R5	–	 General purpose
+R6	–	 General purpose
+R7	–	Holds Syscall Number
+R8	–	 General purpose
+R9	–	 General purpose
+R10	–	 General purpose
+R11	FP	Frame Pointer
+Special Purpose Registers
+R12	IP	Intra Procedural Call
+R13	SP	Stack Pointer
+R14	LR	Link Register
+R15	PC	Program Counter
+CPSR	–	Current Program Status Register
+
+# how the ARM related to those in Intel processors
+ARM	Description                 x86
+R0	General Purpose	            EAX
+R1-R5	General Purpose	        EBX, ECX, EDX, ESI, EDI
+R6-R10	General Purpose	        –
+R11 (FP)	Frame Pointer	    EBP
+R12	Intra Procedural Call	    –
+R13 (SP)	Stack Pointer	    ESP
+R14 (LR)	Link Register	    –
+R15 (PC)	<- Program Counter / Instruction Pointer ->	EIP
+CPSR	Current Program State Register/Flags	        EFLAGS
+
+# R0-R12: can be used during common operations to store temporary values, pointers (locations to memory), etc.
+
+
+# ARM instruction template
+MNEMONIC{S}{condition} {Rd}, Operand1, Operand2
+MNEMONIC     - Short name (mnemonic) of the instruction
+{S}          - An optional suffix. If S is specified,
+               the condition flags are updated on the result of
+               the operation
+{condition}  - Condition that is needed to be met in order
+               for the instruction to be executed
+{Rd}         - Register (destination) for storing the result of
+               the instruction
+Operand1     - First operand. Either a register or an immediate value 
+Operand2     - Second (flexible) operand.
+               Can be an immediate value (number) or
+               a register with an optional shift
+
+
+
+# summary
+Instruction	Description	            Instruction	Description
+MOV	        Move data	            EOR	        Bitwise XOR
+MVN	        Move and negate	        LDR	        Load
+ADD	        Addition	            STR	        Store
+SUB	        Subtraction	            LDM	        Load Multiple
+MUL	        Multiplication	        STM	        Store Multiple
+LSL	        Logical Shift Left	    PUSH	    Push on Stack
+LSR	        Logical Shift Right	    POP	        Pop off Stack
+ASR	        Arithmetic Shift Right	B	        Branch
+ROR	        Rotate Right	        BL	        Branch with Link
+CMP	        Compare	                BX	        Branch and eXchange
+AND	        Bitwise AND	            BLX	        Branch with Link and eXchange
+ORR	        Bitwise OR	            SWI/SVC	    System Call
+
+
+offset mode uses an immediate as offset
+ldr   r3, [r1, #4]
+offset mode uses a register as offset
+ldr   r3, [r1, r2]
+offset mode uses a scaled register as offset
+ldr   r3, [r1, r2, LSL#2]
+
+If there is a !, it’s prefix address mode
+ldr   r3, [r1, #4]!
+ldr   r3, [r1, r2]!
+ldr   r3, [r1, r2, LSL#2]!
+
+ldr   r3, [r1], #4
+ldr   r3, [r1], r2
+ldr   r3, [r1], r2, LSL#2
+
+ldr   r3, [r1, #4]
+ldr   r3, [r1, r2]
+ldr   r3, [r1, r2, LSL#2]
