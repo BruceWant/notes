@@ -28,3 +28,8 @@ sed 's/$/EOL/' example
 
 # multiple find and replace commands
 sed -e 's/erors/errors/g' -e 's/last/final/g' example
+
+# substitute one line
+sed -i "1c replacement" <file_name>
+# substitute certain lines
+sed -i "1,2c replacement" <file_name>

@@ -393,3 +393,10 @@ trap [COMMANDS] [SIGNALS]
 alias ls="ls -l --color=never"
 # unalias
 unalias ls
+
+# single quote
+# Single quotes won't interpolate anything, but double quotes will
+$ echo "$(echo "test")"
+test
+$ echo '$(echo "test")'
+(echo "test")

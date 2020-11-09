@@ -1,0 +1,4 @@
+# execuate command in recipe
+# for example
+run:
+    var=$$(date); echo $$var
