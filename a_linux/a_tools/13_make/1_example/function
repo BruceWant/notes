@@ -1,0 +1,20 @@
+# command: make -f function
+.PHONY : test
+
+define foo
+    @echo "My name is $(0)"
+endef
+
+define foo2
+    @echo "my name is $(0)"
+    @echo "param => $(1)"
+endef
+
+var := $(call foo)
+new := $(foo)
+
+test :
+	@echo "var => $(var)"
+	@echo "new => $(new)"
+	$(call foo)
+	$(call foo2, Jiau)

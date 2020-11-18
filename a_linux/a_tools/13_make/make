@@ -2,3 +2,13 @@
 # for example
 run:
     var=$$(date); echo $$var
+
+
+# define a function
+define <function_name>
+    # command
+    @echo "My name is $(0)"
+endef
+
+# call function
+$(call <function_name>, arg1, arg2,...)

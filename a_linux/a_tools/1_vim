@@ -2,3 +2,12 @@
 :call
 # example
 :call search("Data, ", "w")
+
+# compound command		equivalent in longhand
+C						c$
+s						cl
+S						^C
+I						^i
+A						$a
+o						A<CR>
+O						ko
