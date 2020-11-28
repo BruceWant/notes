@@ -1,0 +1,17 @@
+# command: make
+
+cond:=$(findstring a, a b c)
+var2:=$(findstring a, b c)
+
+all:
+ifeq ($(cond),)
+	@echo not find
+else
+	@echo $(cond)
+endif
+
+ifeq ($(var2),)
+	@echo not find
+else
+	@echo $(cond)
+endif

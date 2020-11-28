@@ -1,0 +1,5 @@
+
+var2 := $(wildcard *.c)
+
+all:
+	@echo $(var2)

@@ -1,0 +1,6 @@
+
+sources := foo.c bar.c baz.s ugn.h
+var2 := $(filter %.c %.s,$(sources))
+
+all:
+	@echo $(var2)

@@ -1,0 +1,4 @@
+
+var2 := $(patsubst %.c, %.o, x.c.c bar.c)
+all:
+	@echo $(var2)
