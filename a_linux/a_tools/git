@@ -90,3 +90,15 @@ git remote
 # list remote server name related URL
 git remote -v
 
+
+# modified file lists
+git log --name-only
+# modified files and statistics
+git log --stat
+# modified files and status
+git log --name-status
+# modified file lists
+git whatchanged
+# show what content has been changed
+git show
+git show [commit_id]

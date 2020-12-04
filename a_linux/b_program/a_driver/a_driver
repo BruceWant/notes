@@ -34,7 +34,8 @@ nmcli device
 lspci
 # list installed network card
 ip link show
-
+# list interface card
+lspci | grep -i eth
 
 #install adb on Ubuntu
 sudo apt install android-tools-adb android-tools-fastboot
