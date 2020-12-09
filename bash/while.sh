@@ -15,3 +15,11 @@ do
     echo $i
 done
 
+j=1
+i=1
+while [ $i -lt 4 ] && [ $j -lt 8 ] && [ ! -f file_exist ]
+do
+	i=$[$i+1]
+	j=$((j+2))
+	echo $i $j
+done

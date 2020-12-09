@@ -1,0 +1,7 @@
+# replace char a with b
+# usage: echo "$string" | tr 'a' 'b'
+# usage: tr '\n' ' ' < input_filename
+tr 'a' 'b'
+
+# delete char
+tr -d '\r' < infile > outfile
