@@ -1,0 +1,3 @@
+
+all:
+	@+echo $(subst ee,EE, feet on the street)

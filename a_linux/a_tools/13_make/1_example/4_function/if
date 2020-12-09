@@ -1,0 +1,6 @@
+
+var:=asd
+ord:=$(if $(var), $(if $(var1), st, else), outside)
+all:
+	@echo $(if string_is_nonempty, true, false)
+	@echo $(ord)

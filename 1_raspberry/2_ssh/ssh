@@ -6,3 +6,7 @@ vi /etc/rc.local
     /etc/init.d/ssh start
 # start ssh at startup
 sudo update-rc.d ssh enable
+
+
+# login raspberry which run on qemu using ssh
+ssh pi@127.0.0.1 -p 5022

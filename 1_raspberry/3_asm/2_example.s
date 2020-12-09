@@ -1,3 +1,6 @@
+/* command: arm-none-eabi-as so.s -o so.o
+ * arm-none-eabi-objdump -D so.o
+ */
 .section .text
 .global _start
 
