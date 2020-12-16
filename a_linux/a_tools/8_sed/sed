@@ -37,3 +37,10 @@ sed -e 's/erors/errors/g' -e 's/last/final/g' example
 sed -i "1c replacement" <file_name>
 # substitute certain lines
 sed -i "1,2c replacement" <file_name>
+# replace whole line containing a string
+# change
+sed -i '/text_to_be_replaced/c\new_line'
+
+# find multiple line then replace
+# -z: seperate lines with NUL character
+sed -z -i 's/first_line\nSeconde_line/new_line/' <file_name>

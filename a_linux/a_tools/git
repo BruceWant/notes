@@ -102,3 +102,10 @@ git whatchanged
 # show what content has been changed
 git show
 git show [commit_id]
+
+# withdraw last commited certain file
+git rm --cached <file>
+git commit --amend
+
+# show difference between two files that belong to commited id
+git diff <commit_id> <commit_id2> -- <file_name>

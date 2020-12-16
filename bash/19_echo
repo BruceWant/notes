@@ -1,0 +1,18 @@
+#!/bin/bash
+
+
+
+cat << EOF
+first line
+second line
+third line
+EOF
+
+echo
+
+echo "first line
+second line
+third line"
+
+
+
