@@ -1,0 +1,9 @@
+
+
+ls := $(shell ls ; touch a)
+
+
+all:
+	@echo $(ls)
+	@echo $(test)
+test := "asdfkj"

@@ -1,4 +1,5 @@
-
+# command: make -f if [var1=<argument>]
+# syntax: $(if condition,then-part[,else-part])
 var:=asd
 ord:=$(if $(var), $(if $(var1), st, else), outside)
 all:

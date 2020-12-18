@@ -109,3 +109,11 @@ git commit --amend
 
 # show difference between two files that belong to commited id
 git diff <commit_id> <commit_id2> -- <file_name>
+
+
+# reset HEAD to commit and working place to commit status
+# equal to: git reset <commit>
+git reset --mixed <commit>
+
+# reset HEAD to commit and delete working place
+git reset --hard <commit>

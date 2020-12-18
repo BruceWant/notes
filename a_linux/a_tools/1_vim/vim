@@ -11,3 +11,9 @@ I						^i
 A						$a
 o						A<CR>
 O						ko
+
+# execute external command
+:!<command>
+
+# read output of the external command
+:r !<command>
