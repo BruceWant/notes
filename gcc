@@ -39,3 +39,59 @@ __align(2) uint8_t buf[16]
 # error: stack smashing detected
 # reason: stack overflow
 gcc -fno-stack-protector stack.c
+
+
+# create static library
+gcc -g -c test2.c test3.c
+ar r libdemo.a test2.o test3.o
+
+# display the contents of the archive
+ar tv libdemo.a
+
+# delete the module from the archive
+ar d libdemo.a test2.o
+
+# using a static library
+# 1. libdemo.a in the current directory
+gcc -g -c prog.c
+gcc -g -o prog prog.o libdemo.a
+# 2. libdemo.a in a searched directory
+gcc -g -o prog prog.o -ldemo
+# 3. libdemo.a resides in a directory not searched by linker
+gcc -g -o prog prog.o -Lmylibdir -ldemo
+
+
+# create shared library
+# -fPIC: position-independent code
+gcc -g -c -fPIC -Wall test2.c test3.c
+gcc -g -shared -o  libfoo.so test2.o test3.o
+# create shared library in a single command line
+gcc -g -fPIC -Wall test2.c test3.c -shared -o libfoo.so
+
+# determine whether an object file compiled with -fPIC
+nm mod1.o | grep _GLOBAL_OFFSET_TABLE_
+readelf -s mod1.o | grep _GLOBAL_OFFSET_TABLE_
+
+# if the following two command yeilds any output,
+# then at least have one object file compiled without
+# -fPIC
+objdump --all-headers libfoo.so | grep TEXTREL
+readelf -d libfoo.so | grep TEXTREL
+
+# link program with shared library
+gcc -g -Wall -o prog prog.c libfoo.so
+
+# create a shared library with soname
+# -Wl,-soname,libbar.so
+gcc -g -c -fPIC -Wall mod1.c mod2.c mod3.c
+gcc -g -shared -Wl,-soname,libbar.so -o libfoo.so mod1.o mod2.o mod3.o
+
+# read soname of the shared library
+objdump -p libfoo.so | grep SONAME
+readelf -d libfoo.so | grep SONAME
+
+# find out witch shared library a process is currently using
+cat /proc/PID/maps
+
+# using a shared library
+gcc -g -Wall -o prog prog.c -L. -ldemo
