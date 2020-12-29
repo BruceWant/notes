@@ -95,3 +95,6 @@ cat /proc/PID/maps
 
 # using a shared library
 gcc -g -Wall -o prog prog.c -L. -ldemo
+
+# specifying library search directoies in an object file
+gcc -g -Wall -Wl,-rpath,/home/mtk/pdir -o prog prog.c libdemo.so
