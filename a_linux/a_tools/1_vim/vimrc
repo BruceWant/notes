@@ -1,3 +1,5 @@
 "# tabs shows as > for the start position and - through the rest of the tab
 set list
 set listchars=tab:>-
+
+set tags=./.tags;,.tags
