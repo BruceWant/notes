@@ -1,0 +1,5 @@
+# list the dynamic symbols exported by the library
+readelf --syms --use-dynamic vis.so | grep vis_
+
+# display the symbol tables
+readelf -s <program>

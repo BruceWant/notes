@@ -1,0 +1,5 @@
+# displays the current contents of /etc/ld.so.cache
+ldconfig -p
+
+# display output describing its actions
+ldconfig -v

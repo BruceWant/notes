@@ -1,2 +1,20 @@
 # List minifilter on Windows
 fltmc.exe filters
+
+# capturing a crash dump file from Windows blue screen BSOD
+# 1.default minidump
+C:\Windows\Minidump\##-##-##.dmp
+# 2.complete dump
+2.1 right-click over the "This PC" icon on your desktop, select "Properties"
+2.2 "System" panel will appear, click "Advanced system seting" to open
+    "System Properties".
+2.3 click "Advanced" tab.
+2.4 click the "Settings" button under the "Statup and Recoverty" section.
+2.5 Select "Complete memory dump" from the "Write debugging information"
+    drop down menu.
+2.6 click "OK" button.
+2.7 click "OK" button in parent interface.
+2.8 restart.
+# When blue screen hyppened, get dump file from following file:
+c:\Windows\MEMORY.DMP
+

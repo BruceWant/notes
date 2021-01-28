@@ -1,0 +1,4 @@
+# version scripts
+gcc -g -c -fPIC -Wall vis_comm.c vis_f1.c vis_f2.c
+gcc -g -shared -o vis.so vis_comm.o vis_f1.o vis_f2.o \
+    -Wl,--version-script,vis.map
