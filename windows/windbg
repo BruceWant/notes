@@ -191,3 +191,7 @@ bp nt!PspInsertProcess L20
 
 # step
 p
+
+
+# analysis a core dump file
+!analyze -v
