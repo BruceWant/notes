@@ -85,3 +85,6 @@ struct test
     int *pa;
 };
 #pragma pack(pop)
+
+# add library in source code
+#pragma comment(lib, "User32.lib")
