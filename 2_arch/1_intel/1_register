@@ -1,0 +1,9 @@
+# 3.3 physical address space
+# Pentium Pro processor enable physical address space to 64GB 2^36
+# in the IA-32 architecture.
+# way 1:
+1.using the physical address extension(PAE) flag, bit 5 of register CR4
+# way 2:
+2.Using the 36-bit page size extension (PSE-36) feature
+(introduced in the Pentium III processors).
+
