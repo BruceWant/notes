@@ -67,3 +67,10 @@ struct test
     int *pa;
 };
 #pragma pack(pop)
+
+
+# g++ stack overflow
+# turn on protect stack overflow
+-f-stack-protector
+# turn if off
+-fno-stack-protector
