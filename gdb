@@ -138,8 +138,34 @@ funcaddr
 (gdb) finish
 
 # print registers value
+# 1.Print the names and values of all registers
+# except floating-point and vector registers (in the selected stack frame).
 info registers
+# 2.Print the names and values of all registers,
+# including floating-point and vector registers
+# (in the selected stack frame).
+info all-registers
+# 3.Print a single register
 info registers eax
+# 4.print the instruction to be executed next with
+x/i $pc
+
+# list all global and static variable names(name and values)
+info variables
+# list local variable of current stack frame(name and values)
+info locals
+# list arguments of the current stack frame(name and values)
+info args
+
+# DGB has four "standard" register names
+# 1. program counter register
+$pc
+# 2. stack pointer
+$sp
+# 3. contains a pointer to the current stack frame
+$fp
+# 4. contains the processor status
+$ps
 
 
 # print value
@@ -147,6 +173,17 @@ print <value_name>
 
 
 # examine memory address
+# n: the repeat count,
+# 	If a negative number is specified,
+# 	memory is examined backward from addr.
+# f: the display format
+# 	the display format is one of the formats used by print
+# 	(‘x’, ‘d’, ‘u’, ‘o’, ‘t’, ‘a’, ‘c’, ‘f’, ‘s’),
+# 	and in addition ‘i’ (for machine instructions).
+# 	The default is ‘x’ (hexadecimal)
+# u: the unit size
+# 	b: Bytes, h: Halfwords(two bytes), w: Words(four bytes).Default value
+# 	g: Giant words(eight bytes)
 x/nfu addr
 x addr
 # examine machine instructions
