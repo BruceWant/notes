@@ -1,18 +1,12 @@
 call plug#begin('~/.vim/plugged')
-Plug 'https://github.com/universal-ctags/ctags.git'
+
+" ctags
+Plug 'https://github.com/universal-ctags/ctags'
 Plug 'https://github.com/ludovicchabant/vim-gutentags'
+Plug 'https://github.com/skywind3000/gutentags_plus'
+Plug 'https://github.com/skywind3000/vim-preview'
+
 call plug#end()
-
-"# tabs shows as > for the start position and - through the rest of the tab
-set list
-set listchars=tab:>-
-
-set tags=./.tags;,.tags
-set number
-set tabstop=4
-set shiftwidth=4
-set expandtab
-"set autoindent
 
 "自动载入ctags gtags
 if version >= 800

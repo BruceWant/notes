@@ -1,2 +1,11 @@
 # test solution
 make grade
+
+# test a single solution
+make GRADEFLAGS=<program> grade
+
+# debug
+# run command on first windows
+make qemu-gdb
+# run following command on second windows
+gdb
