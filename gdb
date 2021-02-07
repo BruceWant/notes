@@ -77,7 +77,49 @@ gdb
 
 # setting breakpoint
 break <location>
-# specifies the line linenum in the source file
+# Specifying a <location>: linespec, Explicit, address location
+# 1.linespec
+# 1.1 Specifies the line number linenum of the current source file.
+<linenum>
+# 1.2 Specifies the line linenum in the source file filename.
+<filename>:<linenum>
+# 1.3 function Specifies the line that begins the body of the function.
+<function>
+# 1.4 Specifies the line where label appears in function.
+<function>:<lable>
+# 1.5 Specifies the line that begins the body of the function,
+# 	function in the file filename.
+<filename>:<function>
+# 1.6 Specifies the line at which the label named label,
+# 	appears in the function corresponding to the currently
+# 	selected stack frame.
+<label>
+# 2. Explicit locations
+# 	2.1 The value specifies the source file name.
+-source <filename>
+#	2.2 The value specifies the name of a function.
+-function <function>
+#	2.3 This flag makes GDB interpret a function name specified
+#		with -function as a complete fully-qualified name.
+#		For example, assuming a C++ program with symbols named
+#		A::B::func and B::func, the break -qualified -function
+#		B::func command sets a breakpoint on B::func, only.
+-qualified
+#	2.4 The value specifies the name of a label.
+-label <label>
+#	2.5 The value specifies a line offset for the location.
+-line <number>
+# 3. Address locations
+# 	3.1 Any expression valid in the current working language.
+<expression>
+#	3.2 An address of a function or procedure derived from its name.
+<funcaddr>
+#	3.3 Like funcaddr above,
+#		but also specifies the name of the source file explicitly.
+<'filename'>:<funcaddr>
+
+
+# 	specifies the line linenum in the source file
 break filename:linenum
 # set breakpoint
 b 9
@@ -109,6 +151,26 @@ tbreak test.c:10
 -label label
 # specifies a line offset for the location
 -line number
+
+
+# Display the current working language.
+show language
+# Display the source language for this frame.
+info frame
+# Display the source language of this source file.
+info source
+# List all the filename extensions and the associated languages.
+info extensions
+
+
+# strict type checking
+set check type on
+set check type off
+show check type
+
+# set language
+set language <name>
+
 
 # address locations
 # any expression valid in the current working language
