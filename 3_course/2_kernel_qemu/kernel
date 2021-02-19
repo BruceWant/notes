@@ -16,3 +16,9 @@ CONFIG_DEBUG_INFO=y
 make olddefconfig
 # step 4:
 make bzImage j2 && make vmlinux j2
+
+# QEMU
+sudo apt install qemu-system-x86
+
+# starting debug
+gdb vmlinux  --eval-command="target remote tcp::1234"
