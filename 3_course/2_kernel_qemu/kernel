@@ -1,0 +1,24 @@
+# build kernel on Ubuntu 20.04
+# https://mirrors.tuna.tsinghua.edu.cn/git/linux.git
+# git://kernel.source.codeaurora.cn/pub/scm/linux/kernel/git/torvalds/linux.git
+sudo apt install flex bison
+sudo apt install libssl-dev libelf-dev
+
+
+
+# step 1:
+make CC="$GCC/bin/gcc" defconfig
+# step 2:
+vim .config
+CONFIG_KCOV=y
+CONFIG_DEBUG_INFO=y
+# step 3:
+make olddefconfig
+# step 4:
+make bzImage j2 && make vmlinux j2
+
+# QEMU
+sudo apt install qemu-system-x86
+
+# starting debug
+gdb vmlinux  --eval-command="target remote tcp::1234"
