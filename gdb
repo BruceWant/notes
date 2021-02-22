@@ -258,3 +258,9 @@ disas
 
 # set intel syntax
 (gdb) set disassembly-flavor intel
+
+
+# set register to certain value
+set $eax = <value>
+# for example
+set $eax = 0x66
