@@ -155,7 +155,7 @@ tbreak test.c:10
 
 # Display the current working language.
 show language
-# Display the source language for this frame.
+# Display the source language for this frame, and stack contents.
 info frame
 # Display the source language of this source file.
 info source
@@ -212,6 +212,9 @@ info registers eax
 # 4.print the instruction to be executed next with
 x/i $pc
 
+# print first 10 stack element
+x/10x $sp
+
 # list all global and static variable names(name and values)
 info variables
 # list local variable of current stack frame(name and values)
@@ -258,3 +261,9 @@ disas
 
 # set intel syntax
 (gdb) set disassembly-flavor intel
+
+
+# set register to certain value
+set $eax = <value>
+# for example
+set $eax = 0x66
