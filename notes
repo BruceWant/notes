@@ -464,6 +464,8 @@ sudo mkswap -f swap
 sudo swapon swap
 # turn off swap
 sudo swapoff swap
+# set vm.overcommit_memory=2
+/proc/sys/vm/overcommit_memory
 
 # check the status of swap space
 cat /proc/swaps
