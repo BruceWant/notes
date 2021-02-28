@@ -148,3 +148,9 @@ route delete 192.168.3.0 192.168.3.1 -p
 # or another way
 # open regedit.exe, delete which you want.
 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\Tcpip\Parameters\PersistentRoutes
+
+
+# get max capacity of memory
+wmic memphysical get maxcapacity
+# get freqency of memory
+wmic memorychip
