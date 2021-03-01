@@ -454,3 +454,19 @@ sudo apt-get purge <app_name>
 # remove config file
 sudo apt-get autoremove
 sudo apt-get clean
+
+
+# create a swap
+sudo dd if=/dev/zero of=swap bs=1024 count=<num>
+sudo mkswap -f swap
+# vim /etc/fstab
+/opt/swapfile/swap swap swap sw 0 0
+sudo swapon swap
+# turn off swap
+sudo swapoff swap
+# set vm.overcommit_memory=2
+/proc/sys/vm/overcommit_memory
+
+# check the status of swap space
+cat /proc/swaps
+grep 'Swap' /proc/meminfo
