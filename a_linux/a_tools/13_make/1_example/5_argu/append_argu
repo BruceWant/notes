@@ -1,0 +1,12 @@
+# first method:
+# export LDLIBS='AS F';
+# export CFLAGS=-g
+# make -f append_argu
+#
+# second method:
+# command: LDLIBS='AS F' CFLAGS=-g make -f append_argu
+CFLAGS += -Wall
+LDLIBS += -TEST
+
+all:
+	echo $(CFLAGS) $(LDLIBS)
