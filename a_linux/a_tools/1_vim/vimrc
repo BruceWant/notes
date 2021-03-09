@@ -12,7 +12,14 @@ set number
 set tabstop=4
 set shiftwidth=4
 set expandtab
-"set autoindent
+set noexpandtab
+set autoindent
+
+"set hls
+set hlsearch
+" Turn heighlight temporary.
+":nohls
+:nohlsearch
 
 "自动载入ctags gtags
 if version >= 800
