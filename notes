@@ -470,3 +470,9 @@ sudo swapoff swap
 # check the status of swap space
 cat /proc/swaps
 grep 'Swap' /proc/meminfo
+
+
+# check the status of DNS on ubuntu 20.04
+sudo systemd-resolv --status
+# lower version
+nm-tool

@@ -1,0 +1,2 @@
+# get amount stored in directory
+du -sh <directory>
