@@ -1,0 +1,51 @@
+   SIP supports five facets of establishing and terminating multimedia
+   communications:
+
+      User location: determination of the end system to be used for
+           communication;
+
+      User availability: determination of the willingness of the called
+           party to engage in communications;
+
+      User capabilities: determination of the media and media parameters
+           to be used;
+
+      Session setup: "ringing", establishment of session parameters at
+           both called and calling party;
+
+      Session management: including transfer and termination of
+           sessions, modifying session parameters, and invoking
+           services.
+
+
+                     atlanta.com  . . . biloxi.com
+                 .      proxy              proxy     .
+               .                                       .
+       Alice's  . . . . . . . . . . . . . . . . . . . .  Bob's
+      softphone                                        SIP Phone
+         |                |                |                |
+         |    INVITE F1   |                |                |
+         |--------------->|    INVITE F2   |                |
+         |  100 Trying F3 |--------------->|    INVITE F4   |
+         |<---------------|  100 Trying F5 |--------------->|
+         |                |<-------------- | 180 Ringing F6 |
+         |                | 180 Ringing F7 |<---------------|
+         | 180 Ringing F8 |<---------------|     200 OK F9  |
+         |<---------------|    200 OK F10  |<---------------|
+         |    200 OK F11  |<---------------|                |
+         |<---------------|                |                |
+         |                       ACK F12                    |
+         |------------------------------------------------->|
+         |                   Media Session                  |
+         |<================================================>|
+         |                       BYE F13                    |
+         |<-------------------------------------------------|
+         |                     200 OK F14                   |
+         |------------------------------------------------->|
+         |                                                  |
+
+         Figure 1: SIP session setup example with SIP trapezoid
+
+18.transport
+18.1 clients
+18.1.1 sending requests

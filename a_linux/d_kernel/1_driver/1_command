@@ -1,0 +1,10 @@
+# install module
+insmod
+# remove module
+rmmod
+# list modules currently loaded in the kernel
+lsmod
+# also checkout virtual file
+cat /proc/modules
+# also checkout on sysfs virtual filesystem
+cd /sys/module
