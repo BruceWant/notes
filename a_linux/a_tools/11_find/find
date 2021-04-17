@@ -3,3 +3,9 @@ find . -path <exclude_path>  -prune -o -type f -print0 | xargs -0  cp -t <target
 
 # find and execute
 find . -name "*" -exec touch '{}' \;
+
+# exclude directory
+find . -path ./build -prune -o -name <search_fiel_name>
+# exclude mutiple directory
+find . \( -path ./first_exclude -o -path ./seconde_exclude \) -prune -o \
+    -name <search_file_name>
