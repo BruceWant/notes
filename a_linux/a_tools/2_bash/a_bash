@@ -433,3 +433,9 @@ ALT+l / ESC+l  Lower the case of characters from the cursor to the
                 end of the current word and move to the end of the word.
 ALT+c / ESC+c  Capitalize the character under the cursor position 
                 and move to the end of the word.
+
+
+# Readline vi mode
+set -o vi
+# disable vim mode
+set +o vi

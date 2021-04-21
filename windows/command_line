@@ -154,3 +154,12 @@ HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\Tcpip\Parameters\Persistent
 wmic memphysical get maxcapacity
 # get freqency of memory
 wmic memorychip
+
+
+# list or changes the com port mapping to be compatible with MS-DOS app.
+# 1. dispaly current com port
+change port /query
+# 2. using cmd: mode
+mode
+# 3. using wmic
+wmic path win32_pnpentity get caption /format:list | find "COM"
