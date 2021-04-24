@@ -476,3 +476,7 @@ grep 'Swap' /proc/meminfo
 sudo systemd-resolv --status
 # lower version
 nm-tool
+
+
+# Both stderr and output displayed on the console and in a file
+<command> 2>&1 | tee <log_name>
