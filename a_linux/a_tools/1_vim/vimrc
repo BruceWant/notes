@@ -74,3 +74,36 @@ if version >= 800
     noremap <leader>d :PreviewScroll +1<cr> "  往下滚动预览窗口
 endif
 
+
+"Generate tags and cscope.out from FileList.txt (c, cpp, h, hpp)
+nmap <C-@> :!find -name "*.c" -o -name "*.cpp" -o -name "*.h" -o -name "*.hpp" > .fileList.txt<CR>
+                       \ :!ctags -L -< .fileList.txt<CR>
+                       \ :!cscope -bkq -i .fileList.txt<CR>
+                       \ :!mv tags .tags<CR>
+
+if has("cscope")
+    set csto=0
+    set nocsverb
+    " add any database in current directory
+    if filereadable("cscope.out")
+        cs add cscope.out
+    else
+      let cscope_file=findfile("cscope.out", ".;")
+      let cscope_pre=matchstr(cscope_file, ".*/")
+      if !empty(cscope_file) && filereadable(cscope_file)
+        exe "cs add" cscope_file cscope_pre
+      endif
+    endif
+    set csverb
+    "set cst  这两句会将cscope当作tag，当找不到时会卡住，因此注释掉
+    "set cscopetag
+endif
+
+nmap zs :cs find s <C-R>=expand("<cword>")<CR><CR>
+nmap zg :cs find g <C-R>=expand("<cword>")<CR><CR>
+nmap zc :cs find c <C-R>=expand("<cword>")<CR><CR>
+nmap zt :cs find t <C-R>=expand("<cword>")<CR><CR>
+nmap ze :cs find e <C-R>=expand("<cword>")<CR><CR>
+nmap zf :cs find f <C-R>=expand("<cfile>")<CR><CR>
+nmap zi :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap zd :cs find d <C-R>=expand("<cword>")<CR><CR>
