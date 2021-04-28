@@ -1,0 +1,60 @@
+1.QEMU:
+  1.1.Depending:
+    - debootstrap
+    - qemu-system
+    - dwarves
+  1.2.Create some default configs
+    make defconfig
+    make kvm_guest.config
+      # 1.2.1.Adds debugging symbols to the kernel and modules
+      CONFIG_DEBUG_INFO=y
+      # 1.2.2.Print symbolic crash information and stack backtraces
+      CONFIG_KALLSYMS=y
+      # 1.2.3.disable KASLR, means kernel symbol address change with
+          each restart
+      # CONFIG RANDOMIZE BASE is not set
+      # 1.2.4.KASAN is used to detect use-after-free and out-of-bounds
+      CONFIG_KASAN=y
+      CONFIG_KASAN_INLINE=y
+      # 1.2.5.UBSAN is used to detect undefined behaviour
+      CONFIG_UBSAN=y
+      CONFIG_UBSAN_SANITIZE_ALL=y
+      # 1.2.6.KCSAN is a dynamic race detector that detects data races as
+          its primary feature
+      CONFIG_KCSAN=y
+      # 1.2.7.KFENCE is a low overhead memory integrity error detector
+      CONFIG_KFENCE=y
+      # 1.2.8.Kmemleak is used to detect potential kernel memory leaks
+      CONFIG_DEBUG_KMEMLEAK=y
+      # 1.2.9 SLAB set a allocated byte to 0xa5, set 0x6b when it is freed
+      CONFIG_DEBUG_SLAB=y
+      # 1.2.10 kernel config for kgdb
+      CONFIG_FRAME_POINTER=y
+      CONFIG_KGDB=y
+      CONFIG_KGDB_SERIAL_CONSOLE=y
+      # 1.2.11 kernel config options for kdb
+      CONFIG_FRAME_POINTER=y
+      CONFIG_KGDB=y
+      CONFIG_KGDB_SERIAL_CONSOLE=y
+      CONFIG_KGDB_KDB=y
+      CONFIG_KDB_KEYBOARD=y
+  1.3 Create an image
+    1.3.1 Download syzkaller's create-image.sh
+      wget https://raw.githubusercontent.com/google/syzkaller/master/tools/create-image.sh -O create-image.sh
+    1.3.2 Add execution permission
+      chmod +x create-image.sh
+    1.3.3 create
+      ./create-image.sh
+  1.4 Start QEMU
+    ./start.sh
+
+
+2. Virtme
+  2.1. Depends
+    - python3
+    - qemu-system
+  2.2.Create some default configs
+    virtme-configkernel --defconfig
+    # for config reference 1.2 section
+  2.3. start kernel
+    virtme-run --kdir <PATH_TO_YOUR_KERNEL_DIRECTORY>
