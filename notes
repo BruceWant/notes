@@ -480,3 +480,16 @@ nm-tool
 
 # Both stderr and output displayed on the console and in a file
 <command> 2>&1 | tee <log_name>
+
+
+# cross compile gdb and gdbserver
+# compile gdb run on Windows and debug arm program
+../configure --host=i686-w64-mingw32 --target=arm-none-linux-gnueabi --prefix=$PWD/bin_wlt --disable-werror
+# compile gdbserver on x86_64 Ubuntu
+./configure --target=arm-none-linux-gnueabi --host=arm-none-linux-gnueabi --build=x86_64 --prefix=$PWD/build
+# run gdbserver over TCP on target system
+# host IP: 192.168.1.28
+./gdbserver 192.168.1.28:6666 /program_path
+# target IP: 192.168.1.30
+gdb.exe /program_path
+(gdb) target remote 192.168.1.30:6666
