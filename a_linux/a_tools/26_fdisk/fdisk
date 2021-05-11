@@ -1,0 +1,8 @@
+# list existing partitions
+sudo fdisk -l
+# select storage disk
+sudo fdisk /dev/sdb
+# create new partition
+n
+# write on disk
+w

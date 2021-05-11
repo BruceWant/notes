@@ -1,0 +1,5 @@
+# print detail information about a package
+apt-cache policy binutils
+
+# display package records
+apt-cache show binutils

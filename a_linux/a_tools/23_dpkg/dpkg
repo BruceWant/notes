@@ -1,0 +1,4 @@
+# list packages matching giving pattern
+dpkg -l
+# e.g. list binutils's version
+dpkg -l | grep binutils
