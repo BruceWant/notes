@@ -1,0 +1,19 @@
+# list bridge interface
+brctl show
+
+# list detailed about bridges
+brctl showmacs <bridge_interface>
+
+# add a bridge interface and associate it with other interface
+# 1.create a bridge
+brctl addbr <br_interface>
+# 2.add the interface to bridge
+brctl addif <br_interface> <added_bridge>
+# 3.bing interface up
+ifconfig <added_bridge> up
+ifconfig <br_interface> up
+
+# turn STP(spanning tree protocol) on
+brctl stp <bridge_interface> on
+# list STP about bridge interface
+brctl showstp <bridge_interface>
