@@ -1,0 +1,19 @@
+# enable core dump in current terminal
+ulimit -c unlimited
+sysctl -w "kernel.core_pattern=/tmp/%e.%p.%s.%t.core"
+
+
+# enable core dump in openwrt
+1. enable ELF coredump in the kernel
+2. enable FEATURE_INIT_COREDUMPS in busybox
+3. maybe need touch /.init_enable_core
+
+
+# enable core dump in program source code
+struct rlimit rlmt;
+rlmt.rlim_cur = (rlim_t)(1024*1024*500);
+rlmt.rlim_max = (rlim_t)(1024*1024*500);
+if (-1 == setrlimit(RLIMIT_CORE, &rlmt))
+{
+    return -1;
+}

@@ -1,0 +1,2 @@
+# list pseudo-termianl associtatied process
+ps -t pts/<number> -o pit,ppid,tty,stat,args,wchan
