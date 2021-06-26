@@ -90,7 +90,9 @@ git remote
 # list remote server name related URL
 git remote -v
 
-
+# reset to certain day ago
+commitID=`git log --before "2019-01-01 07:00" -1 '' pretty=format:"%H"`;
+git reset --hard ${commitID}
 # modified file lists
 git log --name-only
 # modified files and statistics

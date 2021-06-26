@@ -10,6 +10,8 @@ sysctl -w "kernel.core_pattern=/tmp/%e.%p.%s.%t.core"
 
 
 # enable core dump in program source code
+#include <sys/time.h>
+#include <sys/resource.h>
 struct rlimit rlmt;
 rlmt.rlim_cur = (rlim_t)(1024*1024*500);
 rlmt.rlim_max = (rlim_t)(1024*1024*500);
