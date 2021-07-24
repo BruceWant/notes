@@ -9,7 +9,12 @@ gdb program_name		# Reading sysbols form ...
 
 readelf -S program | grep debug
 
+# 1.load the program
 file program_name		# stripped
+# 2.break at main
+break main
+# 3.run program
+continue
 
 
 # run non-arguments program
@@ -267,3 +272,7 @@ disas
 set $eax = <value>
 # for example
 set $eax = 0x66
+
+
+# debug with gdbserver
+target remote 127.0.0.1:1234

@@ -3,6 +3,7 @@
     - debootstrap
     - qemu-system
     - dwarves
+    - qemu-kvm
   1.2.Create some default configs
     make defconfig
     make kvm_guest.config

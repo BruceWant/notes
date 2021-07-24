@@ -1,0 +1,2 @@
+# display template instatiation
+clang++ -Xclang -ast-print -fsyntac-only main.cpp > pre.cpp
