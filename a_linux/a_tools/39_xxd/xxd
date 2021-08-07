@@ -1,0 +1,2 @@
+# translate text-formated file to binary file.
+xxd -r -p text_dump > binary_dump

@@ -1,2 +1,15 @@
 # display the symbol tables of each executable
 objdump -t <program>
+
+
+# disassembly executable file to assembly language.
+objdump -d <program_name> > prog1.dump
+
+
+# display all architecture
+objdump -i
+objdump --info
+
+
+# reverse a binary file to assembly language
+objdump -D -bbinary <binary_file> -m<architecutre>
