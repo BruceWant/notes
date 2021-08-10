@@ -5,6 +5,8 @@ objdump -t <program>
 # disassembly executable file to assembly language.
 objdump -d <program_name> > prog1.dump
 
+# disassembly executable file to asssembly language in Intel syntax.
+objdump -d -M intel <program_name>
 
 # display all architecture
 objdump -i
@@ -13,3 +15,4 @@ objdump --info
 
 # reverse a binary file to assembly language
 objdump -D -bbinary <binary_file> -m<architecutre>
+

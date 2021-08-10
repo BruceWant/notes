@@ -1,3 +1,4 @@
+; install nasm on Ubuntu: sudo apt install nasm
 ; command: nasm -f elf32 hello.asm
 ; commnad: ld -m elf_i386 -s -o hello hello.o
 

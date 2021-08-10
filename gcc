@@ -1,5 +1,11 @@
 # compile c to assembly
 gcc -Og -S source.c			# produce source.s assembly file.
+# compile source code to 32 bit assembly language.
+gcc -S -m32 -ggdb <src.c>
+# compile 32 bit source assembly language to 32 bit object.
+gcc -m32 -c <src.s> -o <src.o>
+# compile 32 bit object to 32 bit executable.
+gcc -m32 <src.o> -o <src>
 
 # compile and assemble c source to object file.
 gcc -Og -c source.c			# produce source.o object file.
