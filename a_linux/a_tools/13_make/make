@@ -12,3 +12,6 @@ endef
 
 # call function
 $(call <function_name>, arg1, arg2,...)
+
+# debug
+LD_DEBUG=all make

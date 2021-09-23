@@ -493,3 +493,9 @@ nm-tool
 # target IP: 192.168.1.30
 gdb.exe /program_path
 (gdb) target remote 192.168.1.30:6666
+
+
+# encrypt normal file
+tar -czf - * | openssl enc -e -aes256 -out <filename.tar.gz>
+# decrypt normal file
+openssl enc -d -aes256 -in <filename.tar.gz> | tar xz
