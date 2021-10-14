@@ -118,6 +118,10 @@ wmic path win32_operatingsystem get lastbootuptime
 dir /a /s c: | findstr "exe"
 
 
+# find string in a file recursively
+findstr /N /S /A:02 "string" ./*
+
+
 # set daul network interface
 # first delete any ip 0.0.0.0
 route delete 0.0.0.0

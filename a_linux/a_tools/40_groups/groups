@@ -1,0 +1,2 @@
+# print the groups a user is in
+groups [username]
