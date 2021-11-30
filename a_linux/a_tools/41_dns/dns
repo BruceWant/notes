@@ -1,0 +1,4 @@
+# check DNS statistics
+systemd-resolve --statistics
+# flush DNS buffer
+systemd-resolve --flush-caches
