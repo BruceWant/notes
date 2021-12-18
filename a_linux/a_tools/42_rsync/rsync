@@ -1,0 +1,2 @@
+# compress source file and then send
+rsync -avz root@139.180.128.57:/root/2_proj/2_arch/2_cs152/chipyard .

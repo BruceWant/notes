@@ -129,3 +129,26 @@ git reset --hard <commit>
 git checkout --conflict=merge -- your_file
 # way 2:
 mv .git/rr-cache <another_folder>
+
+
+# speed up
+# 1. url
+https://doc.fastgit.org/
+https://gitclone.com/
+https://gitee.com/mirrors
+https://github.com.cnpmjs.org/
+# 2. Example
+git clone https://github.com/kubernetes/kubernetes.git
+git clone https://github.com.cnpmjs.org/kubernetes/kubernetes.git
+# 3. git command
+git config --global url."https://hub.fastgit.org".insteadOf https://github.com
+git clone https://github.com/kubernetes/kubernetes.git
+# 4. check git config info
+git config --global --list
+# 5. unset config of url
+git config  --local --unset url.https://hub.fastgit.org.insteadof
+# 6. Web view url
+https://gh.api.99988866.xyz/
+https://github.zhlh6.cn/
+http://toolwa.com/github/
+

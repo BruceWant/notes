@@ -1,0 +1,10 @@
+# check usage of memory
+free -m
+# synchronize memory to disk
+sync
+
+# release memory cache
+echo 1 >  /proc/sys/vm/drop_caches
+# not relsea memory cache
+echo 0 >  /proc/sys/vm/drop_caches
+
