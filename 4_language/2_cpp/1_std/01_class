@@ -1,0 +1,32 @@
+1 What is condition for the defualt constructor is a trivial or non-trivial?
+  target: defualt constructor
+  property: trivial
+  1.1 A defualt constructor is not user-provided
+  1.2 its class has no virtual functions and no virtual base classes
+  1.3 no non-static data member of its class has a default member initializer
+  1.4 all the direct base classes of its class have trivial default constructors.
+  1.5 for all the non-static data members of its class that are of class type (or arry thereof), each such class has a trivial default constructor.
+
+  Reference: ISO/IEC 14882 Sixth edition; 11.4.5.2 Default constructors [class.default.ctor] 3 subsection
+
+
+2 What is condition for destructor is trivial or non-trivial?
+  target: destructor
+  property: trivial
+  2.1 a destructor is not user-provided
+  2.2 the destructor is not virtual
+  2.3 all of the direct base classes of its class have trivial destructors
+  2.4 for all of the non-static data members of its class that are of class type (or array thereof), each such class has a trivial desturctor
+
+  Reference: ISO/IEC 14882 Sixth edition; 11.4.7 Destructors [class.dtor] 8 subsection
+
+
+3 What is condition for trivial or non-trivial of copy/move constructor ?
+  target: copy/move constructor
+  property: trivial
+  3.1 a copy/move constructor for class X is trivial if it is not user-provided
+  3.2 class X has no virtual function and no virtual base classes
+  3.3 The constructor selected to copy/move each direct base class subobject is trivial
+  3.4 for each non-static data member of X that is of class type (or array thereof), the constructor selected to copy/move that member is trivial
+
+  Reference: ISO/IEC 14882 Sixth edition; 11.4.5.3 Copy/move constructors [class.copy.ctor] 11 subsection
