@@ -1,3 +1,18 @@
+2.1 Invoking GDB
+# run non-arguments program
+gdb <program_name>
+# debug running process
+gdb <program_name> <PID>
+# debug runing process with another mathod
+gdb -p <PID>
+
+# debug program with arguments, the --args option
+# stop option processing for gdb.
+gdb --args <executablename> arg1 arg2 arg3
+
+
+# ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 gcc -g -o hello hello.c
 
@@ -17,8 +32,6 @@ break main
 continue
 
 
-# run non-arguments program
-gdb program_name
 
 # run program with arguments
 gdb program_name
@@ -27,9 +40,6 @@ run arg1 arg2 arg3
 # or
 gdb program_name
 set args arg1 arg2 arg3
-
-# or
-gdb --args executablename arg1 arg2 arg3
 
 # or
 gdb -ex=run --args myprogram arg1 arg2 arg3

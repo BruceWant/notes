@@ -16,3 +16,6 @@ objdump --info
 # reverse a binary file to assembly language
 objdump -D -bbinary <binary_file> -m<architecutre>
 
+
+# display source code intermixed with disassembly
+objdump -dS <binary_file>
