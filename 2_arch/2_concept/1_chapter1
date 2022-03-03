@@ -1,0 +1,32 @@
+Internet of Things/Embedded computers
+Internet of Things (IoT) refers to embedded computers that are connected to the Internet, typically wirelessly.
+
+Personal Mobile Device
+Personal Mobile Device (PMD) is the term we apply to a collection of wireless devices with multimedia user interfaces.
+
+Desktop Computing
+Desktop Computing also know as Personal Computer
+
+Server
+Server must run long days, and it is scalability.
+
+Cluster/Warehose-Scale Computers
+Cluster are collections of desktop computers or servers connected by local area networks to act as a single larger computer.
+WSCs are the largest of the clusters, in that they are designed so that tens of thousands of servers can act as one.
+
+Application parallelism
+1. Data-level parallelism(DLP) arises becase there are many data items that can be operated on at the same time.
+2. Task-level parallelism(TLP) arises becase tasks of work are created that can operate independently and largely in parallel.
+
+Computer hardware have four parallelism ways
+1. Instruction-level parallelism exploits data-level parallelism at modest levels with compiler help using ideas like pipelining and at medium levels using ideas like speculative execution.
+2. Vector architectures, graphic processor units (GPUs), and multimedia instruction sets exploit data-level parallelism by applying a single instruction between parallel threads.
+3. Thread-level parallelism exploits either data-level parallelism or task-level parallelism in a tightly coupled hardware model that allows for interaction between parallel threads.
+4. Request-level parallelism exploits parallelism among largely decoupled tasks specified by the programmer or the operating system.
+
+
+organization
+organization includs the high-level aspects of a computer's design, such as the memory system, the memory inerconnect, and the designof the internal processor our CPU (central processor unit--where arithmetic, logic, branching, and data transfer are implemented).
+
+microarchitecture
+microarchitecture is also used instead of organization.

@@ -4,8 +4,17 @@ find . -path <exclude_path>  -prune -o -type f -print0 | xargs -0  cp -t <target
 # find and execute
 find . -name "*" -exec touch '{}' \;
 
+# find and touch a new file
+find . -type d -empty -exec touch '{}'/.gitignore \;
+
 # exclude directory
 find . -path ./build -prune -o -name <search_fiel_name>
 # exclude mutiple directory
 find . \( -path ./first_exclude -o -path ./seconde_exclude \) -prune -o \
     -name <search_file_name>
+
+# find file and substitute a keyword
+find . -name "*.s" -exec sed -i 's/ld -m el/; ld -m el/' '{}' \;
+
+# find file and insert string in first line of file
+find . -name "*.s" -exec sed -i '1 i ; as --32 -gstabs -o <file.o> <file.s>' '{}' \;

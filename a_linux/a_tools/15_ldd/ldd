@@ -1,1 +1,2 @@
+# display prog used shared library
 ldd prog

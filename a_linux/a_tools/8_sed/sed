@@ -44,3 +44,6 @@ sed -i '/text_to_be_replaced/c\new_line'
 # find multiple line then replace
 # -z: seperate lines with NUL character
 sed -z -i 's/first_line\nSeconde_line/new_line/' <file_name>
+
+# insert text in the first line of file
+sed -i '1 i <text_string>'
