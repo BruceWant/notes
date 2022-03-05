@@ -1,0 +1,5 @@
+# install xelatex on Ubuntu
+sudo apt-get install latexmk texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended lmodern
+pdf reader: evince
+sudo apt install texlive-full
+

@@ -1,0 +1,80 @@
+% xelatex
+% \documentclass[a4paper,12pt,fontset=windows]{ctexbook}
+\documentclass[a4paper,10pt]{book}
+
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=black]{hyperref}
+
+\usepackage[UTF8]{ctex}
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{a4paper,left=3cm,right=4cm,top=1cm,bottom=1cm}
+
+\begin{document}
+  \section{1.中文测试}
+    测试中文。
+    \subsection{1.2 test 中文}
+      ceshi 测试。。。
+      \subsubsection{sadflljk}
+        adsflk
+  \section{2.english}
+Hello, World! 测试汉字
+
+Product rule
+\begin{align}
+  & log_{B^{A}} + log_{B^{C}} = log_{B^{(AC)}} \notag \\
+  & log_{B^{A}} = x => B^x = A \notag \\
+  & log_{B^{C}} = y => B^y = C \notag \\
+  & A*C = B^x * B^y = B^{(x+y)} \notag \\
+  & A*C = B^{(x+y)} => log_{B^{(A*C)}} = x+y \notag \\
+  & x+y = log_{B^{A}} + log_{B^{C}} => \notag \\
+  & log_{B^{A}} + log_{B^{C}} = log_{B^{(AC)}} \notag
+\end{align}
+
+\begin{align}
+  & log_{B^{A}} - log_{B^{C}} = log_{B^{(A/C)}} \notag \\
+  & log_{B^{A}} = x => B^x = A \notag \\
+  & log_{B^{C}} = y => B^y = C \notag \\
+  & A/C = \frac{B^x}{B^y} = B^{(x-y)} \notag \\
+  & A/C = B^{(x-y)} => log_{B^{(A/C)}} = x-y \notag \\
+  & x-y = log_{B^{A}} - log_{B^{C}} => \notag \\
+  & log_{B^{A}} - log_{B^{C}} = log_{B^{(A/C)}} \notag
+\end{align}
+
+\begin{align}
+  & A*log_{B^{C}} = log_{B^{C^{A}}} \notag \\
+  & log_{B^{C}} = x => B^x = C \notag \\
+  & (B^{x})^{A} = C^{A} \notag \\
+  & (B^{A*x}) = C^{A} \notag \\
+  & (B^{A*(log_{B^{C}})}) = C^{A} \notag \\
+  & log_{B^{C^{A}}} = A*(log_{B^{C}}) \notag
+\end{align}
+
+\begin{align}
+  & log_{a^{x}} = \frac{log_{b^{x}}}{log_{b^{a}}} \notag \\
+  & log_{a^{x}} = y => a^y = x \notag \\
+  & log_{b^{a^{y}}} = log_{b^{x}} \notag \\
+  & y*log_{b^{a}} = log_{b^{x}} \notag \\
+  & y = \frac{log_{b^{x}}}{log_{b^{a}}} \notag
+\end{align}
+
+
+\. 0     1                   2                   3 \\
+\.0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 \\
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ \\
+|\hspace*{5 em}Source Port          |       Destination Port        | \\
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ \\
+|                        Sequence Number                        | \\
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ \\
+|                    Acknowledgment Number                      | \\
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ \\
+|  Data |           |U|A|P|R|S|F|                               | \\
+| Offset| Reserved  |R|C|S|S|Y|I|            Window             | \\
+|       |           |G|K|H|T|N|N|                               | \\
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ \\
+|           Checksum            |         Urgent Pointer        | \\
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ \\
+|                    Options                    |    Padding    | \\
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ \\
+|                             data                              | \\
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+\end{document}

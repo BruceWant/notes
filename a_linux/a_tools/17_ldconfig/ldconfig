@@ -4,9 +4,10 @@ ldconfig -p
 # display output describing its actions
 ldconfig -v
 
-# 1.open /etc/ld.so.conf
+# Ubuntu 20.04
+# 1. open /etc/ld.so.conf
 sudo vim /etc/ld.so.conf
-# 2.add path of shared library
+# 2. add path of shared library
 # 2.1 add path to /etc/ld.so.conf directly
 include /etc/ld.so.conf.d/*.conf
 /path_to_library

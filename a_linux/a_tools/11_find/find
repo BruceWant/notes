@@ -3,6 +3,8 @@ find . -path <exclude_path>  -prune -o -type f -print0 | xargs -0  cp -t <target
 
 # find and execute
 find . -name "*" -exec touch '{}' \;
+# example find and create new file
+find. -empty -type d -exec touch '{}'/<file_name> \;
 
 # find and touch a new file
 find . -type d -empty -exec touch '{}'/.gitignore \;
