@@ -1,0 +1,9 @@
+# 1. unpackage
+tar zxvf cmake-3.22.1.tar.gz
+# 2. compile and install
+cd cmake-3.22.1
+./bootstrap
+make
+sudo make install
+# 3. uninstall
+sudo make uninstall

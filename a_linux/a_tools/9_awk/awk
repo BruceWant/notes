@@ -26,3 +26,10 @@ awk 'EXPRESSION { PROGRAM }' file(s)
 # search the directory for files ending in ".conf"
 # and starting either with 'a' or 'x'
 ls -l | awk '/\<(a|x).*\.conf$/ { print $9 }'
+
+# set a particularty character be a separator(delimitor)
+# Example for colon(:)
+awk -F: '{print $1}'
+awk -v FS=: '{print $1}'
+awk '{print $1}' FS=:
+awk 'BEGIN{FS=":"} {print $1}'

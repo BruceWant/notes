@@ -1,0 +1,6 @@
+# 1. first step
+cmake -S . -B ./build/ -D QUAZIP_QT_MAJOR_VERSION=5 -DCMAKE_PREFIX_PATH=/opt/Qt5.11.3/5.11.3/gcc_64
+# 2. second step
+cmake --build  ./build/
+# 3. install. Default prefix path is: /usr/local
+sudo cmake --build ./build/ --target install
