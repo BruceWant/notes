@@ -71,6 +71,8 @@ export PS1="\u@\h \w> "
 sh <script_name.sh>
 
 
+# Set or unset values of shell options and positional parameters.
+# Reference URL: https://linuxcommand.org/lc3_man_pages/seth.html
 # debug
 # Print command traces before executing command.
 set -x
@@ -80,6 +82,8 @@ set -f
 set -v
 # debug tools
 # http://bashdb.sourceforge.net/
+# Exit immediately if a commmand exits with a non-zero status.
+set -e
 
 
 # special parameters
@@ -198,8 +202,9 @@ if TEST-COMMAND; then CONSEQUENT-COMMANDS; fi
 [ -n STRING ]
 [ STRING ]
 # True if the strings are equal.
-# "=" may be used instead of "==" for strict POSIX compliance
 [ STRING1 == STRING2 ]
+# string comparison "=" may be used instead of "==" for strict POSIX compliance
+[ STRING1 = STRING2 ]
 # True if the strings are not equal.
 [ STRING1 != STRING2 ]
 # True if "STRING1" sorts before "STRING2"
@@ -286,6 +291,8 @@ read [options] NAME1 NAME2 ... NAMEN
 cmd >> file.txt 2>&1
 # or another way
 cmd &> file.txt
+# redirect stdout to one file and stderr to another file
+cmd > out 2> error
 
 # This can be done for instance using a hyphen (-)
 # to indicate that a program should read from a pipe

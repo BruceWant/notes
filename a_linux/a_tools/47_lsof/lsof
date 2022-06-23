@@ -1,0 +1,5 @@
+# which process is using certain file
+lsof /filepath/filename
+
+# List which file opened by a specified progress
+lsof -c <program>

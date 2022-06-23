@@ -9,3 +9,7 @@ tr -d '\r' < infile > outfile
 # generate a specific length of random string
 tr [:graph:] < /dev/urandom | head -c 20; echo ''
 tr A-Za-z0-9 < /dev/urandom | head -c 20; echo ''
+
+# replace character with another.
+# would replace each occurence of x, y or z with c.
+echo "$string" | tr <xyz> <c>

@@ -41,6 +41,9 @@ sed -i "1,2c replacement" <file_name>
 # change
 sed -i '/text_to_be_replaced/c\new_line'
 
+# replace repeating occurrences of x, y, or z with a single underscore _.
+echo "$string" | sed -r 's/[xyz]+/_/g'
+
 # find multiple line then replace
 # -z: seperate lines with NUL character
 sed -z -i 's/first_line\nSeconde_line/new_line/' <file_name>
