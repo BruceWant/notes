@@ -1,0 +1,6 @@
+# install unzip on ubuntu
+sudo apt install unzip
+# unzip a zip file
+unzip <file>.zip -d <destination_folder>
+# just unzip it
+unzip <file>.zip

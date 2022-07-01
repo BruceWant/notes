@@ -1,0 +1,27 @@
+#!/bin/sh
+
+
+# Reference: http://c.biancheng.net/view/1120.html
+name="test1 test2 t2 test3"
+
+# begin not support
+# ${string:<start>:<length>}
+#echo ${name: 6: 5}
+#echo ${name: 6}
+# end not support
+
+# slice from specified substring
+# ignore left string of $name include specified substring
+echo ${name#*test2}
+# ignore a substring
+echo ${name#test1}
+# ignore a substring untill saw the last one
+echo ${name##*t2}
+
+# ignore right string of $name include substring
+echo ${name%test2*}
+# ignore a substring
+echo ${name%test3}
+# ignore a substring untill saw the last one
+echo ${name%%t2*}
+

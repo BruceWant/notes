@@ -1,0 +1,12 @@
+# install new deb with overwrite
+dpkg -i --force-overwrite ./<deb_name.deb>
+
+# unpack deb package
+dpkg -X <deb_name.deb> <exist_folder>
+# unpack control file
+dpkg -e <deb_name.deb> <exist_folder>/DEBIAN
+# pack the source file to be deb package
+dpkg-deb --build <deb_src>
+
+# check status of a package
+dpkg -s <package_name>

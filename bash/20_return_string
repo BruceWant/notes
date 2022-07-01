@@ -1,0 +1,10 @@
+#!/bin/bash
+
+function pass_back_a_string() {
+	eval "$1='foo bar rab oof'"
+}
+
+return_var=''
+pass_back_a_string return_var
+#pass_back_a_string 
+echo $return_var

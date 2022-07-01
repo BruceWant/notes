@@ -33,3 +33,8 @@ awk -F: '{print $1}'
 awk -v FS=: '{print $1}'
 awk '{print $1}' FS=:
 awk 'BEGIN{FS=":"} {print $1}'
+
+# trim space at head or tail of a string
+echo ' A B C ' | awk '{gsub(/^\s+|\s+$/, "");print}'
+
+

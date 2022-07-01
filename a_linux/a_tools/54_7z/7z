@@ -1,0 +1,5 @@
+# install 7z on ubuntu
+sudo apt install p7zip-full
+
+# extract the contents of the zip
+7z x <zipfile>.zip
