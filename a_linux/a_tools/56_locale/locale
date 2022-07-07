@@ -1,0 +1,9 @@
+# change language via a terminal
+# 1. edit locale
+vim /etc/default/locale
+LANG="en_US"
+LANGUAGE="en_US:en"
+# 2. edit .pam_environment
+LANG=en_US
+LANGUAGE=en_US
+
