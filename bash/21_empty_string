@@ -1,0 +1,27 @@
+#!/bin/bash
+
+str="hello world"
+str2=" "
+str3=""
+
+if [ ! -z "$str" -a "$str" != " " ]; then
+    echo "Str is not null or space"
+fi
+
+if [ ! -z "$str2" -a "$str2" != " " ]; then
+    echo "str2 is not null or space"
+fi
+
+if [ ! -z "$str3" -a "$str3" != " " ]; then
+    echo "Str3 is not null or space"
+fi
+
+
+if [ "$str" == "" ]; then
+    echo "null"
+fi
+
+if [ ! "$str" ]; then
+    echo "null"
+fi
+

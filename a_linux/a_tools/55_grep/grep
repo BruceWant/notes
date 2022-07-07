@@ -1,0 +1,3 @@
+# or
+grep -E "123|abc" <filename>
+

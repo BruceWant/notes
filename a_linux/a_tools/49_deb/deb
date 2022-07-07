@@ -10,3 +10,16 @@ dpkg-deb --build <deb_src>
 
 # check status of a package
 dpkg -s <package_name>
+
+# check details information of a package
+dpkg -I <deb_name.deb>
+
+# list what deb will install
+dpkg -L <deb_name.deb>
+
+# uninstall package
+dpkg -r <deb_name.deb>
+
+# purge uninstall package
+dpkg -P <deb_name.deb>
+
