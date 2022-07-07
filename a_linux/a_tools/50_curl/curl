@@ -1,3 +1,6 @@
 # not verify certificate
 curl "https://***/file_name" -k
 curl "https://***/file_name" --insecure
+
+# write downloaded file to a specific file
+curl -o /<file_name> http://url.com
