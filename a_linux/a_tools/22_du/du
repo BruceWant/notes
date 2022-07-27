@@ -1,2 +1,5 @@
 # get amount stored in directory
 du -sh <directory>
+
+# find folder total size recursively
+find . -type d | du -sh

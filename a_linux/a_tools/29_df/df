@@ -1,1 +1,4 @@
 df -hT
+
+# check which disk a file or directory belongs to
+df -h <file_or_folder_name>
