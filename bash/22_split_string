@@ -1,0 +1,12 @@
+#!/bin/bash
+
+IN="bla@some.com;john@home.com"
+
+
+while IFS=';' read -ra ADDR; do
+  for i in "${ADDR[@]}"; do
+    # process "$i"
+    echo $i
+    echo ${ADDR[@]}
+  done
+done <<< "$IN"

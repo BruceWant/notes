@@ -38,3 +38,20 @@ awk 'BEGIN{FS=":"} {print $1}'
 echo ' A B C ' | awk '{gsub(/^\s+|\s+$/, "");print}'
 
 
+# get last column
+echo "head tail" | awk '{print $NF}'
+
+# partly string match
+#c1  c2  c3
+#1   a   snow
+#2   b   snowman
+#3   c   snowasdf
+#4   d   asdflk
+awk '$3 ~ /snow/ { print }' <file_name>
+
+# search keyword
+awk '/keyword/'
+
+# exactly string matching
+awk -v s="$search" -v c="$column" '$c == s { print $0 }' <file_name>
+

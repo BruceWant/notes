@@ -25,3 +25,5 @@ echo ${name%test3}
 # ignore a substring untill saw the last one
 echo ${name%%t2*}
 
+# pid of shell script itself
+$$

@@ -1,2 +1,5 @@
 # list pseudo-termianl associtatied process
 ps -t pts/<number> -o pit,ppid,tty,stat,args,wchan
+
+# wide output. show full name.
+ps -efww

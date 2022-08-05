@@ -1,0 +1,2 @@
+# get extension
+echo "a.b.c.txt" | rev | cut -d"." -f2- | rev
