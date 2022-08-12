@@ -3,3 +3,14 @@ ps -t pts/<number> -o pit,ppid,tty,stat,args,wchan
 
 # wide output. show full name.
 ps -efww
+
+# get parent id ppid
+ps -o ppid= <pid>
+eg. ps -o ppid= $$
+eg. ps -o ppid= 1234
+
+# get process name from its pid
+ps -p <pid> -o comm=
+# get process name and arguments from its pid
+ps -p <pid> -o args=
+

@@ -1,0 +1,15 @@
+# create a new archive
+tar -cf <name>.tar <folder>
+# Extract files from archive
+tar -xf <name>.tar
+
+# view content of archive
+tar -tf <name>.tar.gz
+
+# compress
+tar -czf <name>.tar.gz <folder>
+tar -cjf <name>.tar.bz2 <folder>
+
+# uncompress
+tar -xzf <name>.tar.gz
+tar -xjf <name>.tar.gz

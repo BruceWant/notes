@@ -1,0 +1,2 @@
+# install .pkg from terminal
+installer -pkg /<path_to_pkg>/<name>.pkg -target /

@@ -1,0 +1,10 @@
+# get PKGID
+pkgutil --pkgs | grep -i <process_name>
+# get a list of files PKGID installed
+pkgutil --files <PKGID>
+# remove all listed file
+# uninstall application
+pkgutil --forget <PKGID>
+
+# view information of installed PKGID
+pkgutil --info <PKGID>

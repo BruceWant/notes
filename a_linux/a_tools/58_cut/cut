@@ -1,2 +1,5 @@
 # get extension
 echo "a.b.c.txt" | rev | cut -d"." -f2- | rev
+
+A="$(echo 'one_two_three_four_five' | cut -d'_' -f2)"
+A="$(echo 'one_two_three_four_five' | cut -d'_' -f4)"

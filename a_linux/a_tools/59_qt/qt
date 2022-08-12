@@ -1,0 +1,17 @@
+# install qtcreator from online installer
+sudo apt-get install libxcb*
+./qt-unified-linux-x64-online.run
+# configuration
+# open /etc/profile and add PATH environment
+export PATH=/opt/Qt/5.15.2/gcc_64/bin:$PATH
+export PATH=/opt/Qt/Tools/QtCreator/bin:$PATH
+# then reboot
+
+# qt needed library
+sudo apt install libgl1-mesa-dev
+
+# setup environment
+sudo apt install libxcb-xinput0 libxcb-xinerama0 libgl1-mesa-dev uuid-dev libcurl4-openssl-dev libjsoncpp-dev libssl-dev libcups2-dev libquazip5-dev
+# create sysbol link from libquazip.so to libquazip5.so
+# create sysbol link header folder from quazip to quazip5
+
