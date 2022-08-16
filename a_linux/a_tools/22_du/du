@@ -3,3 +3,6 @@ du -sh <directory>
 
 # find folder total size recursively
 find . -type d | du -sh
+
+# find folder total size
+du -h --max-depth=0

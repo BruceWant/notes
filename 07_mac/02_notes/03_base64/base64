@@ -1,0 +1,5 @@
+# encode base64
+echo "abc" | base64
+
+# decode base64
+echo <string> | base64 -D
