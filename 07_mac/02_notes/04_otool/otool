@@ -1,0 +1,2 @@
+# replace ldd in mac os
+otool -L <file>

@@ -1,0 +1,10 @@
+# list of supported encoding schemes
+iconv -l
+
+# convert utf-8 to utf-16le
+iconv -f utf-8 -t utf-16le example -o result
+
+# omit invalid character
+iconv -f utf-8 -t utf-16le example -c -o result
+
+

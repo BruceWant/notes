@@ -1,0 +1,36 @@
+# rpm files after installation
+find /var/cache/yum -iname "*.rpm"
+
+# downloadonly
+yum install --downloadonly --downloaddir=<file_path> <package_name>
+
+# install package
+rpm -i <package>
+
+# remove(erase) package
+rpm -e <package_name>
+
+# query package
+rpm -q <package>
+
+# query all package
+rpm -qa <package>
+
+# query configuration of package
+rpm -qc <package>
+
+# query scripts that package contains
+rpm -q --scripts <package>
+
+# query destination of package installed
+# -l(list), -p(package)
+rpm -qlp
+
+# check dependcy of package
+# -R(requires)
+rpm -qRp <package>
+
+# verify package
+# -V(verify)
+rpm -V <package>
+

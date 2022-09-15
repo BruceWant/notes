@@ -1,0 +1,5 @@
+# transform a file in vim to hex representation
+# : enters command-line mode
+# % matches whole file as a range
+# ! filters that range through an external command, xxd is that external cmd
+:%!xxd

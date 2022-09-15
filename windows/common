@@ -1,0 +1,8 @@
+# check wheather a executable file is 32 bit or 64 bit
+# when program is running
+open task manager:Ctrl + Shift + Esc
+if program is equal 32 bit, then <program>(32 bit) else <program>(64 bit)
+
+# if program is not running, then using a binary editor to open the file.
+# find "This program cannot be run in DOS mode",
+# then find "PE..L"(504500004C) == 32 bit or "PE..d"(504500006486) == 64 bit

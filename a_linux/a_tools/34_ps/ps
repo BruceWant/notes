@@ -14,3 +14,8 @@ ps -p <pid> -o comm=
 # get process name and arguments from its pid
 ps -p <pid> -o args=
 
+# get status of process
+# man ps
+# then find:PROCESS STATE CODES
+ps -q <pid> -o state --no-headers
+

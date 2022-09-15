@@ -13,3 +13,7 @@ for str in $stringName
 do
     echo $str
 done
+
+#for str in $stringName; do
+#    echo $str
+#done
