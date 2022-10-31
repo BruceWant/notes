@@ -1,2 +1,6 @@
 # find out which library defines the crypt function
 nm -A /usr/lib/lib*.so 2> /dev/null | grep ' crypt$'
+
+# print exported symbols
+nm -D <shared_library_file>
+nm -a <shared_library_file>
