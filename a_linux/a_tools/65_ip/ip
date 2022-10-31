@@ -1,0 +1,9 @@
+# delete ip from interface
+ip addr del <IP>/<mask> dev <interface>
+eg. ip addr del 192.168.1.1/24 dev eth2
+eg. ip addr del 192.168.1.2/32 dev eth2
+
+# add IP
+ip addr add <IP>/<mask> dev eth2
+eg. ip addr add 192.168.1.1/24 dev eth2
+eg. ip addr add 192.168.1.2/24 dev eth2

@@ -1,0 +1,7 @@
+# release current address
+dhclient -r
+
+# ask for new address
+dhclient <interface>
+dhclient
+eg. dhclient eth0

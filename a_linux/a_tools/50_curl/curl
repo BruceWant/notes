@@ -4,3 +4,13 @@ curl "https://***/file_name" --insecure
 
 # write downloaded file to a specific file
 curl -o /<file_name> http://url.com
+
+# send file through ftps, ignore certificate -k/--insecure
+curl -k -T <file_send> ftps://192.168.1.104:8131 --user <user_name>:<password>
+
+# send file through ftp
+curl -T <file_send> ftp://192.168.1.104:8131 --user <user_name>:<password>
+
+#
+https://curl.se/docs/sslcerts.html
+

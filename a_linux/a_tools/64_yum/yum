@@ -5,6 +5,9 @@ find /var/cache/yum -iname "*.rpm"
 yum install --downloadonly --downloaddir=<file_path> <package_name>
 
 # install package
+yum -y install <package_name>
+
+# install package
 rpm -i <package>
 
 # remove(erase) package

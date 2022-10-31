@@ -1,0 +1,9 @@
+# only download
+1. apt-get download -o=dir::cache=/<path_for_cache> <package_name>
+# change deb to tar.xz
+2. ar x <package.deb> data.tar.xz
+# uncompress file
+3. tar xf data.tar.xz
+# cp libcurl.so.4.5.0 to /usr/lib/
+cp /<path_for_cache>/libcurl.so.4.5.0 /usr/lib/libcurl.so.3
+

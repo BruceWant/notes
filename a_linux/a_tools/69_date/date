@@ -1,0 +1,10 @@
+# setting time
+date -s MM/DD/YY
+date -s hh:mm:ss
+
+# get timestamp in second unit
+# since 1970-01-01 00:00:00 UTC. (GNU Coreutils 8.24 Date manual)
+date +%s
+
+# convert timestamps to date
+date -d @<timestamp>

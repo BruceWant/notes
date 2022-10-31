@@ -1,0 +1,2 @@
+# sync time to hardware clock
+hwclock --systohc

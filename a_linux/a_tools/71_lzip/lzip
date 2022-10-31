@@ -1,0 +1,6 @@
+# install lzip on Ubuntu
+apt-get install lzip
+
+# uncompress <file_name>.tar.lz file.
+lzip -d <file_name>.tar.lz
+tar xf <file_name>.tar

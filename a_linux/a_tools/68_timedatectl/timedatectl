@@ -1,0 +1,11 @@
+# get status
+timedatectl status
+
+# change server ip of ntp
+vim /etc/systemd/timesyncd.conf
+[Time]
+NTP=ntp.aliyun.com
+systemctl restart systemd-timesyncd.service
+
+# turn off auto-sync ntp
+timedatectl set-ntp true/false
