@@ -1,2 +1,11 @@
 # install .pkg from terminal
 installer -pkg /<path_to_pkg>/<name>.pkg -target /
+
+# install *.app
+cp -rf ./xx.app /Applications
+
+# attach dmg to /Volumes
+hdiutil attach xxx.dmg
+# detach dmg
+hdiutil detach /Volumes/<package_name>
+

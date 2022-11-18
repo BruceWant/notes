@@ -7,3 +7,6 @@
 # cp libcurl.so.4.5.0 to /usr/lib/
 cp /<path_for_cache>/libcurl.so.4.5.0 /usr/lib/libcurl.so.3
 
+# search package
+apt-cache search package
+

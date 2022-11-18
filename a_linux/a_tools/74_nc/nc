@@ -1,0 +1,2 @@
+# check wheather remote Port is opened or not
+nc -vz -w 2 <IP> <port>
