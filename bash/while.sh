@@ -23,3 +23,8 @@ do
 	j=$((j+2))
 	echo $i $j
 done
+
+while true
+do
+    echo "test"
+done

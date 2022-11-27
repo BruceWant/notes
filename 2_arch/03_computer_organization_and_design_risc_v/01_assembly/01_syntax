@@ -1,0 +1,29 @@
+# temporary registers
+x5-x7 and x28-x31
+# saved registers
+x8-x9 and x18-x27
+# parameter registers
+x10-x17
+# return address register
+x1
+
+# jump and lin instruction
+jal x1, ProcedureAddress
+
+# jump and link register instruction
+jalr x0, JumpTag
+
+# stack pointer
+x2
+
+# program counter
+pc
+
+# global pointer. static varible in c.
+x3
+
+# frame pointer
+x8
+
+# thread pointer, tp
+x4
