@@ -5,6 +5,8 @@ sudo apt-get install libxcb*
 # open /etc/profile and add PATH environment
 export PATH=/opt/Qt/5.15.2/gcc_64/bin:$PATH
 export PATH=/opt/Qt/Tools/QtCreator/bin:$PATH
+export MANPATH=/opt/Qt/5.15.2/gcc_64/man:$MANPATH
+export LD_LIBRARY_PATH=/opt/Qt/5.15.2/gcc_64/lib:$LD_LIBRARY_PATH
 # then reboot
 
 # qt needed library
