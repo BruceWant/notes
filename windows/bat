@@ -215,3 +215,7 @@ reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reportin
 echo deleted core Dump register
 pause
 @echo on
+
+
+# program startup time. service
+msinfo32

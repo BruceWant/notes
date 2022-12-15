@@ -3,3 +3,6 @@ readelf --syms --use-dynamic vis.so | grep vis_
 
 # display the symbol tables
 readelf -s <program>
+
+# check rpath
+readelf -d <program>

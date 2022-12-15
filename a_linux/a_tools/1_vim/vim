@@ -36,3 +36,16 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 
 # delete whitespace after each line
 :%substitue/\s\+$//
+
+
+# insert 10 line of sequential numbers.
+:put=range(1,10)
+
+# insert 10 lines of sequential numbers before existing lines.
+# 1.copy 10 lines of 1 in the place.
+# 2.increment it as a sequential numbers.
+# 2.1 visually select numbers
+Ctrl + V
+# 2.2 increment numbers. manual: :h v_g_CTRL-A
+g Ctrl + A
+
