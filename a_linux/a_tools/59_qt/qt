@@ -17,3 +17,5 @@ sudo apt install libxcb-xinput0 libxcb-xinerama0 libgl1-mesa-dev uuid-dev libcur
 # create sysbol link from libquazip.so to libquazip5.so
 # create sysbol link header folder from quazip to quazip5
 
+# configure qt
+./configure -confirm-license -opensource -release -opengl dynamic -prefix "/opt/Qt/Qt_5.15.6/" -qt-sqlite -qt-pcre -qt-zlib -qt-libpng -qt-libjpeg -opengl desktop -qt-freetype -nomake tests -no-compile-examples -nomake examples -skip qtwebengine -optimize-size -strip -mp

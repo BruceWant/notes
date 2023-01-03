@@ -1,0 +1,6 @@
+# list all port with responding PID
+netstat -ano
+
+# find port is belong to which PID
+netstat -ano | findstr "9008"
+

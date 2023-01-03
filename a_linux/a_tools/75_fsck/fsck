@@ -1,4 +1,5 @@
 # initramfs repair disk
 # under initramfs prompt, run command: exit
 # will see problem reporting.
+blkid
 fsck -t ext4 /dev/sdb2 -y

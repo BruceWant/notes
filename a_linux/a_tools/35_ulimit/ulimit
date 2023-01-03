@@ -1,5 +1,6 @@
 # enable core dump in current terminal
 ulimit -c unlimited
+# update core_pattern file: /proc/sys/kernel/core_pattern
 sysctl -w "kernel.core_pattern=/tmp/%e.%p.%s.%t.core"
 
 

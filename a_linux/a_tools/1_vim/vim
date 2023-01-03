@@ -37,6 +37,10 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 # delete whitespace after each line
 :%substitue/\s\+$//
 
+# remove carriage returns from Windows formatted text file
+:set ff=unix
+:wq
+
 
 # insert 10 line of sequential numbers.
 :put=range(1,10)

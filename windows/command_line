@@ -167,3 +167,22 @@ change port /query
 mode
 # 3. using wmic
 wmic path win32_pnpentity get caption /format:list | find "COM"
+
+
+# check DNS cache
+ipconfig /displaydns
+# flush DNS cache
+ipconfig /flushdns
+
+
+# wireshark capture local loop packet
+route add <host_ip> mask 255.255.255.255 <gateway> metric 1
+# delete route table
+route delete <host_ip>
+
+
+# check static library infomation
+dumpbin /LINKERMEMBER *.lib
+# check dynamic library infomation
+dumpbin /EXPORTS *.dll
+

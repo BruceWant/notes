@@ -1,0 +1,2 @@
+# copy piped output to destination
+find . -name "*.cpp" | xargs -i cp {} /destination
