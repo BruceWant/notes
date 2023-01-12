@@ -1,0 +1,22 @@
+# install mariadb on Unbuntu
+# 1.add GnuPG singed key
+sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db
+# 2.add source-list of mariadb
+sudo add-apt-repository 'deb http://ftp.osuosl.org/pub/mariadb/repo/5.5/ubuntuprecise main'
+# 3.update apt
+sudo apt-get update
+# 4.install
+sudo apt-get install mariadb-server
+
+# setting login passwd
+mysqladmin -u root password "[passwd]"
+# login
+mysql -u root -p
+
+# list database
+show databases;
+
+# create database
+create database <database_name>;
+# using database
+use <database_name>;

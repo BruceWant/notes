@@ -1,0 +1,8 @@
+# see full logs from systemctl status <service_name>
+# -u: is short for --unit
+# -b: is short for --boot
+journalctl -u <service_name> -b --no-pager
+
+# see full logs at real time
+journalctl -u <service_name> -b --no-pager -f
+

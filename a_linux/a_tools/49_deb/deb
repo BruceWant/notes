@@ -24,3 +24,8 @@ dpkg -r <deb_name.deb>
 dpkg -P <deb_name.deb>
 
 # only download
+
+
+# configure
+sudo dpkg --configure -a
+

@@ -1,2 +1,9 @@
 # check wheather remote Port is opened or not
 nc -vz -w 2 <IP> <port>
+
+
+# server
+nc -lv 12345
+# client
+nc -v <IP> <port>
+

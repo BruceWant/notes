@@ -186,3 +186,8 @@ dumpbin /LINKERMEMBER *.lib
 # check dynamic library infomation
 dumpbin /EXPORTS *.dll
 
+
+# install driver from command line
+pnputil -i -a <driver>.inf
+rundll32.exe advpack.dll,LaunchINFSectionEx ykmd.inf,Yubico64_Install.NT,,4,N
+

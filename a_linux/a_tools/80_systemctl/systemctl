@@ -1,0 +1,3 @@
+# show full log from systemctl status
+systemctl status <service_name> -l --no-pager
+
