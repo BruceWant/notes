@@ -1,0 +1,23 @@
+# install open-vm-tools on Ubuntu, Debian, and Related OSes
+sudo apt-get update
+# if have GUI
+sudo apt-get install open-vm-tools-desktop
+# Otherwise, install open-vm-tools
+sudo apt-get install open-vm-tools
+# Shared folder
+sudo apt-get install open-vm-tools-dkms
+
+
+# install open-vm-tools on RHEL, Fedora and CentOS
+# if have GUI
+sudo yum install open-vm-tools-desktop
+# Otherwise, install open-vm-tools
+sudo yum install open-vm-tools
+
+
+# SLE and OpenSuSE
+# if have GUI
+zypper install open-vm-tools-desktop
+# Otherwise, install open-vm-tools
+zypper install open-vm-tools
+
