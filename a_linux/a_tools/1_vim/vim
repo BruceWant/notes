@@ -53,3 +53,18 @@ Ctrl + V
 # 2.2 increment numbers. manual: :h v_g_CTRL-A
 g Ctrl + A
 
+
+# register
+# copy a line to register a
+"ayy
+# append to a register by using a capital letter
+"Ayy
+# paste
+"ap
+
+# paster from clipboard on Linux
+"+p
+
+# access all currently defined registers type
+:reg
+

@@ -11,3 +11,10 @@ sudo make uninstall
 
 # build with debug
 set(CMAKE_BUILD_TYPE Debug)
+
+# current directory
+# Reference: https://stackoverflow.com/questions/32028667/are-cmake-source-dir-and-project-source-dir-the-same-in-cmake
+# CMAKE_SOURCE_DIR
+
+# PRJOECT_SOURCE_DIR
+
