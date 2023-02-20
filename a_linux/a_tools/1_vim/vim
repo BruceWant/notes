@@ -68,3 +68,7 @@ g Ctrl + A
 # access all currently defined registers type
 :reg
 
+
+# copy range of lines
+:81,91y<enter>
+
