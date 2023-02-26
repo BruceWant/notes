@@ -252,6 +252,52 @@ $ps
 print <value_name>
 
 
+# 10 Examining Data
+# 10.4 Artificial Arrays
+#   1.eg. If a program says
+#   int *array = (int*) malloc (len * sizeof(int));
+#   print the contents of array with:
+#   The left operand of '@' must reside in memory.
+print *array@len
+#   2.Anthor way to create an artificial array is to use a cast
+#   The value need not be in memory
+(gdb) print/x (shor[2])0x12345678
+$1 = {0x1234, 0x5678}
+# also leave the array length out
+(gdb) print/x (shor[])0x12345678
+$1 = {0x1234, 0x5678}
+# print register value as char
+(gdb) print/c (char[4])$ebx
+
+# 10.5 Output Formats
+# Print the binary representation of the value in hexadecimal
+print/x
+# Print the binary representation of the value in decimal
+print/d
+# Print the binary representation of the value as an decimal,
+# as if it were unsigned
+print/u
+# Print the binary representation of the value in octal.
+print/o
+# print the binary representaion of the value in bianry.
+print/t
+# Print as an address, both absolute in hexadecimal and
+# as an offset from the nearest preceding symbol.
+print/a
+(gdb) p/a 0x54320
+$3 = 0x54320 <_initialize_vx+396>
+# Cast the value to an integer and print it as a character constant.
+print/c
+# Regard the bits of the value as a floating point number
+print/f
+# Regard as a string, if possible.
+print/s
+# Like 'x' formatting, but leading zeros are printed to pad the value.
+print/z
+# Print using the 'raw' formatting.
+print/r
+
+# 10.6 Examining Memory
 # examine memory address
 # n: the repeat count,
 # 	If a negative number is specified,
@@ -260,10 +306,11 @@ print <value_name>
 # 	the display format is one of the formats used by print
 # 	(‘x’, ‘d’, ‘u’, ‘o’, ‘t’, ‘a’, ‘c’, ‘f’, ‘s’),
 # 	and in addition ‘i’ (for machine instructions).
-# 	The default is ‘x’ (hexadecimal)
+# 	The default is ‘x’ (hexadecimal), 'm' for displaying memory tags.
 # u: the unit size
 # 	b: Bytes, h: Halfwords(two bytes), w: Words(four bytes).Default value
 # 	g: Giant words(eight bytes)
+# addr: starting display address
 x/nfu addr
 x addr
 # examine machine instructions

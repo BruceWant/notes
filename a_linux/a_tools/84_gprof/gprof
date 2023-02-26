@@ -1,0 +1,10 @@
+# GUN profile
+
+# usage
+# 1. compile with -pg parameter for gprof
+gcc -o demo demo.c -pg
+# 2. run program to produce call graph profile file: gmon.out
+./demo
+# run gprof with demo program again, and save the result.
+gprof ./demo > gprof.txt
+
