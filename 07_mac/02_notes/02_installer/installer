@@ -9,3 +9,7 @@ hdiutil attach xxx.dmg
 # detach dmg
 hdiutil detach /Volumes/<package_name>
 
+# decompress pkg
+xar -xf <name>.pkg
+cat <other_name>.pkg | cpio -i
+
