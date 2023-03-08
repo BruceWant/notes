@@ -1,0 +1,5 @@
+# man 8 ip-link
+# start up network device
+ip link set dev <device_name> up
+e.g. ip link set dev eth0 up
+

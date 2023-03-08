@@ -1,0 +1,6 @@
+# list all PCI devices
+lspci
+
+# ls PCI with more details
+lspci -vvv
+

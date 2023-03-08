@@ -14,3 +14,29 @@ apt-cache search package
 # download deb cache in the: /var/cache/apt/archives
 apt-get install --download-only <deb_name>
 
+
+# disable auto-upgrade for Ubuntu 22.04
+# 1.edit /etc/apt/apt.conf.d/20auto-upgrades
+# overwrite this file
+APT::Periodic::Update-Package-Lists "0";
+APT::Periodic::Download-Upgradeable-Packages "0";
+APT::Periodic::AutocleanInterval "0";
+APT::Periodic::Unattended-Upgrade "0";
+# 2.edit /etc/apt/apt.conf.d/50unattended-upgrades
+# do not auto-upgrade packages that start with "linux-"
+Unattended-Upgrade::Package-Blacklist {
+	linux-;
+};
+
+
+
+# disable kernel upgrade
+# 1.check current kernel version
+uname -a
+# 2.get full name of kernel package
+dpkg --selections | grep <`uname -a | awk '{print $3}'`>
+# 3.disable kernel upgrade
+apt-mark hold linux-headers-x.x.x linux-modules -x.x.x linux-image-x.x.x
+# 4.Check upgradabel kernel
+apt list --upgradable | grep linux-
+

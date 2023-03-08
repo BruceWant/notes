@@ -1,0 +1,7 @@
+# query or control network driver or hardware settings
+ethtool
+
+# query specified network device
+ethtool -i <eth3>
+
+

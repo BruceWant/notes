@@ -1,0 +1,30 @@
+# config static IP address for Ubuntu 22.04
+# 1.edit file: /etc/netplan/01-network-manager-all.yaml
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    eth0:
+      dhcp4: no
+      dhcp6: no
+      addresses:
+        - 192.168.0.0/24
+      routes:
+        - to: default
+          via: 192.168.0.1
+      nameservers:
+        addresses:
+          - 8.8.8.8
+          - 8.8.4.4
+          - 192.168.0.1
+
+# 2.Apply this settings
+netplan apply
+
+# start up device
+ip link set dev <device_name> up
+e.g. ip link set dev eth0 up
+# get dynamic IP address
+dhclient <device_name>
+
+
