@@ -7,3 +7,8 @@ eg. ip addr del 192.168.1.2/32 dev eth2
 ip addr add <IP>/<mask> dev eth2
 eg. ip addr add 192.168.1.1/24 dev eth2
 eg. ip addr add 192.168.1.2/24 dev eth2
+
+# flush ip from interface
+ip addr flush dev <dev_name>
+e.g. ip addr flush dev eth0
+

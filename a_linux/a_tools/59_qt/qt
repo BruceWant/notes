@@ -16,6 +16,11 @@ sudo apt install libgl1-mesa-dev
 sudo apt install libxcb-xinput0 libxcb-xinerama0 libgl1-mesa-dev uuid-dev libcurl4-openssl-dev libjsoncpp-dev libssl-dev libcups2-dev libquazip5-dev
 # create sysbol link from libquazip.so to libquazip5.so
 # create sysbol link header folder from quazip to quazip5
+apt install libfontconfig1-dev libfreetype6-dev libx11-dev libx11-xcb-dev libxext-dev libxfixes-dev libxi-dev libxrender-dev libxcb1-dev libxcb-glx0-dev libxcb-keysyms1-dev libxcb-image0-dev libxcb-shm0-dev libxcb-icccm4-dev libxcb-sync-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-randr0-dev libxcb-render-util0-dev libxcb-xinerama0-dev libxkbcommon-dev libxkbcommon-x11-dev libbrotli-dev libfontconfig-dev libfreetype-dev libxcb-render0-dev libxcb-xkb-dev freetype2-doc
 
 # configure qt
 ./configure -confirm-license -opensource -release -opengl dynamic -prefix "/opt/Qt/Qt_5.15.6/" -qt-sqlite -qt-pcre -qt-zlib -qt-libpng -qt-libjpeg -opengl desktop -qt-freetype -nomake tests -no-compile-examples -nomake examples -skip qtwebengine -optimize-size -strip -mp
+
+
+sudo apt install qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools qtcreator qtdeclarative5-dev
+

@@ -14,6 +14,8 @@ ld -m elf_i386 -dynamic-linker /lib/ld-linux.so.2 -lc -o <executable> <file.o
 
 # gcc
 gcc -m32 -o 2_cupid 2_cupid.s
+# link staticly with libz libfoo first, then dynamic
+g++ -Wl,-Bstatic -lz -lfoo -Wl,-Bdynamic -lbar -Wl,--as-needed
 
 
 # change start point of program, except for default _start
