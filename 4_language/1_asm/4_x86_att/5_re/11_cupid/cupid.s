@@ -1,3 +1,4 @@
+# also run: /lib/ld-linux.so.2 ./cupid
 # as --32 -gstabs -o <file.o> <file.s>
 # ld -m elf_i386 -dynamic-linker /lib/ld-linux.so.2 -lc -o <executable> <file.o>
 .section .data

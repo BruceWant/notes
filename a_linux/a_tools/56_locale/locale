@@ -7,3 +7,7 @@ LANGUAGE="en_US:en"
 LANG=en_US
 LANGUAGE=en_US
 
+
+# get all locale strings that is installed on Linux
+locale -a
+

@@ -1,2 +1,6 @@
 # do not verify certificate
 wget "https://****/file_name" --no-check-certificate
+
+# download a list of URLs in a text file
+wget -i <url_file>.txt
+
