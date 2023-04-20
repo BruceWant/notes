@@ -13,3 +13,6 @@ tar -cjf <name>.tar.bz2 <folder>
 # uncompress
 tar -xzf <name>.tar.gz
 tar -xjf <name>.tar.gz
+
+# uncompress to anthoer directory
+tar -xjf <name>.tar.gz -C /existing/folder
