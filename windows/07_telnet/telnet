@@ -1,0 +1,4 @@
+# install telnet on Windows
+# 1. press Ctrl + R
+# 2. enter following command, then open optional features program
+%systemroot%\system32\OptionalFeatures.exe

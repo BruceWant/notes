@@ -1,0 +1,16 @@
+# display the configuration information
+ipconfig /all
+
+# display the content of the DNS Resolver Cache
+ipconfig /displaydns
+
+# remove the resolved DNS server item
+ipconfig /flushdns
+
+# renewing the IP address
+ipconfig /renew
+ipconfig /renew6
+
+# releasing the IP address
+ipconfig /release
+ipconfig /release6
