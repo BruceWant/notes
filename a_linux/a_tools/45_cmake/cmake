@@ -2,7 +2,7 @@
 tar zxvf cmake-3.22.1.tar.gz
 # 2. compile and install
 cd cmake-3.22.1
-./bootstrap
+./bootstrap --prefix=/<customized_path>
 make
 sudo make install
 # 3. uninstall
@@ -17,4 +17,21 @@ set(CMAKE_BUILD_TYPE Debug)
 # CMAKE_SOURCE_DIR
 
 # PRJOECT_SOURCE_DIR
+
+# cmake specify C++ standard
+# 1.first method
+set(CMAKE_CXX_STANDARD 17)
+# 2.second method
+# overwrite predinfied C++ standard from command line.
+target_compile_features(myexecutable PUBLIC cxx_std_17)
+cmake -DCMAKE_CXX_STANDARD=20
+
+
+# install program to customized path
+cmake -DCMAKE_INSTALL_PREFIX=<prefix_path>
+
+# library that installed on customized path
+# find_package() will find first in CMAKE_PREFIX_PATH
+CMAKE_PREFIX_PATH=/opt/openssl-1.1.0l cmake .
+
 

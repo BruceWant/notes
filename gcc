@@ -104,3 +104,14 @@ gcc -g -Wall -o prog prog.c -L. -ldemo
 
 # specifying library search directoies in an object file
 gcc -g -Wall -Wl,-rpath,/home/mtk/pdir -o prog prog.c libdemo.so
+
+
+# compile gcc from source code
+# export path
+export PATH=<prefix_path>/bin:$PATH
+export INCLUDE=<prefix_path>/include:$INCLUDE
+export LD_LIBRARY_PATH=<prefix_path>/lib64:$LD_LIBRARY_PATH
+
+# partial static, partial dynamic
+g++ -Wl,-Bstatic -lc -Wl,-Bdynamic -Wl,--as-needed main.cpp
+
