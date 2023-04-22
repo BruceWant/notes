@@ -1,0 +1,1 @@
+gcc -Wall -asni -pedantic <main.c> -o main
