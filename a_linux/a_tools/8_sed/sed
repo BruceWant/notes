@@ -50,3 +50,11 @@ sed -z -i 's/first_line\nSeconde_line/new_line/' <file_name>
 
 # insert text in the first line of file
 sed -i '1 i <text_string>'
+
+
+# convert dos to unix Ctrl+M
+sed 's/^M$//'
+sed $'s/\r$//'
+# convert unix to dos Ctrl+M
+sed 's/$/^M/'
+

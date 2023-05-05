@@ -1,0 +1,2 @@
+# lookup domain name of ip
+dig -x <IP>
