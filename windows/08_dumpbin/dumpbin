@@ -1,0 +1,6 @@
+dumpbin /HEADERS <abc>.dll
+dumpbin /HEADERS <abc>.lib
+
+#
+dumpbin /ALL <abc>.lib
+

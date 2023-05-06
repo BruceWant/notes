@@ -1,0 +1,10 @@
+# get all IP and MAC of local network
+# 1.scan using ping protocol
+nmap -sP 192.168.1.0/24 > log 2>&1
+# scan using UDP protocol
+nmap -PU 192.168.1.0/24 > log 2>&1
+# scan using SYN protocol
+nmap -sS 192.168.1.0/24 > log 2>&1
+# 2.then cat cache of arp
+cat /proc/net/arp
+
