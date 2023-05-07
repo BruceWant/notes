@@ -442,6 +442,44 @@ ALT+c / ESC+c  Capitalize the character under the cursor position
                 and move to the end of the word.
 
 
+# go to the start of the command line
+Ctrl + a
+# go to the end of the command line
+Ctrl + e
+# delete from cursor to the end of the command line
+Ctrl + k
+# delete from cusor to the start of the command line
+Ctrl + u
+# delete from cursor to start of word
+Ctrl + w
+# delete  to end of word starting at cursor
+Alt + d
+# delete character under the cursor
+Ctrl + d
+# delete character before the cursor
+Ctrl + h
+# swap character under cursor with the previous one
+Ctrl + t
+# paste word or text that was cut using one of the deletion shortcuts
+Ctrl + y
+# move between start of command line and current cursor position
+Ctrl + xx
+# move backword one word
+Alt + b
+# move forward one word
+Alt + f
+# move backword one character
+Ctrl + b
+# move forword one character
+Ctrl + f
+# capitalize first character of word then go to end of word
+Alt + c
+# make uppercase from cursor to end of word
+Alt + u
+# make lowercase from cursor to end of word
+Alt + l
+
+
 # Readline vi mode
 set -o vi
 # disable vim mode
