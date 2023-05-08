@@ -1,0 +1,10 @@
+# specify include and library directory
+export PKG_CONFIG_PATH=/<prefix>/lib/pkgconfig/
+pkg-config --cflags --libs Qt5Gui
+# result
+-DQT_GUI_LIB -I/<prefix>/include/QtGui -I/<prefix>/include -DQT_CORE_LIB -I/<prefix>/include/QtCore -L/<prefix>/lib -lQt5Gui -lQt5Core
+
+
+# list all package *.pc
+pkg-config -list-all
+

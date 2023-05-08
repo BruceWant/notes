@@ -1,0 +1,15 @@
+# install languages
+Settings -> Region & Language -> Manage Installed Languages
+Install/Remove Languages...
+
+# install input method
+apt-get install ibus-pinyin
+
+# keyboard
+Keyboard -> Input Sources -> +
+#
+Add an Input Source -> Chinese -> chinese(Intelligent Pinyin) -> Add
+
+# switch input method
+shift or Windows + Space
+

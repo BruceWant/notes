@@ -7,11 +7,36 @@ yum install --downloadonly --downloaddir=<file_path> <package_name>
 # install package
 yum -y install <package_name>
 
+# search package
+yum search <name>
+
+# remove package
+yum remove <package_name>
+
+# list installed
+yum list installed
+
+# yum install <package_name>
+# Curl error (77): Problem with the SSL CA cert (path? access rights?)
+# check following file
+/etc/pki/tls/certs/ca-bundle.crt
+/etc/pki/tls/certs/ca-bundle.trust.crt
+# another solution
+yum reinstall ca-certificates
+
+# find which rpm package supplies a file
+yum whatprovides <file_name>
+# e.g.
+yum whatprovides '*bin/grep'
+
+
 # install package
 rpm -i <package>
 
 # remove(erase) package
 rpm -e <package_name>
+# remove package without dependency
+rpm -e --nodeps <package_name>
 
 # query package
 rpm -q <package>
