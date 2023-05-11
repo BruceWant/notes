@@ -1,0 +1,7 @@
+# get hostname
+scutil --get HostName
+# or using other command
+hostname
+# or using another command
+echo $HOSTNAME
+
