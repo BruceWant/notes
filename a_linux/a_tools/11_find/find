@@ -20,3 +20,9 @@ find . -name "*.s" -exec sed -i 's/ld -m el/; ld -m el/' '{}' \;
 
 # find file and insert string in first line of file
 find . -name "*.s" -exec sed -i '1 i ; as --32 -gstabs -o <file.o> <file.s>' '{}' \;
+
+# ignore <path> or find permission=0755 and and type=file
+# and print whole file name that even have special charater
+# then remove it
+find . -path ./.git -prune -o -perm 0775 -a -type f -a -print0 -exec rm '{}' \;
+

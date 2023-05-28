@@ -1,0 +1,7 @@
+# install xclip
+apt-get install xclip
+
+# configuration
+# In ~/.bash_aliases, add:
+alias setclip="xclip -selection c"
+alias getclip="xclip -selection c -o"
