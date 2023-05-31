@@ -1,0 +1,3 @@
+# sanitizer
+clang++ -O1 -g -fsanitize=address -fno-omit-frame-pointer main.cpp
+
