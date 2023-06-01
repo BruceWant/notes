@@ -1,5 +1,5 @@
 gcc -Wall -asni -pedantic <main.c> -o main
 
 # sanitizer
-g++ -O1 -g -fsanitize=address -fno-omit-frmae_pointer main.cpp
+g++ -O1 -g -fsanitize=address -fno-omit-frame-pointer main.cpp
 
