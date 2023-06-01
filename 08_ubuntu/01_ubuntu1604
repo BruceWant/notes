@@ -1,0 +1,13 @@
+# 1.configure static IP
+vim /etc/network/interfaces
+auto eth0
+iface eth0 inet static
+address 192.168.8.100    
+netmask 255.255.255.0
+gateway 192.168.8.2
+dns-nameserver 119.29.29.29
+# 2.flush networking interface
+ip addr flush dev eth0
+# 3.restart networking interface
+/etc/init.d/networking restart
+

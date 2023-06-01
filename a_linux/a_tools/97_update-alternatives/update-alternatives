@@ -1,0 +1,11 @@
+# setting default program version
+update-alternatives --install <link> <name> <path> <priority>
+# example as following:
+update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4 2
+update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 1
+
+# show and setting default version program.
+update-alternatives --config <name>
+# example as following:
+update-alternatives --config g++
+

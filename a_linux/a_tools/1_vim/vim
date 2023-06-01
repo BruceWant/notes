@@ -72,3 +72,11 @@ g Ctrl + A
 # copy range of lines
 :81,91y<enter>
 
+# change 2-space indent to 4-space
+# This changes every 2 spaces to a TAB character
+:set ts=2 sts=2 noet
+:retab!
+# This changes every TAB to 4 spaces.
+:set ts=4 sts=4 et
+:retab
+
