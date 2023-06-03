@@ -1,0 +1,4 @@
+# modify global locale setting
+update-locale [var=locale]
+# for instance, set LANG and remove LANGUAGE
+update-locale LANG=en_US.UTF-8
