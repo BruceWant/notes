@@ -11,3 +11,13 @@ LANGUAGE=en_US
 # get all locale strings that is installed on Linux
 locale -a
 
+# using GB18030 for Ubuntu
+# 1.get character set for Ubuntu supportted.
+cat /usr/share/i18n/SUPPORTED
+# 2.copy character set from step 1.
+# e.g.: zh_CN.GB18030 GB18030
+#vim /var/lib/locales/supported.d/local
+/etc/locale.gen
+# 3.update
+locale-gen
+

@@ -16,3 +16,11 @@ tar -xjf <name>.tar.gz
 
 # uncompress to anthoer directory
 tar -xjf <name>.tar.gz -C /existing/folder
+
+# gzip compress
+gzip <name>
+
+# gunzip uncompress
+gunzip <name>.gz
+gzip -d <name>.gz
+
