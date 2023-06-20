@@ -1,0 +1,5 @@
+\input texinfo
+@settitle 9.2.9.2 The cv-qualifiers
+
+volatile is a hint to the implementation to avoid aggressive optimization involving the object because the value of the object might be changed by means undetectable by an implementation. Furthermore, for some implementations, volatile might indicate that special hardware instructions are required to access the object.. In general, the semantics of volatile are intended to be the same in C++ as they are in c.
+@bye

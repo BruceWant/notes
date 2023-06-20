@@ -1,0 +1,4 @@
+\print texinfo
+@settitle 7.6.1.9 Static cast
+
+@bye

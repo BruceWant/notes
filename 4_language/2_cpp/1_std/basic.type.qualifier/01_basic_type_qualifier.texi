@@ -1,0 +1,16 @@
+\input texinfo
+@settitle 6.8.5 CV-qualifiers
+
+@enumerate
+@item
+cv-unqualified
+@item
+const-qualified
+@item
+volatile-qualified
+@item
+const-volatile-qualified
+@end enumerate
+cv: 'c' means const, v means volatile;
+
+@bye

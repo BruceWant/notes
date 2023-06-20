@@ -1,0 +1,8 @@
+\input texinof
+@settitle 7.2.1 Value category
+
+expression is combined with glvalue and rvalue
+glvalue is combined with lvalue and xvalue
+rvalue is combined with xvalue and prvalue
+
+@bye
