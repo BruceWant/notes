@@ -1,0 +1,3 @@
+# extract object file from static library
+ar x <name>.a
+
