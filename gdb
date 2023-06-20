@@ -232,6 +232,10 @@ x/10x $sp
 
 # list all global and static variable names(name and values)
 info variables
+# check where is a variable defined
+info variables <name>
+# check where is a type defined
+info types <name>
 # list local variable of current stack frame(name and values)
 info locals
 # list arguments of the current stack frame(name and values)
