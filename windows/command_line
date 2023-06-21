@@ -190,4 +190,15 @@ dumpbin /EXPORTS *.dll
 # install driver from command line
 pnputil -i -a <driver>.inf
 rundll32.exe advpack.dll,LaunchINFSectionEx ykmd.inf,Yubico64_Install.NT,,4,N
+# enum all install driver
+pnputil /enum-drivers > <name>.log
+# another cmd enum all installed driver
+dism /online /get-drivers /format:table > 03_log
+# delete driver package
+pnputil /delete-driver <oem22>.inf
+pnputil /delete-driver <oem22>.inf /uninstall /force
+
+# open Device Manager
+devmgmt.msc
+
 
