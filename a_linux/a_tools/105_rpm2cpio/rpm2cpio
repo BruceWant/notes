@@ -1,0 +1,7 @@
+# extract rpm file
+# -i = extract
+# -d = make directories
+# -m = preserve modification time
+# -v = verbose
+rpm2cpio ./<name>.rpm | cpio -idmv
+
