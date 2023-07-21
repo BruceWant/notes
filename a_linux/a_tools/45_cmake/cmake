@@ -35,3 +35,18 @@ cmake -DCMAKE_INSTALL_PREFIX=<prefix_path>
 CMAKE_PREFIX_PATH=/opt/openssl-1.1.0l cmake .
 
 
+# using specific compiler, only current environment
+# first method
+export CC=/usr/bin/clang
+export CXX=/usr/bin/clang++
+
+# Setting system wide compiler
+# second method
+sudo apt-get install clang
+sudo update-alternatives --config c++
+# then select clang++
+
+
+# static link library
+target_link_options(<target> PRIVATE -static-libstdc++)
+

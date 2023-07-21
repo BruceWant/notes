@@ -1,0 +1,13 @@
+# Will monitor and save all dumps to <path>
+# This will set
+# Set to:
+#  HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AeDebug
+#    (REG_SZ) Auto     = 1
+#    (REG_SZ) Debugger = "E:\07_Program_file\06_procdump\procdump.exe" -accepteula -ma -j "e:" %ld %ld %p
+#
+#Set to:
+#  HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows NT\CurrentVersion\AeDebug
+#    (REG_SZ) Auto     = 1
+#    (REG_SZ) Debugger = "E:\07_Program_file\06_procdump\procdump.exe" -accepteula -ma -j "e:" %ld %ld %p
+procdump.exe -i <path> -ma
+

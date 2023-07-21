@@ -2,3 +2,8 @@
 dpkg -l
 # e.g. list binutils's version
 dpkg -l | grep binutils
+
+# extract packge
+dpkg -x ./<package_name>.deb ./<destination_folder>
+dpkg -e ./<package_name>.deb ./<destination_folder>/DEBIAN
+
