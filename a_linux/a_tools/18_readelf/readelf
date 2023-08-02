@@ -6,3 +6,6 @@ readelf -s <program>
 
 # check rpath
 readelf -d <program>
+
+# check interpreter of program
+readelf -a <program>

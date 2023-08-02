@@ -1,0 +1,5 @@
+# setting interpreter and rpath
+patchelf --set-interpreter </path/to/ld-linux.so.so> --set-rpath </path/to/shared/library> <program>
+# e.g.
+patchelf --set-interpreter /path/to/newglibc/ld-linux.so.2 --set-rpath /path/to/newglibc/ myapp
+
