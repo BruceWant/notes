@@ -7,3 +7,10 @@ nc -lv 12345
 # client
 nc -v <IP> <port>
 
+# send file to server
+cat <file> | nc <host> <port>
+tar cf - <file> | nc <host> <port>
+# receiving side
+nc -l <port> | tar x
+
+

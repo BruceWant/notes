@@ -1,0 +1,2 @@
+# change root path and run program
+chroot </path/to/change/to> program
