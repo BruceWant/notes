@@ -1,0 +1,3 @@
+# package Qt's program
+linuxdeployqt <program> -appimage
+
