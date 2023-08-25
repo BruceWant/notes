@@ -3,3 +3,7 @@ lsof /filepath/filename
 
 # List which file opened by a specified progress
 lsof -c <program>
+
+# list port opened by which progress
+lsof -i :<port>
+

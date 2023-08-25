@@ -1,3 +1,4 @@
+# There is an another programe named cqtdeployer
 # package Qt's program
 linuxdeployqt <program> -appimage
 

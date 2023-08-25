@@ -34,7 +34,8 @@ Unattended-Upgrade::Package-Blacklist {
 # 1.check current kernel version
 uname -a
 # 2.get full name of kernel package
-dpkg --selections | grep <`uname -a | awk '{print $3}'`>
+#dpkg --selections | grep <`uname -a | awk '{print $3}'`>
+dpkg -l | grep `uname -r`
 # 3.disable kernel upgrade
 apt-mark hold linux-headers-x.x.x linux-modules -x.x.x linux-image-x.x.x
 # 4.Check upgradabel kernel
