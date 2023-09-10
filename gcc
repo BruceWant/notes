@@ -104,6 +104,8 @@ gcc -g -Wall -o prog prog.c -L. -ldemo
 
 # specifying library search directoies in an object file
 gcc -g -Wall -Wl,-rpath,/home/mtk/pdir -o prog prog.c libdemo.so
+# change linker and loader path
+gcc -Wl,-dynamic-linker,/path_to_ld/ld-linux.so.2 main.c
 
 
 # compile gcc from source code

@@ -320,6 +320,32 @@ x addr
 # examine machine instructions
 x/5i $pc
 
+# 10 Examing Data
+print [[option] --] expr
+print [[option] --] /f expr
+# /f formating
+# x: Print the binary representation of the value in hexadecimal.
+# d: Print the binary representation of the value in decimal.
+# u: Print the binary representation of the value as an decimal,
+#   as if it were unsigned.
+# o: Print the binary representation of the value in octal.
+# t: Print the binary representation of the value in binary.
+#   The letter ‘t’ stands for “two”.
+# a: Print as an address, both absolute in hexadecimal and as an offset
+#   from the nearest preceding symbol. You can use this format used to
+#   discover where (in what function) an unknown address is located:
+#   (gdb) p/a 0x54320
+#   $3 = 0x54320 <_initialize_vx+396>
+# c: Cast the value to an integer (unlike other formats, this does not
+#   just reinterpret the underlying bits) and print it as a character
+#   constant.
+# s: Regard as a string, if possible.
+# z: Like ‘x’ formatting, the value is treated as an integer and printed
+#   as hexadecimal, but leading zeros are printed to pad the value to
+#   the size of the integer type.
+# r: Print using the ‘raw’ formatting.
+# print a constant variable on assembly language
+print &name
 
 # disassemble current instruction
 disas

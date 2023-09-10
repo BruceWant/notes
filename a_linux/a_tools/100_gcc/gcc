@@ -1,5 +1,8 @@
 gcc -Wall -asni -pedantic <main.c> -o main
 
-# sanitizer
+# detect memory leaks using sanitizer
 g++ -O1 -g -fsanitize=address -fno-omit-frame-pointer main.cpp
+# run
+# ASAN_OPTIONS=help=1 ./a.out
+ASAN_OPTIONS=debug=true setarch `uname -m` -R ./a.out 
 
