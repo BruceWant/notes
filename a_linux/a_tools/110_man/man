@@ -1,0 +1,2 @@
+# show local file of man
+man -l ./local_file

@@ -4,3 +4,9 @@ nm -A /usr/lib/lib*.so 2> /dev/null | grep ' crypt$'
 # print exported symbols
 nm -D <shared_library_file>
 nm -a <shared_library_file>
+
+# get glibc version being used by program or library
+nm --dynamic --undefined-only --with-symbol-versions a.out | grep GLIBC | sed -e 's#.\+@##' | sort --unique
+# get specific function
+nm --dynamic --undefined-only --with-symbol-versions a.out | grep GLIBC_2.23
+
