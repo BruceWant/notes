@@ -1,1 +1,7 @@
 sudo mount -t auto /dev/sdb /mnt/test
+
+# auto-mount after restart
+# getting manual: man 5 fstab
+vim /etc/fstab
+/dev/sda1 /mount/directory  ext4  defaults  0 0
+

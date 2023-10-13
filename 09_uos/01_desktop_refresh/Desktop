@@ -1,0 +1,6 @@
+# create desktop shutcut
+cp <name>.desktop ~/Desktop
+
+# create right click menu entry
+cp <name>.desktop /user/share/deepin/dde-file-manager/oem-menuextensions
+

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=refresh_name
+Icon=view-refresh
+Exec=/usr/bin/xdottool key F5
+X-DFM-MenuType=EmptyArea
+

@@ -33,6 +33,9 @@ yum whatprovides '*bin/grep'
 # install package
 rpm -i <package>
 
+# upgrade package
+rpm -U <package>
+
 # remove(erase) package
 rpm -e <package_name>
 # remove package without dependency
@@ -61,4 +64,7 @@ rpm -qRp <package>
 # verify package
 # -V(verify)
 rpm -V <package>
+
+# extract package
+rpm2cpio <package.rpm> | cpio -idmv
 
