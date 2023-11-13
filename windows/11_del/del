@@ -1,0 +1,7 @@
+# delete a file that name is: nul
+DEL /F /A /Q \\?\<Windows_full_path_filename>
+RD /S /Q \\?\<Windows_full_path_filename>
+# e.g. D:\test\nul
+DEL /F /A /Q \\?\D:\test\nul
+RD /S /Q \\?\D:\test\nul
+
