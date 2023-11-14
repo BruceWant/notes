@@ -57,6 +57,9 @@ rpm -q --scripts <package>
 # -l(list), -p(package)
 rpm -qlp
 
+# query files installed by rpm package
+rpm -ql <package>
+
 # check dependcy of package
 # -R(requires)
 rpm -qRp <package>
