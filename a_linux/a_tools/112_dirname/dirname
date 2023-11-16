@@ -1,0 +1,3 @@
+# strip last component from filename
+dirname <file_name>
+

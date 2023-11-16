@@ -1,0 +1,3 @@
+# print resolved symbolic links
+readlink -f <file_name>
+
