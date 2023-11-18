@@ -1,0 +1,3 @@
+# convert address into file names and line numbers
+addr2line -e <executable_name>
+
