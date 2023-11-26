@@ -1,0 +1,10 @@
+# change the creation date and time of file
+copy /b <filename> +, ,
+# change the modification date and time
+copy /b <filename> +,,
+# change the last access date and time
+copy /b <filename> +,,
+
+# change the modification date and time in cmd file
+copy /b %1 +,, %1
+
