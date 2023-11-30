@@ -1,0 +1,5 @@
+sudo launchctl list | grep cups
+# start service
+sudo launchctl load /System/Library/LaunchDaemons/org.cups.cupsd.plist
+# stop service
+sudo launchctl unload /System/Library/LaunchDaemons/org.cups.cupsd.plist
