@@ -23,6 +23,14 @@ sed -n '/a text/,/This/p' example
 
 # substitute
 sed 's/erors/errors/g' example
+# substitute with double quotes
+# equal instruction: sed "s/This is/\"This is\"/" example
+sed "s/This is/\"&\"/" example
+# substitute with single quotes
+# equal instaruction: sed 's/'"$pattern"'/This is/' example
+pattern="This is"
+sed 's,'"$pattern"',This is,' example
+
 
 # insert a string at the beginning of the each line
 sed 's/^/test_string/' example

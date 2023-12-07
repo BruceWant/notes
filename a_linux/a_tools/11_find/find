@@ -14,6 +14,10 @@ find . -path ./build -prune -o -name <search_fiel_name>
 # exclude mutiple directory
 find . \( -path ./first_exclude -o -path ./seconde_exclude \) -prune -o \
     -name <search_file_name>
+# get one of multiple pattern
+find . \( -path ./first_exclude -o -path ./seconde_exclude \) -prune -o \
+    \( -name <search_file_name_1> -o -name <search_file_name_2> \)
+
 
 # find file and substitute a keyword
 find . -name "*.s" -exec sed -i 's/ld -m el/; ld -m el/' '{}' \;

@@ -1,5 +1,7 @@
 # check wheather remote Port is opened or not
 nc -vz -w 2 <IP> <port>
+# check UDP port
+nc -vz -w 2 -v <IP> <Port>
 
 
 # server
