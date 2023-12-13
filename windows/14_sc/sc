@@ -1,3 +1,13 @@
 # create a windows service
 sc.exe create <new_service_name> binPath="<path_to_the_service_executable>"
 
+# stop a service
+sc.exe stop <service_name>
+
+# queryex
+sc.exe queryex <service_name>
+
+# delete a service
+sc.exe delete <service_name>
+
+
