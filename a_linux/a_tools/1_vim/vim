@@ -82,3 +82,7 @@ g Ctrl + A
 :set ts=4 sts=4 et
 :retab
 
+# show all characters that aren't whitespace
+:set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+:set list
+

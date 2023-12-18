@@ -1,0 +1,3 @@
+# show log with with diff output
+svn log --diff
+

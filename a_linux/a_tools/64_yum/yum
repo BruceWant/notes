@@ -47,6 +47,13 @@ rpm -q <package>
 # query all package
 rpm -qa <package>
 
+# queryformat
+rpm --querytags
+# just get name of package
+rpm -qa --qf "%{NAME}\n"
+# show the date of the installation of each package
+rpm -qa --queryformat '%{NAME} %{INSTALLTIME:date}\n'
+
 # query configuration of package
 rpm -qc <package>
 
