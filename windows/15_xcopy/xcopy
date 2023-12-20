@@ -1,0 +1,3 @@
+# copy symbolic link to another file
+xcopy /b /i <symbolic_link_file> <destination>
+
