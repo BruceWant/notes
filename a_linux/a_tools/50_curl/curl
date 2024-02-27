@@ -2,6 +2,11 @@
 curl "https://***/file_name" -k
 curl "https://***/file_name" --insecure
 
+# using specified TLS version
+curl --tlsv1.2 "https://www.baidu.com/" -o baidu_html
+# verbose
+curl -v --tlsv1.2 "https://www.baidu.com/" -o baidu_html
+
 # write downloaded file to a specific file
 curl -o /<file_name> http://url.com
 

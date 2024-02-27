@@ -86,3 +86,9 @@ g Ctrl + A
 :set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 :set list
 
+
+# stop vim adding newline at end of file
+vim -b file
+:set noeol
+:wq
+

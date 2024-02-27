@@ -150,6 +150,18 @@ ECHO %arg%
 SHIFT
 GOTO :args
 
+# loop with counter
+@echo off
+set loopcount=100
+:loop
+rem echo Hello World!
+02_popen.exe >> 03_log
+set /a loopcount=loopcount-1
+if %loopcount%==0 goto exitloop
+goto loop
+:exitloop
+rem pause
+
 # loop with FOR
 FOR %I IN (%USERPROFILE%\*) DO @ECHO %I
 # Looping through directories

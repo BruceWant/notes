@@ -1,0 +1,5 @@
+# link sub-static library into one library
+# TODO: need test
+lib.exe /OUT:libab.lib liba.lib libb.lib
+
+
