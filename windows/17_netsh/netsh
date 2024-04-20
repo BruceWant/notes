@@ -1,0 +1,5 @@
+# list connected WiFi history
+netsh wlan show profiles
+# list password of connected WiFi
+netsh wlan show profile name="name" key=clear
+
