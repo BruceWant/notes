@@ -1,0 +1,2 @@
+# merge mutiple pdf to one
+qpdf --empty --pages first.pdf second.pdf 1 -- output.pdf
