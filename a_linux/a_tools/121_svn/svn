@@ -1,3 +1,6 @@
 # show log with with diff output
 svn log --diff
 
+# keep files property on svn system
+svn propset svn:executable "*" someScript
+
