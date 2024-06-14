@@ -1,0 +1,3 @@
+# check
+valgrind --leak-ckeck=full --show-leak-kinds=all -s ./myprogram
+
