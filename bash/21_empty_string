@@ -25,3 +25,17 @@ if [ ! "$str" ]; then
     echo "null"
 fi
 
+
+if [ -n "$str" ]; then
+  echo "str have length"
+fi
+
+if [ -n "$str2" ]; then
+  echo "str2 have length"
+fi
+
+if [ -n "$str3" ]; then
+  echo "str3 have length"
+else
+  echo "str3 have zeor-length"
+fi
