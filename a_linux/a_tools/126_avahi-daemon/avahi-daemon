@@ -1,0 +1,11 @@
+# start search printer
+avahi-browse -a
+# stop auto-restart
+systemctl disable avahi-daemon.socket
+systemctl disable avahi-daemon.service
+# stop service
+systemctl stop avahi-daemon.socket
+systemctl stop avahi-daemon.service
+# start search printer
+avahi-browse -a
+
