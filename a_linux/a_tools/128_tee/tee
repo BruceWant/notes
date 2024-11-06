@@ -1,0 +1,7 @@
+# redirect stderr and stdout to file and screen
+ls asdf log 2>&1 | tee log
+
+# redirect stderr to file and stdout + stderr to screen
+exec 3>&1; ls  asdf stability.sh 2>&1 >&3 | tee log
+
+

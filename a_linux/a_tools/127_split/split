@@ -1,0 +1,2 @@
+# split large file <file.log> to small file <testlog.>, per 5m
+split -b 5m <file.log> <test_log.>
