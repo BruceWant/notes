@@ -7,3 +7,6 @@ dpkg -l | grep binutils
 dpkg -x ./<package_name>.deb ./<destination_folder>
 dpkg -e ./<package_name>.deb ./<destination_folder>/DEBIAN
 
+# find which files were installed by a package
+dpkg -L <package>
+

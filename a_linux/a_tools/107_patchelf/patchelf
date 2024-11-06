@@ -4,7 +4,7 @@ patchelf --set-interpreter </path/to/ld-linux.so.so> --set-rpath </path/to/share
 patchelf --set-interpreter /path/to/newglibc/ld-linux.so.2 --set-rpath /path/to/newglibc/ myapp
 
 # setting rpath to origin
-atchelf --set-rpath '$ORIGIN' </path/to/shared/lib>
+patchelf --set-rpath '$ORIGIN' </path/to/shared/lib>
 
 # remove all rpath
 patchelf --remove-rpath main_service
