@@ -48,6 +48,8 @@ sed -i "1,2c replacement" <file_name>
 # replace whole line containing a string
 # change
 sed -i '/text_to_be_replaced/c\new_line'
+# replace while bash variable
+sed -i '/text_to_be_replaced/c\\${new_line}'
 
 # replace repeating occurrences of x, y, or z with a single underscore _.
 echo "$string" | sed -r 's/[xyz]+/_/g'
