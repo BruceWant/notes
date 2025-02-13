@@ -1,0 +1,2 @@
+# check signature of file
+codesign -dvvv <file_name>

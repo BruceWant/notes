@@ -1,0 +1,6 @@
+# error:errSecInternalComponent
+# unlock login keychain
+security unlock-keychain login.keychain
+
+# with password
+security unlock-keychain -p <PASSWORD> login.keychain
