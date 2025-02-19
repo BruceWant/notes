@@ -7,3 +7,6 @@ lsof -c <program>
 # list port opened by which progress
 lsof -i :<port>
 
+# check listening port
+lsof -iTCP -sTCP:LISTEN
+
