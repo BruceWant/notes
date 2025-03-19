@@ -88,3 +88,14 @@ struct test
 
 # add library in source code
 #pragma comment(lib, "User32.lib")
+
+
+# redirect output from the vs debugger
+# https://stackoverflow.com/questions/2586933/how-do-i-redirect-output-from-the-visual-studio-debugger
+1.Tools -> Options -> Debugging -> General -> Redirect all Output Window text to the Immediate Window
+2.Debug -> Windows -> Immediate
+# 3. enter command start to writting file
+> Tools.LogCommandWindowOutput /on C:\mylogfile.txt
+# 4. stop writting to file
+> Tools.LogCommandWindowOutput /off
+
