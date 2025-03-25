@@ -4,3 +4,11 @@ security unlock-keychain login.keychain
 
 # with password
 security unlock-keychain -p <PASSWORD> login.keychain
+
+# add password to keychains
+security add-generic-password -s "service name" -a "account name" -w "password"
+# find a account is exist in keychains
+security find-generic-passsword -s "service name" -a "account name"
+# delete account from keychains
+security delete-generic-password -s "service name" -a "account name"
+
