@@ -1,0 +1,30 @@
+# convert pdf to PDF/A
+gswin64c.exe -sDEVICE=pdfwrite -dPDFA -dBATCH -dNOPAUSE -dCompatibilityLevel="1.4" -sOutputFile="pdfa.pdf" input.pdf
+
+gs -sDEVICE=pdfwrite -dPDFA -dBATCH -dNOPAUSE -dCompatibilityLevel="1.4" -sOutputFile="pdfa.pdf" input.pdf
+
+
+# convert pdf to PDF/X
+gs -dPDFX -sDEVICE=pdfwrite -dNOPAUSE -dQUIET -dBATCH -r300 -sOutputFile="pdfx.pdf" input_filename.pdf
+
+
+# convert pdf to jpeg
+gs -dQUIET -dPARANOIDSAFER -dNOPAUSE -dBATCH -dNOINTERPOLATE -dNOMEDIAATTRS -dShowAcroForm -sstdout=%stderr -sDEVICE=jpeg -r600x600 -dDEVICEWIDTHPOINTS=595 -dDEVICEHEIGHTPOINTS=842 -o "test_%d.jpeg" input_filename.pdf
+# another cmd
+gs -dNOPAUSE -sDEVICE=jpeg -r300 -dBATCH -sOutputFile="page_%05d.jpg" input_file_name.pdf
+
+# merge pdf
+gswin64c.exe -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile="A4_A3.pdf" A4_input.pdf A3_input.pdf
+
+
+# convert pdf to ps
+gswin64c.exe -q -dSAFER -dNOPAUSE -dBATCH -sDEVICE=ps2write -sOutputFile="out.ps" input.pdf
+
+
+# conver ps to pdf
+gswin64c.exe -sDEVICE=pdfwrite -dNOPAUSE -dQUIET -dBATCH -sOutputFile="NewFile.pdf" input_filename.pdf
+
+
+# convert pdf to PCL
+gswin64c.exe -dBATCH -dNOPAUSE -sDEVICE=pxlcolor -sOutputFile="pcl" input_filename.pdf
+
