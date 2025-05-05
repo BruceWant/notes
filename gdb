@@ -240,6 +240,8 @@ info types <name>
 info locals
 # list arguments of the current stack frame(name and values)
 info args
+# check address of variable
+info address <variable>
 
 # DGB has four "standard" register names
 # 1. program counter register
@@ -272,6 +274,10 @@ $1 = {0x1234, 0x5678}
 $1 = {0x1234, 0x5678}
 # print register value as char
 (gdb) print/c (char[4])$ebx
+# examine the value that register pointed, edi have an address of memory
+(gdb) x/b $edi
+# show as string
+(gdb) x/s $edi
 
 # 10.5 Output Formats
 # Print the binary representation of the value in hexadecimal
@@ -300,6 +306,9 @@ print/s
 print/z
 # Print using the 'raw' formatting.
 print/r
+# print edx value edx=0x49656e69
+(gdb) p/c (char[4]) $edx
+(gdb) $6 = {105 'i', 110 'n', 101 'e', 73 'I'}
 
 # 10.6 Examining Memory
 # examine memory address
@@ -346,6 +355,8 @@ print [[option] --] /f expr
 # r: Print using the ‘raw’ formatting.
 # print a constant variable on assembly language
 print &name
+# print register value
+print $eax
 
 # disassemble current instruction
 disas
