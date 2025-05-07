@@ -43,3 +43,5 @@ update-alternatives --config <name>
 # example as following:
 update-alternatives --config g++
 
+# get all configured name
+ls /var/lib/alternatives
