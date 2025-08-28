@@ -1,0 +1,16 @@
+vim /etc/polkit-1/rules.d/80-allow.rules
+# change normal_user_account to acctually user account
+polkit.addRule(function(action, subject) {
+  var allowedServices = ["nigx.service", "test.service"];
+
+  if (action.id == "org.freedesktop.systemd1.manage-units") {
+    var targetUnit = action.lookup("unit");
+
+    if (allowedServices.indexOf(targetUnit) !== -1) {
+      if (subject.user == "normal_user_account") {
+        return polkit.Result.YES;
+      }
+    }
+  }
+});
+

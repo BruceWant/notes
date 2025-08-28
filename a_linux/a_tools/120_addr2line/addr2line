@@ -1,6 +1,7 @@
 # convert address into file names and line numbers
-addr2line -e <executable_name>
+addr2line <address> -e <executable_name> -f
 
 # convert offset to function name, file name and line numbers
-addr2line -C -f -e <binary_file> offset
+addr2line -C -f -e -i <binary_file> offset
+
 
